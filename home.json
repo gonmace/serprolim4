@@ -1,0 +1,1578 @@
+[
+{
+  "model": "home.homepage",
+  "pk": 3,
+  "fields": {
+    "search_image": null,
+    "subtitle": "Limpieza de pozos y cámaras sépticas",
+    "slogan": "Puntualidad y buen servicio",
+    "imageBG": 1,
+    "imageMain": 2,
+    "imagePromo": null,
+    "cotizaDescription": "Marque en el mapa la ubicación donde desee que hagamos el servicio y enseguida dele clic al botón \"cotizar\".            Si el lugar donde desea el servicio es su ubicación actual, haga clic en el botón \"mi ubicación\" y enseguida dele clic al botón \"cotizar\".",
+    "mjeCotiza": "Precio que considera la limpieza de un pozo y una cámara séptica para vivienda",
+    "mjeFueraDeRango": "Favor contáctenos para obtener una cotización en tu zona",
+    "mjeWAContratando": "¡Hola!, Quiero el servicio de limpieza en la siguiente dirección:",
+    "mjeWAFueraDeRango": "¡Hola! Deseo una cotización para mi zona",
+    "serviviosDescription": "SerProLim se dedica a la limpieza de pozos ciegos y cámaras sépticas. Brindando estos servicios en el departamento de Santa Cruz con una fuerte orientación a la calidad y al asesoramiento de nuestros clientes.",
+    "displayNServicios": false
+  }
+},
+{
+  "model": "home.nuestrosservicios",
+  "pk": 1,
+  "fields": {
+    "sort_order": 0,
+    "page": 3,
+    "image": 2,
+    "titulo": "Mercados",
+    "resumen": "Los mercaditos atendemos"
+  }
+},
+{
+  "model": "home.nuestrosservicios",
+  "pk": 2,
+  "fields": {
+    "sort_order": 1,
+    "page": 3,
+    "image": 1,
+    "titulo": "Otras cosas",
+    "resumen": "Otras cosas tambien atendemos"
+  }
+},
+{
+  "model": "home.nuestrosservicios",
+  "pk": 3,
+  "fields": {
+    "sort_order": 2,
+    "page": 3,
+    "image": null,
+    "titulo": "Y ULTIMAS COSAS",
+    "resumen": "Esto tb antemos"
+  }
+},
+{
+  "model": "home.preguntasfrecuentes",
+  "pk": 1,
+  "fields": {
+    "sort_order": 0,
+    "page": 3,
+    "pregunta": "¿El precio de la cotización es negociable?",
+    "respuesta": "El precio representa el mejor cálculo estimado del servicio de limpieza de un pozo séptico y su cámara para vivienda. Sí podemos mejorar el precio en función a la frecuencia que con la que nos solicite usted el servicio y la cantidad de servicios que prestemos en ese momento en su zona/barrio. Si le es posible, coordine con sus vecinos y obtendrá un precio más bajo. Tenemos descuentos para Condominios.",
+    "display": true
+  }
+},
+{
+  "model": "home.preguntasfrecuentes",
+  "pk": 2,
+  "fields": {
+    "sort_order": 1,
+    "page": 3,
+    "pregunta": "¿Qué profundidad debe tener mi pozo séptico en Santa Cruz?",
+    "respuesta": "La profundidad del pozo séptico dependerá de la profundidad a la cual se encuentre la capa de arena, en Santa Cruz - Bolivia, por lo general se encuentra a partir de los dos y los ocho metros, siendo el promedio de profundidad de cuatro metros. Lo ideal es que su pozo séptico pueda atravesar al rededor de un metro en la capa de arena y si existiese una corriente de agua subterránea, que exista al menos un metro y medio entre ella y la base del pozo.",
+    "display": true
+  }
+},
+{
+  "model": "home.preguntasfrecuentes",
+  "pk": 3,
+  "fields": {
+    "sort_order": 2,
+    "page": 3,
+    "pregunta": "¿Cuánto puede durar un pozo séptico?",
+    "respuesta": "La duración de un Pozo Séptico depende de su tamaño y del número de usuarios a los cuales atiende. Una cámara séptica bien construida, almacenará normalmente sólidos entre 3 a 12 años, debe ser sellada, construida de manera que el agua subterránea no pueda filtrarse en el tanque.",
+    "display": true
+  }
+},
+{
+  "model": "wagtailimages.image",
+  "pk": 1,
+  "fields": {
+    "collection": 1,
+    "title": "Background Image",
+    "file": "original_images/bg-image1.jpg",
+    "width": 1920,
+    "height": 768,
+    "created_at": "2022-08-18T23:41:12.186Z",
+    "uploaded_by_user": [
+      "gonzalo"
+    ],
+    "focal_point_x": null,
+    "focal_point_y": null,
+    "focal_point_width": null,
+    "focal_point_height": null,
+    "file_size": 28277,
+    "file_hash": "bc3521851b48a4172b38828e2c50db641a9a762a"
+  }
+},
+{
+  "model": "wagtailimages.image",
+  "pk": 2,
+  "fields": {
+    "collection": 1,
+    "title": "Camion Cisterna",
+    "file": "original_images/camionVW.webp",
+    "width": 297,
+    "height": 236,
+    "created_at": "2022-08-18T23:55:05.346Z",
+    "uploaded_by_user": [
+      "gonzalo"
+    ],
+    "focal_point_x": null,
+    "focal_point_y": null,
+    "focal_point_width": null,
+    "focal_point_height": null,
+    "file_size": 18462,
+    "file_hash": "58be3c7a7b946de3967f6b4af1fc421ecdf95a24"
+  }
+},
+{
+  "model": "wagtailimages.image",
+  "pk": 3,
+  "fields": {
+    "collection": 1,
+    "title": "Pozo ciego esta lleno",
+    "file": "original_images/Como-saber-si-el-pozo-ciego-esta-lleno.jpg",
+    "width": 857,
+    "height": 571,
+    "created_at": "2022-08-23T01:37:37.517Z",
+    "uploaded_by_user": [
+      "gonzalo"
+    ],
+    "focal_point_x": null,
+    "focal_point_y": null,
+    "focal_point_width": null,
+    "focal_point_height": null,
+    "file_size": 48520,
+    "file_hash": "29942cfac66c67ee6c03629a81804aa4ae68a6d9"
+  }
+},
+{
+  "model": "wagtailimages.image",
+  "pk": 4,
+  "fields": {
+    "collection": 1,
+    "title": "Cómo_saber_si_el_Pozo_Ciego_está_lleno._Cámara_de_Inspección",
+    "file": "original_images/Como_saber_si_el_Pozo_Ciego_esta_lleno._Camara_de_Inspeccion.jpg",
+    "width": 810,
+    "height": 456,
+    "created_at": "2022-08-23T01:42:31.653Z",
+    "uploaded_by_user": [
+      "gonzalo"
+    ],
+    "focal_point_x": 423,
+    "focal_point_y": 188,
+    "focal_point_width": 711,
+    "focal_point_height": 363,
+    "file_size": 16069,
+    "file_hash": "e6fbb383b815a2fd36070fbd0fb9be5e680cb055"
+  }
+},
+{
+  "model": "wagtailimages.image",
+  "pk": 5,
+  "fields": {
+    "collection": 1,
+    "title": "Cómo_saber_si_el_Pozo_Ciego_está_lleno._Vegetación_crece_mas",
+    "file": "original_images/Como_saber_si_el_Pozo_Ciego_esta_lleno._Vegetacion_crece_mas.jpg",
+    "width": 810,
+    "height": 456,
+    "created_at": "2022-08-26T01:44:23.572Z",
+    "uploaded_by_user": [
+      "gonzalo"
+    ],
+    "focal_point_x": null,
+    "focal_point_y": null,
+    "focal_point_width": null,
+    "focal_point_height": null,
+    "file_size": 19213,
+    "file_hash": "37311c4470a95660f240d13009da554c9390c2f5"
+  }
+},
+{
+  "model": "wagtailimages.image",
+  "pk": 6,
+  "fields": {
+    "collection": 1,
+    "title": "Cómo_saber_si_el_Pozo_Ciego_está_lleno._Malos_olores",
+    "file": "original_images/Como_saber_si_el_Pozo_Ciego_esta_lleno._Malos_olores.jpg",
+    "width": 864,
+    "height": 486,
+    "created_at": "2022-08-26T01:45:46.078Z",
+    "uploaded_by_user": [
+      "gonzalo"
+    ],
+    "focal_point_x": null,
+    "focal_point_y": null,
+    "focal_point_width": null,
+    "focal_point_height": null,
+    "file_size": 20934,
+    "file_hash": "7ae990e1a03f876aa6aa56ebb798d72bce10dfd6"
+  }
+},
+{
+  "model": "wagtailimages.image",
+  "pk": 7,
+  "fields": {
+    "collection": 1,
+    "title": "Cómo_saber_si_el_Pozo_Ciego_está_lleno._Rebalse_de_agua",
+    "file": "original_images/Como_saber_si_el_Pozo_Ciego_esta_lleno._Rebalse_de_agua.jpg",
+    "width": 918,
+    "height": 517,
+    "created_at": "2022-08-26T01:48:07.244Z",
+    "uploaded_by_user": [
+      "gonzalo"
+    ],
+    "focal_point_x": null,
+    "focal_point_y": null,
+    "focal_point_width": null,
+    "focal_point_height": null,
+    "file_size": 23424,
+    "file_hash": "2eab43a4f2605144cafd36f4e53fc52cf85bd8f7"
+  }
+},
+{
+  "model": "wagtailimages.image",
+  "pk": 8,
+  "fields": {
+    "collection": 1,
+    "title": "pozo_se_llena_muy_rapido",
+    "file": "original_images/pozo_se_llena_muy_rapido.jpg",
+    "width": 785,
+    "height": 628,
+    "created_at": "2022-08-26T01:56:08.911Z",
+    "uploaded_by_user": [
+      "gonzalo"
+    ],
+    "focal_point_x": 415,
+    "focal_point_y": 222,
+    "focal_point_width": 653,
+    "focal_point_height": 432,
+    "file_size": 95898,
+    "file_hash": "1ca5df97e8dac83e5fd87b915ec6083351139a9d"
+  }
+},
+{
+  "model": "wagtailimages.image",
+  "pk": 9,
+  "fields": {
+    "collection": 1,
+    "title": "pozo_ciego_impermeabilizado",
+    "file": "original_images/pozo_ciego_impermeabilizado.png",
+    "width": 510,
+    "height": 382,
+    "created_at": "2022-08-26T01:58:12.662Z",
+    "uploaded_by_user": [
+      "gonzalo"
+    ],
+    "focal_point_x": null,
+    "focal_point_y": null,
+    "focal_point_width": null,
+    "focal_point_height": null,
+    "file_size": 44255,
+    "file_hash": "d46f0bada2a7c15256cee01cf3b2fc377947ea66"
+  }
+},
+{
+  "model": "wagtailimages.image",
+  "pk": 10,
+  "fields": {
+    "collection": 1,
+    "title": "Sal_gruesa_para_pozo_ciego",
+    "file": "original_images/Sal_gruesa_para_pozo_ciego.jpg",
+    "width": 600,
+    "height": 336,
+    "created_at": "2022-08-26T02:01:01.282Z",
+    "uploaded_by_user": [
+      "gonzalo"
+    ],
+    "focal_point_x": null,
+    "focal_point_y": null,
+    "focal_point_width": null,
+    "focal_point_height": null,
+    "file_size": 39807,
+    "file_hash": "c6c8578483be76975fb3b7059bb4e8f4b5939caf"
+  }
+},
+{
+  "model": "wagtailimages.image",
+  "pk": 11,
+  "fields": {
+    "collection": 1,
+    "title": "cal_viva",
+    "file": "original_images/cal_viva.jpg",
+    "width": 450,
+    "height": 258,
+    "created_at": "2022-08-26T02:02:27.223Z",
+    "uploaded_by_user": [
+      "gonzalo"
+    ],
+    "focal_point_x": null,
+    "focal_point_y": null,
+    "focal_point_width": null,
+    "focal_point_height": null,
+    "file_size": 40788,
+    "file_hash": "e8adcc552c37dfa3a909717153457594e75f5483"
+  }
+},
+{
+  "model": "wagtailimages.image",
+  "pk": 12,
+  "fields": {
+    "collection": 1,
+    "title": "Soda_Caustica",
+    "file": "original_images/Soda_Caustica.jpg",
+    "width": 500,
+    "height": 500,
+    "created_at": "2022-08-26T02:03:23.048Z",
+    "uploaded_by_user": [
+      "gonzalo"
+    ],
+    "focal_point_x": null,
+    "focal_point_y": null,
+    "focal_point_width": null,
+    "focal_point_height": null,
+    "file_size": 48124,
+    "file_hash": "6d8e06f6e5ae7e5e98802f3f370179c6316111b9"
+  }
+},
+{
+  "model": "wagtailimages.image",
+  "pk": 13,
+  "fields": {
+    "collection": 1,
+    "title": "Carburo_de_Calcio",
+    "file": "original_images/Carburo_de_Calcio.jpg",
+    "width": 570,
+    "height": 346,
+    "created_at": "2022-08-26T02:05:20.383Z",
+    "uploaded_by_user": [
+      "gonzalo"
+    ],
+    "focal_point_x": null,
+    "focal_point_y": null,
+    "focal_point_width": null,
+    "focal_point_height": null,
+    "file_size": 101504,
+    "file_hash": "60facf356d44329f3e7bb7255539ff12c0ae1cc1"
+  }
+},
+{
+  "model": "wagtailimages.image",
+  "pk": 14,
+  "fields": {
+    "collection": 1,
+    "title": "Reactivación_de_pozo_ciego_que_se_llena_muy_rapido",
+    "file": "original_images/Reactivacion_de_pozo_ciego_que_se_llena_muy_rapido.jpg",
+    "width": 512,
+    "height": 384,
+    "created_at": "2022-08-26T02:06:21.420Z",
+    "uploaded_by_user": [
+      "gonzalo"
+    ],
+    "focal_point_x": null,
+    "focal_point_y": null,
+    "focal_point_width": null,
+    "focal_point_height": null,
+    "file_size": 25070,
+    "file_hash": "5bd45306cf0b335f1e9978189455b4a2b050e156"
+  }
+},
+{
+  "model": "wagtailimages.image",
+  "pk": 15,
+  "fields": {
+    "collection": 1,
+    "title": "Funcionamiento-pozo-ciego-con-camara-septica",
+    "file": "original_images/Funcionamiento-pozo-ciego-con-camara-septica.png",
+    "width": 400,
+    "height": 210,
+    "created_at": "2022-08-26T02:07:43.508Z",
+    "uploaded_by_user": [
+      "gonzalo"
+    ],
+    "focal_point_x": null,
+    "focal_point_y": null,
+    "focal_point_width": null,
+    "focal_point_height": null,
+    "file_size": 14726,
+    "file_hash": "814a7ca9eb577de0673eb9b8597e724c10b4fe2d"
+  }
+},
+{
+  "model": "wagtailimages.image",
+  "pk": 16,
+  "fields": {
+    "collection": 1,
+    "title": "mal-olor-en-cañerías_uZ68pim",
+    "file": "original_images/mal-olor-en-canerias_uZ68pim.jpg",
+    "width": 540,
+    "height": 540,
+    "created_at": "2022-08-26T02:11:50.018Z",
+    "uploaded_by_user": [
+      "gonzalo"
+    ],
+    "focal_point_x": null,
+    "focal_point_y": null,
+    "focal_point_width": null,
+    "focal_point_height": null,
+    "file_size": 56073,
+    "file_hash": "15e9896566dda9d867f122f8ba1f71976f5b474d"
+  }
+},
+{
+  "model": "wagtailimages.image",
+  "pk": 17,
+  "fields": {
+    "collection": 1,
+    "title": "Sifón_y_olores",
+    "file": "original_images/Sifon_y_olores.png",
+    "width": 410,
+    "height": 187,
+    "created_at": "2022-08-26T02:12:21.397Z",
+    "uploaded_by_user": [
+      "gonzalo"
+    ],
+    "focal_point_x": null,
+    "focal_point_y": null,
+    "focal_point_width": null,
+    "focal_point_height": null,
+    "file_size": 15340,
+    "file_hash": "e9e7e3fc771162ba274e675546e8ec2aac89a1f8"
+  }
+},
+{
+  "model": "wagtailimages.image",
+  "pk": 18,
+  "fields": {
+    "collection": 1,
+    "title": "Colador-de-lavaplatos-con-restos-de-comida",
+    "file": "original_images/Colador-de-lavaplatos-con-restos-de-comida.jpg",
+    "width": 540,
+    "height": 253,
+    "created_at": "2022-08-26T02:16:20.677Z",
+    "uploaded_by_user": [
+      "gonzalo"
+    ],
+    "focal_point_x": null,
+    "focal_point_y": null,
+    "focal_point_width": null,
+    "focal_point_height": null,
+    "file_size": 22865,
+    "file_hash": "27f0cafc1b531acc558e9c1ca4f4fc3051ce21bb"
+  }
+},
+{
+  "model": "wagtailimages.image",
+  "pk": 19,
+  "fields": {
+    "collection": 1,
+    "title": "Sifón-limpio-versus-sucio",
+    "file": "original_images/Sifon-limpio-versus-sucio.jpg",
+    "width": 540,
+    "height": 142,
+    "created_at": "2022-08-26T02:19:33.870Z",
+    "uploaded_by_user": [
+      "gonzalo"
+    ],
+    "focal_point_x": null,
+    "focal_point_y": null,
+    "focal_point_width": null,
+    "focal_point_height": null,
+    "file_size": 19287,
+    "file_hash": "54396be9e643e3bd27119ead0ef59453de59bb49"
+  }
+},
+{
+  "model": "wagtailimages.image",
+  "pk": 20,
+  "fields": {
+    "collection": 1,
+    "title": "pozo-llantas",
+    "file": "original_images/pozo-llantas.png",
+    "width": 540,
+    "height": 304,
+    "created_at": "2022-08-27T19:25:49.288Z",
+    "uploaded_by_user": [
+      "gonzalo"
+    ],
+    "focal_point_x": null,
+    "focal_point_y": null,
+    "focal_point_width": null,
+    "focal_point_height": null,
+    "file_size": 56065,
+    "file_hash": "3e60ec3fdeaa3d91e4f4323d7c47ffbf095b2c66"
+  }
+},
+{
+  "model": "wagtailimages.image",
+  "pk": 21,
+  "fields": {
+    "collection": 1,
+    "title": "Pozo_Septico_Ecologico",
+    "file": "original_images/Pozo_Septico_Ecologico.png",
+    "width": 540,
+    "height": 304,
+    "created_at": "2022-08-27T19:27:14.606Z",
+    "uploaded_by_user": [
+      "gonzalo"
+    ],
+    "focal_point_x": null,
+    "focal_point_y": null,
+    "focal_point_width": null,
+    "focal_point_height": null,
+    "file_size": 31428,
+    "file_hash": "8e41651fc5432b4151572a258964649ac1913d1e"
+  }
+},
+{
+  "model": "wagtailimages.image",
+  "pk": 23,
+  "fields": {
+    "collection": 1,
+    "title": "Pozo_Septico_Ecologico_terminado",
+    "file": "original_images/Pozo_Septico_Ecologico_terminado.png",
+    "width": 540,
+    "height": 304,
+    "created_at": "2022-08-27T19:29:21.840Z",
+    "uploaded_by_user": [
+      "gonzalo"
+    ],
+    "focal_point_x": null,
+    "focal_point_y": null,
+    "focal_point_width": null,
+    "focal_point_height": null,
+    "file_size": 79874,
+    "file_hash": "53828f8b8a0723894d7f0c4d47feb673bf6b5e37"
+  }
+},
+{
+  "model": "wagtailimages.image",
+  "pk": 24,
+  "fields": {
+    "collection": 1,
+    "title": "Plantas-para-Pozo-Ecológico-de-Llantas",
+    "file": "original_images/Plantas-para-Pozo-Ecologico-de-Llantas.png",
+    "width": 540,
+    "height": 1080,
+    "created_at": "2022-08-27T19:30:29.508Z",
+    "uploaded_by_user": [
+      "gonzalo"
+    ],
+    "focal_point_x": null,
+    "focal_point_y": null,
+    "focal_point_width": null,
+    "focal_point_height": null,
+    "file_size": 129937,
+    "file_hash": "2216fd11969e28fa9cba6faeaf76c7fdae475869"
+  }
+},
+{
+  "model": "wagtailimages.image",
+  "pk": 25,
+  "fields": {
+    "collection": 1,
+    "title": "Grasas-Atrapadas",
+    "file": "original_images/Grasas-Atrapadas.jpg",
+    "width": 300,
+    "height": 300,
+    "created_at": "2022-08-27T19:32:36.598Z",
+    "uploaded_by_user": [
+      "gonzalo"
+    ],
+    "focal_point_x": null,
+    "focal_point_y": null,
+    "focal_point_width": null,
+    "focal_point_height": null,
+    "file_size": 17274,
+    "file_hash": "2fe45ea1fc53c1588083141522a5fddda8deed33"
+  }
+},
+{
+  "model": "wagtailimages.image",
+  "pk": 26,
+  "fields": {
+    "collection": 1,
+    "title": "Como-funciona-una-Trampa-de-Grasas",
+    "file": "original_images/Como-funciona-una-Trampa-de-Grasas.png",
+    "width": 595,
+    "height": 356,
+    "created_at": "2022-08-27T19:33:21.034Z",
+    "uploaded_by_user": [
+      "gonzalo"
+    ],
+    "focal_point_x": null,
+    "focal_point_y": null,
+    "focal_point_width": null,
+    "focal_point_height": null,
+    "file_size": 13690,
+    "file_hash": "531a1e9443c7fca2971f1996bae40c3a1fde0d7d"
+  }
+},
+{
+  "model": "wagtailimages.image",
+  "pk": 27,
+  "fields": {
+    "collection": 1,
+    "title": "Trampa_de_Grasas_en_Cocina",
+    "file": "original_images/Trampa_de_Grasas_en_Cocina.jpg",
+    "width": 600,
+    "height": 600,
+    "created_at": "2022-08-27T19:35:16.502Z",
+    "uploaded_by_user": [
+      "gonzalo"
+    ],
+    "focal_point_x": null,
+    "focal_point_y": null,
+    "focal_point_width": null,
+    "focal_point_height": null,
+    "file_size": 27594,
+    "file_hash": "313d25922ffa25c1f22d680ee3471d8f1ccaaf74"
+  }
+},
+{
+  "model": "wagtailimages.image",
+  "pk": 28,
+  "fields": {
+    "collection": 1,
+    "title": "Trampa_de_Grasa_hecha_con_un_Barril",
+    "file": "original_images/Trampa_de_Grasa_hecha_con_un_Barril.jpg",
+    "width": 1280,
+    "height": 720,
+    "created_at": "2022-08-27T19:36:17.254Z",
+    "uploaded_by_user": [
+      "gonzalo"
+    ],
+    "focal_point_x": null,
+    "focal_point_y": null,
+    "focal_point_width": null,
+    "focal_point_height": null,
+    "file_size": 169128,
+    "file_hash": "82c56c01e86887f4395083d61d9d5aae2e1439ac"
+  }
+},
+{
+  "model": "wagtailimages.image",
+  "pk": 29,
+  "fields": {
+    "collection": 1,
+    "title": "Trampa_de_Grasas_de_Plástico",
+    "file": "original_images/Trampa_de_Grasas_de_Plastico.jpg",
+    "width": 2000,
+    "height": 2000,
+    "created_at": "2022-08-27T19:37:03.184Z",
+    "uploaded_by_user": [
+      "gonzalo"
+    ],
+    "focal_point_x": null,
+    "focal_point_y": null,
+    "focal_point_width": null,
+    "focal_point_height": null,
+    "file_size": 471324,
+    "file_hash": "491f4fd708a5f27785596a5f8a4d477d48ada2e1"
+  }
+},
+{
+  "model": "wagtailimages.image",
+  "pk": 30,
+  "fields": {
+    "collection": 1,
+    "title": "pozo-ciego-no-absorbe_pBhCqcq",
+    "file": "original_images/pozo-ciego-no-absorbe_pBhCqcq.png",
+    "width": 1080,
+    "height": 646,
+    "created_at": "2022-08-27T19:38:57.014Z",
+    "uploaded_by_user": [
+      "gonzalo"
+    ],
+    "focal_point_x": null,
+    "focal_point_y": null,
+    "focal_point_width": null,
+    "focal_point_height": null,
+    "file_size": 28557,
+    "file_hash": "3fc72fbab4918b5479e9cce2face0a84621219be"
+  }
+},
+{
+  "model": "wagtailimages.image",
+  "pk": 31,
+  "fields": {
+    "collection": 1,
+    "title": "pozo-ciego-no-absorbe",
+    "file": "original_images/pozo-ciego-no-absorbe.png",
+    "width": 1080,
+    "height": 646,
+    "created_at": "2022-08-27T19:40:30.967Z",
+    "uploaded_by_user": [
+      "gonzalo"
+    ],
+    "focal_point_x": null,
+    "focal_point_y": null,
+    "focal_point_width": null,
+    "focal_point_height": null,
+    "file_size": 28557,
+    "file_hash": "3fc72fbab4918b5479e9cce2face0a84621219be"
+  }
+},
+{
+  "model": "wagtailimages.image",
+  "pk": 32,
+  "fields": {
+    "collection": 1,
+    "title": "Campo-de-infiltración",
+    "file": "original_images/Campo-de-infiltracion.png",
+    "width": 1080,
+    "height": 556,
+    "created_at": "2022-08-27T19:41:30.678Z",
+    "uploaded_by_user": [
+      "gonzalo"
+    ],
+    "focal_point_x": null,
+    "focal_point_y": null,
+    "focal_point_width": null,
+    "focal_point_height": null,
+    "file_size": 16245,
+    "file_hash": "11ad7d33d07c9825c59f5899daa97eea4941ba76"
+  }
+},
+{
+  "model": "wagtailimages.image",
+  "pk": 33,
+  "fields": {
+    "collection": 1,
+    "title": "Pozo-ciego-no-absorbe-prueba-nivel-napa-freatica",
+    "file": "original_images/Pozo-ciego-no-absorbe-prueba-nivel-napa-freatica.png",
+    "width": 1080,
+    "height": 646,
+    "created_at": "2022-08-27T19:42:25.157Z",
+    "uploaded_by_user": [
+      "gonzalo"
+    ],
+    "focal_point_x": null,
+    "focal_point_y": null,
+    "focal_point_width": null,
+    "focal_point_height": null,
+    "file_size": 26807,
+    "file_hash": "7f9ccc969546f80befc6c8d0a4c19f31a1e119c0"
+  }
+},
+{
+  "model": "wagtailimages.image",
+  "pk": 34,
+  "fields": {
+    "collection": 1,
+    "title": "excavaciones_de_prueba",
+    "file": "original_images/excavaciones_de_prueba.png",
+    "width": 1080,
+    "height": 646,
+    "created_at": "2022-08-27T19:43:15.990Z",
+    "uploaded_by_user": [
+      "gonzalo"
+    ],
+    "focal_point_x": null,
+    "focal_point_y": null,
+    "focal_point_width": null,
+    "focal_point_height": null,
+    "file_size": 90193,
+    "file_hash": "0ca9641b230b4a7a96cb91e34fde837e30b16061"
+  }
+},
+{
+  "model": "wagtailimages.image",
+  "pk": 35,
+  "fields": {
+    "collection": 1,
+    "title": "mediciones",
+    "file": "original_images/mediciones.png",
+    "width": 1080,
+    "height": 646,
+    "created_at": "2022-08-27T19:44:18.815Z",
+    "uploaded_by_user": [
+      "gonzalo"
+    ],
+    "focal_point_x": null,
+    "focal_point_y": null,
+    "focal_point_width": null,
+    "focal_point_height": null,
+    "file_size": 74611,
+    "file_hash": "f4f27c44e90058ba8a33cf3d4b8bc681a88058ed"
+  }
+},
+{
+  "model": "wagtailimages.image",
+  "pk": 36,
+  "fields": {
+    "collection": 1,
+    "title": "largo_de_zanjas_de_infiltración",
+    "file": "original_images/largo_de_zanjas_de_infiltracion.png",
+    "width": 1080,
+    "height": 646,
+    "created_at": "2022-08-27T19:45:17.978Z",
+    "uploaded_by_user": [
+      "gonzalo"
+    ],
+    "focal_point_x": null,
+    "focal_point_y": null,
+    "focal_point_width": null,
+    "focal_point_height": null,
+    "file_size": 50325,
+    "file_hash": "66cd7c5ddb6ed69e2b9db445d533f3667bb470f3"
+  }
+},
+{
+  "model": "wagtailimages.image",
+  "pk": 37,
+  "fields": {
+    "collection": 1,
+    "title": "zanjas_de_infiltración",
+    "file": "original_images/zanjas_de_infiltracion.png",
+    "width": 1080,
+    "height": 646,
+    "created_at": "2022-08-27T19:46:15.959Z",
+    "uploaded_by_user": [
+      "gonzalo"
+    ],
+    "focal_point_x": null,
+    "focal_point_y": null,
+    "focal_point_width": null,
+    "focal_point_height": null,
+    "file_size": 65161,
+    "file_hash": "c484f5c73d2139eb2f79ee5d202b636aecf586a1"
+  }
+},
+{
+  "model": "wagtailimages.image",
+  "pk": 38,
+  "fields": {
+    "collection": 1,
+    "title": "Cámara-Séptica",
+    "file": "original_images/Camara-Septica.png",
+    "width": 540,
+    "height": 304,
+    "created_at": "2022-08-27T19:49:11.787Z",
+    "uploaded_by_user": [
+      "gonzalo"
+    ],
+    "focal_point_x": null,
+    "focal_point_y": null,
+    "focal_point_width": null,
+    "focal_point_height": null,
+    "file_size": 60453,
+    "file_hash": "209092f5930fcda373a7f7393270a2445c70beee"
+  }
+},
+{
+  "model": "wagtailimages.image",
+  "pk": 39,
+  "fields": {
+    "collection": 1,
+    "title": "Cámara-Séptica-Plástica",
+    "file": "original_images/Camara-Septica-Plastica.png",
+    "width": 540,
+    "height": 304,
+    "created_at": "2022-08-27T19:49:55.117Z",
+    "uploaded_by_user": [
+      "gonzalo"
+    ],
+    "focal_point_x": null,
+    "focal_point_y": null,
+    "focal_point_width": null,
+    "focal_point_height": null,
+    "file_size": 27027,
+    "file_hash": "ad6c25a9531ef16ee9c3d77124353bf67d7fe891"
+  }
+},
+{
+  "model": "wagtailimages.image",
+  "pk": 40,
+  "fields": {
+    "collection": 1,
+    "title": "Cámara-Séptica-Medidas-Básicas",
+    "file": "original_images/Camara-Septica-Medidas-Basicas.png",
+    "width": 540,
+    "height": 304,
+    "created_at": "2022-08-27T19:50:55.595Z",
+    "uploaded_by_user": [
+      "gonzalo"
+    ],
+    "focal_point_x": null,
+    "focal_point_y": null,
+    "focal_point_width": null,
+    "focal_point_height": null,
+    "file_size": 16755,
+    "file_hash": "6c752201e0d76a8f73272419499a22ed96a509e9"
+  }
+},
+{
+  "model": "wagtailimages.image",
+  "pk": 41,
+  "fields": {
+    "collection": 1,
+    "title": "Cámara-Séptica-Cemento-Detalles",
+    "file": "original_images/Camara-Septica-Cemento-Detalles.png",
+    "width": 540,
+    "height": 304,
+    "created_at": "2022-08-27T19:51:39.243Z",
+    "uploaded_by_user": [
+      "gonzalo"
+    ],
+    "focal_point_x": null,
+    "focal_point_y": null,
+    "focal_point_width": null,
+    "focal_point_height": null,
+    "file_size": 33832,
+    "file_hash": "37fdbc6454c81203c5077854bc4d6b7bbb46d8fc"
+  }
+},
+{
+  "model": "wagtailimages.image",
+  "pk": 42,
+  "fields": {
+    "collection": 1,
+    "title": "Como-Limpiar-Cámara-Séptica",
+    "file": "original_images/Como-Limpiar-Camara-Septica.png",
+    "width": 540,
+    "height": 304,
+    "created_at": "2022-08-27T19:52:27.291Z",
+    "uploaded_by_user": [
+      "gonzalo"
+    ],
+    "focal_point_x": null,
+    "focal_point_y": null,
+    "focal_point_width": null,
+    "focal_point_height": null,
+    "file_size": 16333,
+    "file_hash": "4dfaa2f4be0f04e06f07504af4e8143f0f8b64ba"
+  }
+},
+{
+  "model": "wagtailimages.image",
+  "pk": 43,
+  "fields": {
+    "collection": 1,
+    "title": "Cámara-Séptica-Doble-Compartimiento",
+    "file": "original_images/Camara-Septica-Doble-Compartimiento.png",
+    "width": 540,
+    "height": 304,
+    "created_at": "2022-08-27T19:55:11.510Z",
+    "uploaded_by_user": [
+      "gonzalo"
+    ],
+    "focal_point_x": null,
+    "focal_point_y": null,
+    "focal_point_width": null,
+    "focal_point_height": null,
+    "file_size": 34481,
+    "file_hash": "803aad633b54bae3bf316db1fec6af371cfa1ad7"
+  }
+},
+{
+  "model": "wagtailimages.image",
+  "pk": 44,
+  "fields": {
+    "collection": 1,
+    "title": "Manteniemiento_de_Pozo_Ciego-Levadura",
+    "file": "original_images/Manteniemiento_de_Pozo_Ciego-Levadura.jpg",
+    "width": 530,
+    "height": 354,
+    "created_at": "2022-08-27T22:00:28.498Z",
+    "uploaded_by_user": [
+      "gonzalo"
+    ],
+    "focal_point_x": null,
+    "focal_point_y": null,
+    "focal_point_width": null,
+    "focal_point_height": null,
+    "file_size": 64966,
+    "file_hash": "6a87a3176b1daf626a14f1176b47e2330cdb9ee9"
+  }
+},
+{
+  "model": "wagtailimages.image",
+  "pk": 45,
+  "fields": {
+    "collection": 1,
+    "title": "Levadura_para_reactivar_pozo_ciego_xGbBmYw",
+    "file": "original_images/Levadura_para_reactivar_pozo_ciego_xGbBmYw.jpg",
+    "width": 540,
+    "height": 386,
+    "created_at": "2022-08-27T22:01:28.101Z",
+    "uploaded_by_user": [
+      "gonzalo"
+    ],
+    "focal_point_x": null,
+    "focal_point_y": null,
+    "focal_point_width": null,
+    "focal_point_height": null,
+    "file_size": 34693,
+    "file_hash": "95fbd2d21f59a449b5d855cda6f9fd2a89bed665"
+  }
+},
+{
+  "model": "wagtailimages.image",
+  "pk": 46,
+  "fields": {
+    "collection": 1,
+    "title": "Bacterias_Biodigestora",
+    "file": "original_images/Bacterias_Biodigestora.jpg",
+    "width": 540,
+    "height": 324,
+    "created_at": "2022-08-27T22:02:16.243Z",
+    "uploaded_by_user": [
+      "gonzalo"
+    ],
+    "focal_point_x": null,
+    "focal_point_y": null,
+    "focal_point_width": null,
+    "focal_point_height": null,
+    "file_size": 54609,
+    "file_hash": "3b280206605beccb14374c5a02682cc55d48c312"
+  }
+},
+{
+  "model": "wagtailimages.image",
+  "pk": 48,
+  "fields": {
+    "collection": 1,
+    "title": "Funcionamiento_Pozo_Ciego",
+    "file": "original_images/Funcionamiento_Pozo_Ciego.jpg",
+    "width": 350,
+    "height": 400,
+    "created_at": "2022-08-27T22:07:14.059Z",
+    "uploaded_by_user": [
+      "gonzalo"
+    ],
+    "focal_point_x": null,
+    "focal_point_y": null,
+    "focal_point_width": null,
+    "focal_point_height": null,
+    "file_size": 58284,
+    "file_hash": "ceb4ba30dd3522943561c71ddc464457976a0dcf"
+  }
+},
+{
+  "model": "wagtailimages.image",
+  "pk": 49,
+  "fields": {
+    "collection": 1,
+    "title": "como-destapar-cañerías",
+    "file": "original_images/como-destapar-canerias.jpg",
+    "width": 540,
+    "height": 540,
+    "created_at": "2022-08-27T22:10:04.603Z",
+    "uploaded_by_user": [
+      "gonzalo"
+    ],
+    "focal_point_x": null,
+    "focal_point_y": null,
+    "focal_point_width": null,
+    "focal_point_height": null,
+    "file_size": 52365,
+    "file_hash": "3b8a38e7f59d74628c23185ece89afb32cfb6798"
+  }
+},
+{
+  "model": "wagtailimages.image",
+  "pk": 50,
+  "fields": {
+    "collection": 1,
+    "title": "Bicarbonato-de-Sodio-para-destapar-cañerías",
+    "file": "original_images/Bicarbonato-de-Sodio-para-destapar-canerias.jpg",
+    "width": 540,
+    "height": 362,
+    "created_at": "2022-08-27T22:13:49.684Z",
+    "uploaded_by_user": [
+      "gonzalo"
+    ],
+    "focal_point_x": null,
+    "focal_point_y": null,
+    "focal_point_width": null,
+    "focal_point_height": null,
+    "file_size": 68772,
+    "file_hash": "1e47588bbbbc84c9fc761b5f08009ad2195622b4"
+  }
+},
+{
+  "model": "wagtailimages.image",
+  "pk": 51,
+  "fields": {
+    "collection": 1,
+    "title": "destapar-cañerías",
+    "file": "original_images/destapar-canerias.jpg",
+    "width": 540,
+    "height": 248,
+    "created_at": "2022-08-27T22:15:31.364Z",
+    "uploaded_by_user": [
+      "gonzalo"
+    ],
+    "focal_point_x": null,
+    "focal_point_y": null,
+    "focal_point_width": null,
+    "focal_point_height": null,
+    "file_size": 56202,
+    "file_hash": "e0098d653eb5956263539f32a4322968e0b01034"
+  }
+},
+{
+  "model": "wagtailimages.image",
+  "pk": 52,
+  "fields": {
+    "collection": 1,
+    "title": "microorganismos",
+    "file": "original_images/microorganismos.jpg",
+    "width": 551,
+    "height": 370,
+    "created_at": "2022-08-28T23:56:33.905Z",
+    "uploaded_by_user": [
+      "gonzalo"
+    ],
+    "focal_point_x": null,
+    "focal_point_y": null,
+    "focal_point_width": null,
+    "focal_point_height": null,
+    "file_size": 68764,
+    "file_hash": "e592a19b7e1e912677f02076bdb42b2ecc0d31c0"
+  }
+},
+{
+  "model": "wagtailimages.image",
+  "pk": 53,
+  "fields": {
+    "collection": 1,
+    "title": "Favicon",
+    "file": "original_images/favicon.png",
+    "width": 180,
+    "height": 180,
+    "created_at": "2022-09-04T22:36:21.512Z",
+    "uploaded_by_user": [
+      "gonzalo"
+    ],
+    "focal_point_x": null,
+    "focal_point_y": null,
+    "focal_point_width": null,
+    "focal_point_height": null,
+    "file_size": 5919,
+    "file_hash": "5bfa905036231ac7915b618e5c53f68e400105b2"
+  }
+},
+{
+  "model": "wagtailimages.rendition",
+  "pk": 1,
+  "fields": {
+    "filter_spec": "width-320|format-webp",
+    "file": "images/pozo_se_llena_muy_rapido.width-320.format-webp_Sm92YAP.webp",
+    "width": 320,
+    "height": 256,
+    "focal_point_key": "",
+    "image": 8
+  }
+},
+{
+  "model": "wagtailimages.rendition",
+  "pk": 2,
+  "fields": {
+    "filter_spec": "fill-600x338",
+    "file": "images/pozo_ciego_impermeabilizado.2e16d0ba.fill-600x338_UqBqj1h.png",
+    "width": 510,
+    "height": 288,
+    "focal_point_key": "2e16d0ba",
+    "image": 9
+  }
+},
+{
+  "model": "wagtailimages.rendition",
+  "pk": 3,
+  "fields": {
+    "filter_spec": "fill-600x338",
+    "file": "images/Sal_gruesa_para_pozo_ciego.2e16d0ba.fill-600x338_suDVDCF.jpg",
+    "width": 598,
+    "height": 336,
+    "focal_point_key": "2e16d0ba",
+    "image": 10
+  }
+},
+{
+  "model": "wagtailimages.rendition",
+  "pk": 4,
+  "fields": {
+    "filter_spec": "fill-600x338",
+    "file": "images/cal_viva.2e16d0ba.fill-600x338_ieWMg5l.jpg",
+    "width": 450,
+    "height": 254,
+    "focal_point_key": "2e16d0ba",
+    "image": 11
+  }
+},
+{
+  "model": "wagtailimages.rendition",
+  "pk": 5,
+  "fields": {
+    "filter_spec": "fill-600x338",
+    "file": "images/Soda_Caustica.2e16d0ba.fill-600x338_TAtm8q5.jpg",
+    "width": 500,
+    "height": 282,
+    "focal_point_key": "2e16d0ba",
+    "image": 12
+  }
+},
+{
+  "model": "wagtailimages.rendition",
+  "pk": 6,
+  "fields": {
+    "filter_spec": "fill-600x338",
+    "file": "images/Carburo_de_Calcio.2e16d0ba.fill-600x338_WDN5EXS.jpg",
+    "width": 570,
+    "height": 322,
+    "focal_point_key": "2e16d0ba",
+    "image": 13
+  }
+},
+{
+  "model": "wagtailimages.rendition",
+  "pk": 7,
+  "fields": {
+    "filter_spec": "fill-600x338",
+    "file": "images/Reactivacion_de_pozo_ciego_que_se_.2e16d0ba.fill-600x338_EO0NNN7.jpg",
+    "width": 512,
+    "height": 290,
+    "focal_point_key": "2e16d0ba",
+    "image": 14
+  }
+},
+{
+  "model": "wagtailimages.rendition",
+  "pk": 8,
+  "fields": {
+    "filter_spec": "fill-600x338",
+    "file": "images/Funcionamiento-pozo-ciego-con-cama.2e16d0ba.fill-600x338_H8yDCsd.png",
+    "width": 374,
+    "height": 210,
+    "focal_point_key": "2e16d0ba",
+    "image": 15
+  }
+},
+{
+  "model": "wagtailimages.rendition",
+  "pk": 9,
+  "fields": {
+    "filter_spec": "max-165x165",
+    "file": "images/pozo_se_llena_muy_rapido.max-165x165_FQlyutq.jpg",
+    "width": 165,
+    "height": 132,
+    "focal_point_key": "",
+    "image": 8
+  }
+},
+{
+  "model": "wagtailimages.rendition",
+  "pk": 10,
+  "fields": {
+    "filter_spec": "max-165x165",
+    "file": "images/pozo_ciego_impermeabilizado.max-165x165_6BRh6pw.png",
+    "width": 165,
+    "height": 123,
+    "focal_point_key": "",
+    "image": 9
+  }
+},
+{
+  "model": "wagtailimages.rendition",
+  "pk": 11,
+  "fields": {
+    "filter_spec": "max-165x165",
+    "file": "images/Sal_gruesa_para_pozo_ciego.max-165x165_qfKLhil.jpg",
+    "width": 165,
+    "height": 92,
+    "focal_point_key": "",
+    "image": 10
+  }
+},
+{
+  "model": "wagtailimages.rendition",
+  "pk": 12,
+  "fields": {
+    "filter_spec": "max-165x165",
+    "file": "images/cal_viva.max-165x165_3L7ABD5.jpg",
+    "width": 165,
+    "height": 94,
+    "focal_point_key": "",
+    "image": 11
+  }
+},
+{
+  "model": "wagtailimages.rendition",
+  "pk": 13,
+  "fields": {
+    "filter_spec": "max-165x165",
+    "file": "images/Soda_Caustica.max-165x165_oskgShV.jpg",
+    "width": 165,
+    "height": 165,
+    "focal_point_key": "",
+    "image": 12
+  }
+},
+{
+  "model": "wagtailimages.rendition",
+  "pk": 14,
+  "fields": {
+    "filter_spec": "max-165x165",
+    "file": "images/Carburo_de_Calcio.max-165x165_yogcbli.jpg",
+    "width": 165,
+    "height": 100,
+    "focal_point_key": "",
+    "image": 13
+  }
+},
+{
+  "model": "wagtailimages.rendition",
+  "pk": 15,
+  "fields": {
+    "filter_spec": "max-165x165",
+    "file": "images/Reactivacion_de_pozo_ciego_que_se_llena_muy_.max-165x165_Ctb3TDW.jpg",
+    "width": 165,
+    "height": 123,
+    "focal_point_key": "",
+    "image": 14
+  }
+},
+{
+  "model": "wagtailimages.rendition",
+  "pk": 16,
+  "fields": {
+    "filter_spec": "max-165x165",
+    "file": "images/Funcionamiento-pozo-ciego-con-camara-septica.max-165x165_5fQfMp1.png",
+    "width": 165,
+    "height": 86,
+    "focal_point_key": "",
+    "image": 15
+  }
+},
+{
+  "model": "wagtailimages.rendition",
+  "pk": 17,
+  "fields": {
+    "filter_spec": "format-webp",
+    "file": "images/bg-image1.format-webp_cQ5FPU9.webp",
+    "width": 1920,
+    "height": 768,
+    "focal_point_key": "",
+    "image": 1
+  }
+},
+{
+  "model": "wagtailimages.rendition",
+  "pk": 18,
+  "fields": {
+    "filter_spec": "format-webp",
+    "file": "images/camionVW.format-webp_jXN6PqU.webp",
+    "width": 297,
+    "height": 236,
+    "focal_point_key": "",
+    "image": 2
+  }
+},
+{
+  "model": "wagtailimages.rendition",
+  "pk": 19,
+  "fields": {
+    "filter_spec": "max-165x165",
+    "file": "images/bg-image1.max-165x165_wyxrgvD.jpg",
+    "width": 165,
+    "height": 66,
+    "focal_point_key": "",
+    "image": 1
+  }
+},
+{
+  "model": "wagtailimages.rendition",
+  "pk": 20,
+  "fields": {
+    "filter_spec": "max-165x165",
+    "file": "images/camionVW.max-165x165_G1fmJDD.png",
+    "width": 165,
+    "height": 131,
+    "focal_point_key": "",
+    "image": 2
+  }
+},
+{
+  "model": "wagtailimages.rendition",
+  "pk": 21,
+  "fields": {
+    "filter_spec": "height-320|format-webp",
+    "file": "images/pozo_se_llena_muy_rapido.height-320.format-webp_zXM4YbU.webp",
+    "width": 400,
+    "height": 320,
+    "focal_point_key": "",
+    "image": 8
+  }
+},
+{
+  "model": "wagtailimages.rendition",
+  "pk": 22,
+  "fields": {
+    "filter_spec": "height-240|format-webp",
+    "file": "images/Como-saber-si-el-pozo-ciego-esta.height-240.format-webp_qYjJ1rm.webp",
+    "width": 360,
+    "height": 240,
+    "focal_point_key": "",
+    "image": 3
+  }
+},
+{
+  "model": "wagtailimages.rendition",
+  "pk": 23,
+  "fields": {
+    "filter_spec": "height-240|format-webp",
+    "file": "images/pozo-llantas.height-240.format-webp_omq0bZm.webp",
+    "width": 426,
+    "height": 240,
+    "focal_point_key": "",
+    "image": 20
+  }
+},
+{
+  "model": "wagtailimages.rendition",
+  "pk": 24,
+  "fields": {
+    "filter_spec": "height-240|format-webp",
+    "file": "images/pozo-ciego-no-absorbe_pBhCqcq.height-240.format-webp_KZOhgxj.webp",
+    "width": 401,
+    "height": 240,
+    "focal_point_key": "",
+    "image": 30
+  }
+},
+{
+  "model": "wagtailimages.rendition",
+  "pk": 25,
+  "fields": {
+    "filter_spec": "height-240|format-webp",
+    "file": "images/Manteniemiento_de_Pozo_Ciego-Lev.height-240.format-webp_ZtgEw9w.webp",
+    "width": 359,
+    "height": 240,
+    "focal_point_key": "",
+    "image": 44
+  }
+},
+{
+  "model": "wagtailimages.rendition",
+  "pk": 26,
+  "fields": {
+    "filter_spec": "height-240|format-webp",
+    "file": "images/como-destapar-canerias.height-240.format-webp_zesQ3SR.webp",
+    "width": 240,
+    "height": 240,
+    "focal_point_key": "",
+    "image": 49
+  }
+},
+{
+  "model": "wagtailimages.rendition",
+  "pk": 27,
+  "fields": {
+    "filter_spec": "height-240|format-webp",
+    "file": "images/mal-olor-en-canerias_uZ68pim.height-240.format-webp_EOmRai0.webp",
+    "width": 240,
+    "height": 240,
+    "focal_point_key": "",
+    "image": 16
+  }
+},
+{
+  "model": "wagtailimages.rendition",
+  "pk": 28,
+  "fields": {
+    "filter_spec": "height-240|format-webp",
+    "file": "images/Grasas-Atrapadas.height-240.format-webp_vqiEjaO.webp",
+    "width": 240,
+    "height": 240,
+    "focal_point_key": "",
+    "image": 25
+  }
+},
+{
+  "model": "wagtailimages.rendition",
+  "pk": 29,
+  "fields": {
+    "filter_spec": "height-240|format-webp",
+    "file": "images/Camara-Septica.height-240.format-webp_t3YOUd2.webp",
+    "width": 426,
+    "height": 240,
+    "focal_point_key": "",
+    "image": 38
+  }
+},
+{
+  "model": "wagtailimages.rendition",
+  "pk": 30,
+  "fields": {
+    "filter_spec": "height-240|format-webp",
+    "file": "images/microorganismos.height-240.format-webp_HPQwyhH.webp",
+    "width": 357,
+    "height": 240,
+    "focal_point_key": "",
+    "image": 52
+  }
+},
+{
+  "model": "wagtailimages.rendition",
+  "pk": 31,
+  "fields": {
+    "filter_spec": "width-320|format-webp",
+    "file": "images/pozo-llantas.width-320.format-webp_c1s8Ogb.webp",
+    "width": 320,
+    "height": 180,
+    "focal_point_key": "",
+    "image": 20
+  }
+},
+{
+  "model": "wagtailimages.rendition",
+  "pk": 32,
+  "fields": {
+    "filter_spec": "fill-600x338",
+    "file": "images/Pozo_Septico_Ecologico.2e16d0ba.fill-600x338_wol9jDY.png",
+    "width": 540,
+    "height": 304,
+    "focal_point_key": "2e16d0ba",
+    "image": 21
+  }
+},
+{
+  "model": "wagtailimages.rendition",
+  "pk": 33,
+  "fields": {
+    "filter_spec": "fill-600x338",
+    "file": "images/pozo-llantas.2e16d0ba.fill-600x338_q1vx1gg.png",
+    "width": 540,
+    "height": 304,
+    "focal_point_key": "2e16d0ba",
+    "image": 20
+  }
+},
+{
+  "model": "wagtailimages.rendition",
+  "pk": 34,
+  "fields": {
+    "filter_spec": "fill-600x338",
+    "file": "images/Pozo_Septico_Ecologico_terminado.2e16d0ba.fill-600x338_3yJAddG.png",
+    "width": 540,
+    "height": 304,
+    "focal_point_key": "2e16d0ba",
+    "image": 23
+  }
+},
+{
+  "model": "wagtailimages.rendition",
+  "pk": 35,
+  "fields": {
+    "filter_spec": "fill-600x338",
+    "file": "images/Plantas-para-Pozo-Ecologico-de-Lla.2e16d0ba.fill-600x338_ts1kzCo.png",
+    "width": 540,
+    "height": 306,
+    "focal_point_key": "2e16d0ba",
+    "image": 24
+  }
+}
+]

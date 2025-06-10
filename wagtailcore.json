@@ -1,0 +1,508 @@
+[
+  {
+    "model": "wagtailcore.page",
+    "pk": 1,
+    "fields": {
+      "path": "0001",
+      "depth": 1,
+      "numchild": 1,
+      "translation_key": "6df924ac-077f-475a-93ba-3d736efc1513",
+      "locale": 1,
+      "latest_revision": null,
+      "live": true,
+      "has_unpublished_changes": false,
+      "first_published_at": null,
+      "last_published_at": null,
+      "live_revision": null,
+      "go_live_at": null,
+      "expire_at": null,
+      "expired": false,
+      "locked": false,
+      "locked_at": null,
+      "locked_by": null,
+      "title": "Root",
+      "draft_title": "Root",
+      "slug": "root",
+      "content_type": [
+        "wagtailcore",
+        "page"
+      ],
+      "url_path": "/",
+      "owner": null,
+      "seo_title": "",
+      "show_in_menus": false,
+      "search_description": "",
+      "latest_revision_created_at": null,
+      "alias_of": null
+    }
+  },
+  {
+    "model": "wagtailcore.page",
+    "pk": 3,
+    "fields": {
+      "path": "00010002",
+      "depth": 2,
+      "numchild": 1,
+      "translation_key": "35b98883-b930-4b83-a513-c705fd9df9ee",
+      "locale": 1,
+      "latest_revision": 135,
+      "live": true,
+      "has_unpublished_changes": false,
+      "first_published_at": "2022-08-18T02:19:51.545Z",
+      "last_published_at": "2022-09-09T23:53:33.123Z",
+      "live_revision": 135,
+      "go_live_at": null,
+      "expire_at": null,
+      "expired": false,
+      "locked": false,
+      "locked_at": null,
+      "locked_by": null,
+      "title": "SERPROLIM",
+      "draft_title": "SERPROLIM",
+      "slug": "home",
+      "content_type": [
+        "home",
+        "homepage"
+      ],
+      "url_path": "/home/",
+      "owner": [
+        "gonzalo"
+      ],
+      "seo_title": "Limpieza de pozos y cámaras sépticas",
+      "show_in_menus": false,
+      "search_description": "Limpieza de pozo ciego, pozo séptico, cámara séptica, destranques. Precios justos y económicos. Santa Cruz, Bolivia.",
+      "latest_revision_created_at": "2022-09-09T23:53:33.013Z",
+      "alias_of": null
+    }
+  },
+  {
+    "model": "wagtailcore.page",
+    "pk": 4,
+    "fields": {
+      "path": "000100020001",
+      "depth": 3,
+      "numchild": 13,
+      "translation_key": "b5b7c25c-335d-414e-afe6-fdc16af5dcb7",
+      "locale": 1,
+      "latest_revision": 129,
+      "live": true,
+      "has_unpublished_changes": false,
+      "first_published_at": "2022-08-22T23:41:46.558Z",
+      "last_published_at": "2022-09-04T03:52:20.483Z",
+      "live_revision": 129,
+      "go_live_at": null,
+      "expire_at": null,
+      "expired": false,
+      "locked": false,
+      "locked_at": null,
+      "locked_by": null,
+      "title": "blog",
+      "draft_title": "blog",
+      "slug": "blog",
+      "content_type": [
+        "blog",
+        "blogindexpage"
+      ],
+      "url_path": "/home/blog/",
+      "owner": [
+        "gonzalo"
+      ],
+      "seo_title": "blog",
+      "show_in_menus": false,
+      "search_description": "",
+      "latest_revision_created_at": "2022-09-04T03:52:20.350Z",
+      "alias_of": null
+    }
+  },
+  {
+    "model": "wagtailcore.page",
+    "pk": 5,
+    "fields": {
+      "path": "0001000200010004",
+      "depth": 4,
+      "numchild": 0,
+      "translation_key": "9e7b4f5a-cb01-4808-b3cb-127496b58b50",
+      "locale": 1,
+      "latest_revision": 112,
+      "live": true,
+      "has_unpublished_changes": false,
+      "first_published_at": "2022-08-23T01:34:38.047Z",
+      "last_published_at": "2022-08-30T03:26:01.418Z",
+      "live_revision": 112,
+      "go_live_at": null,
+      "expire_at": null,
+      "expired": false,
+      "locked": false,
+      "locked_at": null,
+      "locked_by": null,
+      "title": "Cómo saber si el Pozo Ciego está lleno  Las 5 formas más fáciles de saberlo",
+      "draft_title": "Cómo saber si el Pozo Ciego está lleno  Las 5 formas más fáciles de saberlo",
+      "slug": "como-saber-si-el-pozo-ciego-esta-lleno",
+      "content_type": [
+        "blog",
+        "blogpage"
+      ],
+      "url_path": "/home/blog/como-saber-si-el-pozo-ciego-esta-lleno/",
+      "owner": [
+        "gonzalo"
+      ],
+      "seo_title": "",
+      "show_in_menus": false,
+      "search_description": "Cinco fáciles maneras de cómo saber si el pozo ciego está lleno y si ya es momento de llamar a la empresa de limpieza.",
+      "latest_revision_created_at": "2022-08-30T03:26:01.311Z",
+      "alias_of": null
+    }
+  },
+  {
+    "model": "wagtailcore.page",
+    "pk": 6,
+    "fields": {
+      "path": "0001000200010003",
+      "depth": 4,
+      "numchild": 0,
+      "translation_key": "72677a4c-3f67-446d-b7d3-992354cd5dee",
+      "locale": 1,
+      "latest_revision": 130,
+      "live": true,
+      "has_unpublished_changes": false,
+      "first_published_at": "2022-08-26T02:08:27.205Z",
+      "last_published_at": "2022-09-04T03:58:00.539Z",
+      "live_revision": 130,
+      "go_live_at": null,
+      "expire_at": null,
+      "expired": false,
+      "locked": false,
+      "locked_at": null,
+      "locked_by": null,
+      "title": "¿Tu pozo ciego se llena muy rápido?  (2 soluciones para ahorrar dinero)",
+      "draft_title": "¿Tu pozo ciego se llena muy rápido?  (2 soluciones para ahorrar dinero)",
+      "slug": "pozo-ciego-se-llena-muy-rapido",
+      "content_type": [
+        "blog",
+        "blogpage"
+      ],
+      "url_path": "/home/blog/pozo-ciego-se-llena-muy-rapido/",
+      "owner": [
+        "gonzalo"
+      ],
+      "seo_title": "Pozo ciego se llena rapido",
+      "show_in_menus": false,
+      "search_description": "¿Tu pozo ciego se llena muy rápido? Es muy probable que esté impermeabilizado. Te damos cinco formas caseras de reactivarlo. Ahorrarás en camión de limpieza.",
+      "latest_revision_created_at": "2022-09-04T03:58:00.422Z",
+      "alias_of": null
+    }
+  },
+  {
+    "model": "wagtailcore.page",
+    "pk": 7,
+    "fields": {
+      "path": "0001000200010007",
+      "depth": 4,
+      "numchild": 0,
+      "translation_key": "73d475f0-74e4-4c13-bd8b-a8cbf78617cf",
+      "locale": 1,
+      "latest_revision": 117,
+      "live": true,
+      "has_unpublished_changes": false,
+      "first_published_at": "2022-08-26T02:16:52.191Z",
+      "last_published_at": "2022-08-30T03:29:40.897Z",
+      "live_revision": 117,
+      "go_live_at": null,
+      "expire_at": null,
+      "expired": false,
+      "locked": false,
+      "locked_at": null,
+      "locked_by": null,
+      "title": "Las 5 causas del mal olor en cañerías.  ¡Soluciones + extras!",
+      "draft_title": "Las 5 causas del mal olor en cañerías.  ¡Soluciones + extras!",
+      "slug": "mal-olor-en-canerias",
+      "content_type": [
+        "blog",
+        "blogpage"
+      ],
+      "url_path": "/home/blog/mal-olor-en-canerias/",
+      "owner": [
+        "gonzalo"
+      ],
+      "seo_title": "",
+      "show_in_menus": false,
+      "search_description": "12 Soluciones caseras para el mal olor en cañerías. 2 soluciones genéricas, 5 soluciones a problemas específicos y 5 soluciones para cuando se tiene pozo séptico.",
+      "latest_revision_created_at": "2022-08-30T03:29:40.812Z",
+      "alias_of": null
+    }
+  },
+  {
+    "model": "wagtailcore.page",
+    "pk": 8,
+    "fields": {
+      "path": "0001000200010009",
+      "depth": 4,
+      "numchild": 0,
+      "translation_key": "9ebd2731-541b-484d-86e2-75cd28a79aae",
+      "locale": 1,
+      "latest_revision": 113,
+      "live": true,
+      "has_unpublished_changes": false,
+      "first_published_at": "2022-08-27T19:31:10.322Z",
+      "last_published_at": "2022-08-30T03:26:50.953Z",
+      "live_revision": 113,
+      "go_live_at": null,
+      "expire_at": null,
+      "expired": false,
+      "locked": false,
+      "locked_at": null,
+      "locked_by": null,
+      "title": "Construye un pozo séptico ecológico en 6 sencillos pasos.  ¡Con llantas recicladas!",
+      "draft_title": "Construye un pozo séptico ecológico en 6 sencillos pasos.  ¡Con llantas recicladas!",
+      "slug": "pozo-septico-ecologico",
+      "content_type": [
+        "blog",
+        "blogpage"
+      ],
+      "url_path": "/home/blog/pozo-septico-ecologico/",
+      "owner": [
+        "gonzalo"
+      ],
+      "seo_title": "",
+      "show_in_menus": false,
+      "search_description": "¿Quieres hacer un pozo ciego ecológico? Lee el paso a paso de cómo hacer un pozo séptico ecológico con llantas en desuso, escombros y vegetación.",
+      "latest_revision_created_at": "2022-08-30T03:26:50.841Z",
+      "alias_of": null
+    }
+  },
+  {
+    "model": "wagtailcore.page",
+    "pk": 9,
+    "fields": {
+      "path": "000100020001000A",
+      "depth": 4,
+      "numchild": 0,
+      "translation_key": "1ca939d4-c64e-47e2-9a37-cc15c79abf38",
+      "locale": 1,
+      "latest_revision": 118,
+      "live": true,
+      "has_unpublished_changes": false,
+      "first_published_at": "2022-08-27T19:38:07.404Z",
+      "last_published_at": "2022-08-30T03:30:19.341Z",
+      "live_revision": 118,
+      "go_live_at": null,
+      "expire_at": null,
+      "expired": false,
+      "locked": false,
+      "locked_at": null,
+      "locked_by": null,
+      "title": "Trampa de Grasa.  Qué es? Porqué instalar 1 en casa?",
+      "draft_title": "Trampa de Grasa.  Qué es? Porqué instalar 1 en casa?",
+      "slug": "trampa-de-grasa",
+      "content_type": [
+        "blog",
+        "blogpage"
+      ],
+      "url_path": "/home/blog/trampa-de-grasa/",
+      "owner": [
+        "gonzalo"
+      ],
+      "seo_title": "",
+      "show_in_menus": false,
+      "search_description": "Una Trampa de Grasa es un sistema que “atrapa” las grasas del lavaplatos facilitando su limpieza, evitando atascos y malos olores. ¿Cuánto ahorrarás si tienes una?",
+      "latest_revision_created_at": "2022-08-30T03:30:19.235Z",
+      "alias_of": null
+    }
+  },
+  {
+    "model": "wagtailcore.page",
+    "pk": 10,
+    "fields": {
+      "path": "0001000200010006",
+      "depth": 4,
+      "numchild": 0,
+      "translation_key": "9dda8d4a-a0a4-43b4-8870-4e2ec4fe21fc",
+      "locale": 1,
+      "latest_revision": 114,
+      "live": true,
+      "has_unpublished_changes": false,
+      "first_published_at": "2022-08-27T19:47:10.012Z",
+      "last_published_at": "2022-08-30T03:27:54.496Z",
+      "live_revision": 114,
+      "go_live_at": null,
+      "expire_at": null,
+      "expired": false,
+      "locked": false,
+      "locked_at": null,
+      "locked_by": null,
+      "title": "¿Tu Pozo Ciego no absorbe?  Zanjas de Infiltración: 1 solución para terrenos con napas altas.",
+      "draft_title": "¿Tu Pozo Ciego no absorbe?  Zanjas de Infiltración: 1 solución para terrenos con napas altas.",
+      "slug": "pozo-ciego-no-absorbe",
+      "content_type": [
+        "blog",
+        "blogpage"
+      ],
+      "url_path": "/home/blog/pozo-ciego-no-absorbe/",
+      "owner": [
+        "gonzalo"
+      ],
+      "seo_title": "",
+      "show_in_menus": false,
+      "search_description": "Cuando un pozo ciego no absorbe, o no drena, puede deberse a niveles altos de napas freáticas. Acá 1 método para comprobarlo y 2 para darle solución.",
+      "latest_revision_created_at": "2022-08-30T03:27:54.399Z",
+      "alias_of": null
+    }
+  },
+  {
+    "model": "wagtailcore.page",
+    "pk": 11,
+    "fields": {
+      "path": "000100020001000B",
+      "depth": 4,
+      "numchild": 0,
+      "translation_key": "83a69633-3169-4dd0-920a-376306832ed6",
+      "locale": 1,
+      "latest_revision": 119,
+      "live": true,
+      "has_unpublished_changes": false,
+      "first_published_at": "2022-08-27T19:54:00.676Z",
+      "last_published_at": "2022-08-30T03:31:01.028Z",
+      "live_revision": 119,
+      "go_live_at": null,
+      "expire_at": null,
+      "expired": false,
+      "locked": false,
+      "locked_at": null,
+      "locked_by": null,
+      "title": "Cámara Séptica ¿Qué es?  1 consejo para optimizarla.",
+      "draft_title": "Cámara Séptica ¿Qué es?  1 consejo para optimizarla.",
+      "slug": "camara-septica-que-es",
+      "content_type": [
+        "blog",
+        "blogpage"
+      ],
+      "url_path": "/home/blog/camara-septica-que-es/",
+      "owner": [
+        "gonzalo"
+      ],
+      "seo_title": "",
+      "show_in_menus": false,
+      "search_description": "Cámara Séptica es una estructura de tratamiento de aguas residuales. En ella trabajan bacterias. Aquí hallarás cómo funciona, medidas para su construcción y consejos.",
+      "latest_revision_created_at": "2022-08-30T03:31:00.921Z",
+      "alias_of": null
+    }
+  },
+  {
+    "model": "wagtailcore.page",
+    "pk": 12,
+    "fields": {
+      "path": "000100020001000C",
+      "depth": 4,
+      "numchild": 0,
+      "translation_key": "51777b83-cabb-46c4-b1cf-9acbf4bdc650",
+      "locale": 1,
+      "latest_revision": 115,
+      "live": true,
+      "has_unpublished_changes": false,
+      "first_published_at": "2022-08-27T22:03:20.650Z",
+      "last_published_at": "2022-08-30T03:28:25.680Z",
+      "live_revision": 115,
+      "go_live_at": null,
+      "expire_at": null,
+      "expired": false,
+      "locked": false,
+      "locked_at": null,
+      "locked_by": null,
+      "title": "Mantenimiento de pozo ciego en 5 pasos  ¡Con materiales de tu cocina!",
+      "draft_title": "Mantenimiento de pozo ciego en 5 pasos  ¡Con materiales de tu cocina!",
+      "slug": "mantenimiento-de-pozo-ciego",
+      "content_type": [
+        "blog",
+        "blogpage"
+      ],
+      "url_path": "/home/blog/mantenimiento-de-pozo-ciego/",
+      "owner": [
+        "gonzalo"
+      ],
+      "seo_title": "",
+      "show_in_menus": false,
+      "search_description": "Hacer este sencillo mantenimiento de pozo ciego mejorará su funcionamiento, controlará malos olores, reducirá visitas del camión. ¡Con materiales de tu cocina!",
+      "latest_revision_created_at": "2022-08-30T03:28:25.539Z",
+      "alias_of": null
+    }
+  },
+  {
+    "model": "wagtailcore.page",
+    "pk": 13,
+    "fields": {
+      "path": "000100020001000D",
+      "depth": 4,
+      "numchild": 0,
+      "translation_key": "c6cff7e3-a865-4839-bccc-b8809714b43d",
+      "locale": 1,
+      "latest_revision": 120,
+      "live": true,
+      "has_unpublished_changes": false,
+      "first_published_at": "2022-08-27T22:08:23.764Z",
+      "last_published_at": "2022-08-30T03:31:40.361Z",
+      "live_revision": 120,
+      "go_live_at": null,
+      "expire_at": null,
+      "expired": false,
+      "locked": false,
+      "locked_at": null,
+      "locked_by": null,
+      "title": "¿Cómo funciona un pozo ciego?  \"Trabajan\" microorganismos 24/7.",
+      "draft_title": "¿Cómo funciona un pozo ciego?  \"Trabajan\" microorganismos 24/7.",
+      "slug": "como-funciona-un-pozo-ciego",
+      "content_type": [
+        "blog",
+        "blogpage"
+      ],
+      "url_path": "/home/blog/como-funciona-un-pozo-ciego/",
+      "owner": [
+        "gonzalo"
+      ],
+      "seo_title": "",
+      "show_in_menus": false,
+      "search_description": "Separando y filtrando los sólidos de los líquidos es como funciona un pozo ciego. El tratamiento de aguas lo realizan bacterias que “literalmente” se alimentan de…",
+      "latest_revision_created_at": "2022-08-30T03:31:40.278Z",
+      "alias_of": null
+    }
+  },
+  {
+    "model": "wagtailcore.page",
+    "pk": 14,
+    "fields": {
+      "path": "000100020001000E",
+      "depth": 4,
+      "numchild": 0,
+      "translation_key": "3934a427-9431-499a-948e-656905bb4b48",
+      "locale": 1,
+      "latest_revision": 116,
+      "live": true,
+      "has_unpublished_changes": false,
+      "first_published_at": "2022-08-27T22:12:42.173Z",
+      "last_published_at": "2022-08-30T03:29:01.533Z",
+      "live_revision": 116,
+      "go_live_at": null,
+      "expire_at": null,
+      "expired": false,
+      "locked": false,
+      "locked_at": null,
+      "locked_by": null,
+      "title": "Cómo destapar cañerías obstruidas.  Las 6 maneras caseras.",
+      "draft_title": "Cómo destapar cañerías obstruidas.  Las 6 maneras caseras.",
+      "slug": "como-destapar-canerias",
+      "content_type": [
+        "blog",
+        "blogpage"
+      ],
+      "url_path": "/home/blog/como-destapar-canerias/",
+      "owner": [
+        "gonzalo"
+      ],
+      "seo_title": "",
+      "show_in_menus": false,
+      "search_description": "Aquí encontrarás 5 recetas caseras para destapar cañerías, ¡con ingredientes de la cocina! Y un consejo para evitar tener que hacerlo de nuevo.",
+      "latest_revision_created_at": "2022-08-30T03:29:01.442Z",
+      "alias_of": null
+    }
+  }
+  ]
+  

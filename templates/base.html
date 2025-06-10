@@ -1,0 +1,124 @@
+{% load static wagtailcore_tags wagtailuserbar favicon_tags %}
+
+<!DOCTYPE html>
+<html lang="es" >
+  <head>
+    <meta charset="utf-8" />
+    {% favicon_meta %}
+    {% if settings.wanalytics.AnalyticsSettings.head_scripts %}
+      {{ settings.wanalytics.AnalyticsSettings.head_scripts|safe }}
+    {% endif %}
+
+    {% if settings.wanalytics.AnalyticsSettings.gads_id %}
+    <!-- Global site tag (gtag.js) - Google Ads: 665045883 -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=AW-{{ settings.wanalytics.AnalyticsSettings.gads_id }}"></script>
+      <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'AW-{{ settings.wanalytics.AnalyticsSettings.gads_id }}');
+      </script>
+    <!-- End Google Tag Manager -->
+    {% endif %}
+
+    {% if settings.wanalytics.AnalyticsSettings.gtm_id %}
+    <!-- Google Tag Manager -->
+      <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      ' https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-{{ settings.wanalytics.AnalyticsSettings.gtm_id }}');</script>
+      <!-- End Google Tag Manager -->
+    {% endif %}
+
+    {% block meta_tag %}
+    <title>
+        {% block title %}
+        {% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}
+        {% endblock %}
+        {% block title_suffix %}
+          {% with self.get_site.site_name as site_name %}
+              {% if site_name %}| {{ site_name }}{% endif %}
+          {% endwith %}
+        {% endblock %}
+    </title>
+    <meta name="description" content="{{ page.search_description }}" />
+    {% endblock meta_tag %}
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    {% if page.canonical_url %}
+      <link rel="canonical" href="{{ page.canonical_url }}"/>
+    {% endif %}
+
+    {% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    {% comment %} <link rel="stylesheet" href="{% static 'css/floating-wpp.min.css' %}"> {% endcomment %}
+    {% endblock %}
+  </head>
+
+  <body class="{% block body_class %}{% endblock %}">
+    {% if settings.wanalytics.AnalyticsSettings.body_scripts %}
+      {{ settings.wanalytics.AnalyticsSettings.body_scripts|safe }}
+    {% endif %}
+    <!-- Google Tag Manager (noscript) -->
+    {% if settings.wanalytics.AnalyticsSettings.gtm_id %}    
+      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-{{ settings.wanalytics.AnalyticsSettings.gtm_id }}"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    {% endif %} 
+    <!-- End Google Tag Manager (noscript) -->
+
+    {% wagtailuserbar %}
+
+
+
+    {% comment %} https://github.com/rafaelbotazini/floating-whatsapp {% endcomment %}
+    <div id="whatsapp" class="z-10000 fixed bottom-12 left-1 sm:left-3 lg:left-10 xl:left-20 2xl:left-40"></div>
+    
+    {% block content %}
+    {% endblock %}
+
+    {% include "footer.html"  %}
+
+    {% block js %}
+    <script type="text/javascript">
+      /* Menu */
+
+    window.addEventListener('click', function (event) {
+
+      if (botonMenu.contains(event.target) && menu.classList.contains("-translate-y-full")) {
+        menu.classList.toggle("-translate-y-full");
+      } else {
+        if (!menu.classList.contains("-translate-y-full")) {
+          menu.classList.toggle("-translate-y-full");
+
+        }
+      }
+
+      });
+
+      </script>
+
+      <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+      <script defer type="text/javascript" src="{% static 'js/floating-wpp.min.js' %}"></script>
+
+        {% if settings.wgeneralData.GeneralSettings.mjeGlobo %}
+        <script defer type="text/javascript">
+          $(function () {
+            $('#whatsapp').floatingWhatsApp({
+            phone: '+591{{ settings.wgeneralData.GeneralSettings.cel }}',
+            popupMessage: 'Hola, Como podemos ayuderle?',
+            message: "{{ settings.wgeneralData.GeneralSettings.mjeGlobo }}",
+            showPopup: false,
+            showOnIE: false,
+            size: 55,
+            headerTitle: 'Comunicate por Whatsapp!',
+            zIndex: 10000
+                });
+            });
+        </script>
+        {% endif %}
+
+      {% endblock js %}
+  </body>
+</html>

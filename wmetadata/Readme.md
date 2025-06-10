@@ -1,0 +1,1 @@
+https://github.com/neon-jungle/wagtail-metadata

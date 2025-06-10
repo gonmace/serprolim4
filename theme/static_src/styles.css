@@ -1,0 +1,187 @@
+@import '../../home/node_modules/leaflet/dist/leaflet.css';
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif&family=Nunito:wght@200;400&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+
+
+    h1 {
+        @apply text-2xl sm:text-4xl font-semibold 
+    }
+    h2 {
+        @apply text-xl sm:text-2xl font-semibold
+    }
+    h3 {
+        @apply text-lg sm:text-xl font-medium
+    }
+    p {
+        @apply text-base sm:text-lg 
+    }
+    html {
+        @apply font-nunito;
+        scroll-behavior: smooth;
+    }
+
+    hr {
+        @apply my-4 !bg-black
+    }
+    form li {
+        @apply mb-6 list-none 
+    }
+    form label {
+        @apply block mb-2 text-base font-medium text-gray-900 dark:text-gray-300 uppercase
+    }
+    form input {
+        @apply  bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-lg focus:ring-primary-light focus:border-primary-light block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white 
+    }
+    form span {
+        @apply  mt-2 text-sm dark:text-gray-500 
+    }
+    form button {
+        @apply inline-block w-full px-5 py-3 font-semibold tracking-wider text-center rounded-lg dark:bg-primary-light dark:text-gray-900 uppercase
+    }
+    form select {
+        @apply  bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-lg focus:ring-primary-light focus:border-primary-light block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white 
+    }
+    main, footer {
+        -webkit-transition: all 0.5s;
+        transition: all 0.5s;
+    }
+    body {
+        @apply overflow-x-hidden;
+        /* -webkit-perspective: 2500px;
+        perspective: 2500px; */
+    }
+    table {
+        @apply bg-white max-w-xl mx-auto;
+        table-layout: fixed; 
+        width: 100%;
+    }
+
+
+}
+
+.htCenter {
+    @apply text-center
+}
+
+.htRight {
+    @apply text-right pr-8
+}
+
+.htLeft {
+    @apply text-left pl-8
+}
+
+
+@layer components {
+
+#list_serv div > div > p  {
+    @apply mt-3
+}
+
+#list_serv div > div > ul > li {
+    @apply ml-6 list-disc text-lg mt-1
+}
+
+.serviciosHover {
+    @apply transition duration-500 hover:scale-105 hover:brightness-100
+}
+
+.filtro {
+    @apply grayscale-[30%] brightness-50
+}
+
+.centrear {
+    @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2
+}
+
+.active {
+    @apply dark:text-primary dark:border-primary
+}
+
+.titulos {
+    @apply font-SecularOne font-bold absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-4xl md:text-5xl text-center leading-none uppercase
+    }
+
+.imgBanner {
+    @apply absolute bg-cover bg-center bg-no-repeat h-full w-full
+    }
+
+.posDesc {
+    @apply absolute top-1/2 left-1/2 transform -translate-x-1/2
+    }
+}
+
+.sombraBlanca {
+    -webkit-filter: drop-shadow(3px 3px 2px rgba(255, 255, 255, .8));
+    filter: drop-shadow(3px 3px 2px rgba(255, 255, 255, .8));
+  }
+
+.sombra {
+-webkit-filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, .7));
+filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, .7));
+}
+
+.sombra-x2 {
+    -webkit-filter: drop-shadow(6px 6px 4px rgba(0, 0, 0, .7));
+    filter: drop-shadow(6px 6px 4px rgba(0, 0, 0, .7));
+  }
+
+.sombraBlanca-x2 {
+    -webkit-filter: drop-shadow(6px 6px 4px rgba(255, 255, 255, .7));
+    filter: drop-shadow(6px 6px 4px rgba(255, 255, 255, .7));
+  }
+
+.responsive-object {
+    @apply relative
+}
+
+.responsive-object iframe,
+.responsive-object object,
+.responsive-object embed {
+    @apply absolute top-0 left-0 w-full h-full
+}
+
+
+.frameCard {
+    @apply  max-w-sm mx-auto bg-white rounded-lg shadow-lg
+}
+
+@layer utilities {
+    
+        .masonry-3-col {
+            column-count: 3;
+        }
+        .masonry-2-col {
+            column-count: 2;
+        }
+        .break-inside {
+             break-inside: avoid;
+        }
+    
+  }
+
+.full-width {
+    @apply mx-auto
+}
+
+@keyframes slideDown {
+    0% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  .show-after-3s {
+    animation: slideDown 0.5s ease-out forwards;
+    animation-delay: 3s;
+    opacity: 0; /* Ocultar el div inicialmente */
+  }

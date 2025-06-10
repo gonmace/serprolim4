@@ -1,0 +1,11 @@
+<!-- https://docs.wagtail.org/en/stable/advanced_topics/customisation/admin_templates.html#custom-branding -->
+{% extends "wagtailadmin/base.html" %}
+{% load static %}
+
+{% block branding_logo %}
+
+    {% comment %} {% if settings.base.Logo.logo %}
+    <img src="{{settings.base.Logo.logo.url}}" alt="" width="80" />
+    {% endif %} {% endcomment %}
+
+{% endblock %}

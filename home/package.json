@@ -1,0 +1,21 @@
+{
+  "name": "home",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "vite": "vite build --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vite": "^3.0.8"
+  },
+  "dependencies": {
+    "jquery": "^3.6.0",
+    "leaflet": "^1.8.0",
+    "leaflet-control-custom": "^1.0.0"
+  }
+}

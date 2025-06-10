@@ -1,0 +1,9 @@
+services:
+  serprolim5-dj:
+    container_name: serprolim5
+    build: .
+    restart: always
+    ports:
+    - 8887:8000
+    volumes:
+    - ./:/app
