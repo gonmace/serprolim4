@@ -3,11 +3,9 @@ import "leaflet-control-custom";
 import "./src/Leaflet.AccuratePosition";
 import * as markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png';
 import * as markerShadow from 'leaflet/dist/images/marker-shadow.png';
-
-// document.adoptedStyleSheets = [leafletstyles];
+import cotizar from "./src/cotiza.js";
 
 document.addEventListener("DOMContentLoaded", function () {
-    var loadscript = false;
     var map = L.map('map').setView([-17.784071, -63.180522], 11);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -63,12 +61,19 @@ document.addEventListener("DOMContentLoaded", function () {
     L.control.custom({
         position: 'bottomright',
         content: '<div class="text-center px-1">' +
-            '<button id="EnviarUbicacion" onclick="openModal()" class="bg-green-600 hover:bg-green-700 text-xl text-white py-1 px-6 border border-green-700 rounded cursor-not-allowed opacity-50" disabled="true" aria-label="Ubicar">' +
+            '<button id="EnviarUbicacion" class="bg-green-600 hover:bg-green-700 text-xl text-white py-1 px-6 border border-green-700 rounded cursor-not-allowed opacity-50" disabled="true" aria-label="Ubicar">' +
             'Cotizar' +
             '</button>' +
             '</div>',
         style: {
             cursor: 'pointer',
+        },
+        events: {
+            click: function() {
+                if (marker) {
+                    cotizar(marker);
+                }
+            }
         },
     })
         .addTo(map);
@@ -98,16 +103,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         console.log(marker._latlng.lat);
         console.log(marker._latlng.lng);
-        // Cargas el script
-        if (!loadscript) {
-            var script = document.createElement('script');
-            script.src = STATIC_FILES.COTIZAR;
-            script.type = "text/javascript";
-            document.getElementsByTagName('head')[0].appendChild(script);
-            console.log("script loaded :)");
-            loadscript = true;
-        }
-
 
     }
 
@@ -128,17 +123,6 @@ document.addEventListener("DOMContentLoaded", function () {
         marker = L.marker(e.latlng, {icon: icono}).addTo(map);
         console.log(marker._latlng.lat);
         console.log(marker._latlng.lng);
-
-        // Cargas el srcipt
-        if (!loadscript) {
-            var script = document.createElement('script');
-            script.src = STATIC_FILES.COTIZAR;
-            script.type = "text/javascript";
-            document.getElementsByTagName('head')[0].appendChild(script);
-            console.log("script loaded :)");
-            loadscript = true;
-        }
-
 
     }
 
