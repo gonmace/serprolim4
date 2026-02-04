@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'wagtail.admin',
     'wagtail',
     'wagtail.contrib.settings',
+    'wagtail_modeladmin',
 
     'taggit',
     'modelcluster',
@@ -225,3 +226,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 CSRF_COOKIE_SECURE = True  # Establecer a True solo si usas HTTPS
 # settings.py
 CSRF_TRUSTED_ORIGINS = ['https://limpiezapozossepticos.com']
+
+# Tailwind config
+NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"

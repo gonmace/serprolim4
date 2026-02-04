@@ -11,9 +11,9 @@ from modelcluster.fields import ParentalKey
 from taggit.models import Tag, TaggedItemBase
 
 from wagtail.contrib.routable_page.models import route
-from wagtail.admin.panels import FieldPanel, StreamFieldPanel
-from wagtail.core.fields import StreamField
-from wagtail.core.models import Page, Orderable
+from wagtail.admin.panels import FieldPanel
+from wagtail.fields import StreamField
+from wagtail.models import Page, Orderable
 
 from wagtail.search import index
 
@@ -241,7 +241,7 @@ class BlogIndexPage(Page):
 
 BlogPage._meta.get_field('title').help_text = 'El título de la página como quieres que sea visto por el público. Dos espacios significa un enter'
 
-from wagtail.contrib.modeladmin.options import ModelAdmin
+from wagtail_modeladmin.options import ModelAdmin
 
 from .models import BlogPage
 

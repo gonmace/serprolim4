@@ -1,9 +1,11 @@
-Django==4.1.1
-wagtail==4.0.1
-django-environ==0.9.0
+Django>=4.1.1
+wagtail>=4.0.1
+django-environ>=0.9.0
+wagtail-modeladmin>=2.0.0
+packaging
 # wagtailsvg==0.0.33
 # django-inline-svg==0.1.1
-django-social-share==2.3.0
+django-social-share>=2.3.0
 
 
 

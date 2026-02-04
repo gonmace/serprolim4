@@ -25,10 +25,10 @@
 
 
 # https://github.com/octavenz/wagtailextraicons/blob/master/docs/icons.md
-from pkg_resources import parse_version
+from packaging.version import parse as parse_version
 
 from wagtail import __version__ as WAGTAIL_VERSION
-from wagtail.core import hooks
+from wagtail import hooks
 
 if parse_version(WAGTAIL_VERSION) <= parse_version('2.15'):
     raise Exception('wagtailextraicons 2 requires Wagtail > 2.15')

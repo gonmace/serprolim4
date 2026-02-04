@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils.functional import cached_property
 
-from wagtail.admin.edit_handlers import MultiFieldPanel, FieldPanel
+from wagtail.admin.panels import MultiFieldPanel, FieldPanel
 from wagtail.contrib.settings.models import BaseSiteSetting, register_setting
 from wagtail.images import get_image_model_string
 # from wagtail.images.edit_handlers import ImageChooserPanel
