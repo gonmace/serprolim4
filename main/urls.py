@@ -11,10 +11,11 @@ from django.conf import settings
 from wfavicon.urls import urls as favicon_urls
 from django.views.generic import TemplateView
 from wagtail.contrib.sitemaps.views import sitemap
+from home import views as home_views
 
 urlpatterns = [
-    path('django-admin/', admin.site.urls),
-    path('admin/', include(wagtailadmin_urls)),
+    path('admin/', admin.site.urls),
+    path('admin_blog/', include(wagtailadmin_urls)),
     path('documents/', include(wagtaildocs_urls)),
     path('sitemap.xml', sitemap),
     path('ads.txt', TemplateView.as_view(
@@ -33,6 +34,7 @@ if settings.DEBUG:
     urlpatterns += path("__reload__/", include("django_browser_reload.urls")),
 
 urlpatterns = urlpatterns + [
-    path("", include(wagtail_urls)),
+    path("", home_views.landing_view, name='landing'),
     path("", include(favicon_urls)),
+    path("", include(wagtail_urls)),
 ]

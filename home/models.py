@@ -13,6 +13,172 @@ from wagtail.admin.panels import (
 
 from wmetadata.models import MetadataPageMixin
 
+# --- NEW DJANGO MODELS ---
+
+class LandingPage(models.Model):
+    subtitle = models.CharField(
+        "Sub Titulo",
+        max_length=50,
+        blank=True,
+        null=True,
+        help_text="Subitulo",
+    )
+    slogan = models.TextField(
+        "Slogan",
+        blank=True,
+        null=True,
+        help_text="Slogan",
+    )
+    # Using Wagtail Images still as they are just database references to files
+    imageBG = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+    imageMain = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+    imagePromo = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+    # COTIZA
+    cotizaDescription = models.TextField(
+        "Descripcion",
+        max_length=350,
+        blank=True,
+        null=True,
+        help_text="Descripcion Cotizar",
+    )
+    mjeCotiza = models.CharField(
+        "Cotiza",
+        max_length=200,
+        blank=True,
+        null=True,
+        help_text="Mensaje de Cotiza una que se selecciona el lugar",
+    )
+    mjeFueraDeRango = models.CharField(
+        "Fuera de Rango",
+        max_length=200,
+        blank=True,
+        null=True,
+        help_text="La posición esta fuera del rango que se tiene en los mapas",
+    )
+    mjeWAContratando = models.CharField(
+        "Whatsapp Contratando",
+        max_length=200,
+        blank=True,
+        null=True,
+        help_text="Mensaje Whatsapp Contratando servicio",
+    )
+    mjeWAFueraDeRango = models.CharField(
+        "Whatsapp Fuera de rango",
+        max_length=200,
+        blank=True,
+        null=True,
+        help_text="Mensaje Whatsapp fuera de rango",
+    )
+    # NUESTROS SERVICIOS
+    serviviosDescription = models.TextField(
+        "Servicios",
+        max_length=350,
+        blank=True,
+        null=True,
+        help_text="Nuestros Servicios",
+    )
+    displayNServicios = models.BooleanField(
+        "Mostrar",
+        default=True,
+        help_text="Mostrar Cards de Nuestros Segicios",
+    )
+
+    class Meta:
+        verbose_name = "Landing Page"
+        verbose_name_plural = "Landing Page"
+
+    def __str__(self):
+        return "Landing Page Configuration"
+    
+    def save(self, *args, **kwargs):
+        cache.clear()
+        super().save(*args, **kwargs)
+
+class LandingService(models.Model):
+    landing_page = models.ForeignKey(
+        LandingPage,
+        related_name='nuestros_servicios',
+        on_delete=models.CASCADE,
+    )
+    image = models.ForeignKey(
+        'wagtailimages.Image', 
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+        related_name='+'
+    )
+    titulo = models.CharField(
+        blank=False,
+        max_length=25
+    )
+    resumen = models.CharField(
+        blank=True,
+        null=True,
+        max_length=250
+    )
+    
+    # For ordering if needed, but simple FK is start
+    sort_order = models.IntegerField(null=True, blank=True, editable=False)
+    
+    class Meta:
+         ordering = ['sort_order']
+
+    def __str__(self):
+        return self.titulo
+
+class LandingFAQ(models.Model):
+    landing_page = models.ForeignKey(
+        LandingPage,
+        related_name='preguntas_frecuentes',
+        on_delete=models.CASCADE
+    )
+    pregunta = models.CharField(
+        "Pregunta",
+        max_length=250,
+        blank=True,
+        null=True,
+    )
+    respuesta = models.TextField(
+        "Respuesta",
+        max_length=500,
+        blank=True,
+        null=True,
+    )
+    display = models.BooleanField(
+        "Mostrar",
+        default=True,
+        help_text="Mostrar Pregunta y Respuesta",
+    )
+    
+    sort_order = models.IntegerField(null=True, blank=True, editable=False)
+    
+    class Meta:
+         ordering = ['sort_order']
+
+    def __str__(self):
+        return self.pregunta or "Pregunta"
+
+
+# --- EXISTING WAGTAIL MODELS (Deprecated) ---
+
 class HomePage(MetadataPageMixin, Page):
 
     subpage_types = [
@@ -194,5 +360,3 @@ class preguntasFrecuentes(Orderable):
         FieldPanel('respuesta'),
         FieldPanel('display'),
     ]
-
-
