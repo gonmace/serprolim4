@@ -1,6 +1,140 @@
 @import "leaflet/dist/leaflet.css";
 @import "tailwindcss";
 
+@plugin "@tailwindcss/typography";
+
+@plugin "daisyui" {
+    themes: false;
+}
+
+@plugin "daisyui/theme" {
+    name: "serprolim";
+    default: true;
+    color-scheme: light;
+    --color-primary: #f9cc41;
+    --color-primary-content: #000000;
+    --color-primary-light: #ffb057;
+    --color-secondary: #032900;
+    --color-secondary-content: #ffffff;
+    --color-secondary-light: #bac5b9;
+    --color-secondary-dark: #051900;
+    --color-accent: #6CB288;
+    --color-accent-content: #ffffff;
+    --color-neutral: #23282F;
+    --color-neutral-content: #ffffff;
+    --color-base-100: #ffffff;
+    --color-base-200: #fafaf9;
+    --color-base-300: #f5f5f4;
+    --color-base-content: #1f2937;
+    --color-info: #90cbd4;
+    --color-info-content: #000000;
+    --color-success: #6CB288;
+    --color-success-content: #ffffff;
+    --color-warning: #fdcb10;
+    --color-warning-content: #000000;
+    --color-error: #fc483f;
+    --color-error-content: #ffffff;
+    --rounded-box: 1.5rem;
+    --rounded-btn: 0.75rem;
+    --rounded-badge: 2rem;
+}
+
+@plugin "daisyui/theme" {
+    name: "limpio";
+    default: false;
+    color-scheme: light;
+    --color-primary: #0284c7;
+    --color-primary-content: #ffffff;
+    --color-primary-light: #38bdf8;
+    --color-secondary: #0f172a;
+    --color-secondary-content: #ffffff;
+    --color-secondary-light: #334155;
+    --color-secondary-dark: #020617;
+    --color-accent: #22c55e;
+    --color-accent-content: #ffffff;
+    --color-neutral: #334155;
+    --color-neutral-content: #ffffff;
+    --color-base-100: #ffffff;
+    --color-base-200: #f1f5f9;
+    --color-base-300: #e2e8f0;
+    --color-base-content: #0f172a;
+    --color-info: #38bdf8;
+    --color-info-content: #000000;
+    --color-success: #22c55e;
+    --color-success-content: #ffffff;
+    --color-warning: #fbbf24;
+    --color-warning-content: #000000;
+    --color-error: #ef4444;
+    --color-error-content: #ffffff;
+    --rounded-box: 1rem;
+    --rounded-btn: 0.5rem;
+    --rounded-badge: 1.5rem;
+}
+
+@plugin "daisyui/theme" {
+    name: "limpio-ya";
+    default: false;
+    color-scheme: light;
+    --color-primary: #0e5185;
+    --color-primary-content: #ffffff;
+    --color-primary-light: #38bdf8;
+    --color-secondary: #0f172a;
+    --color-secondary-content: #ffffff;
+    --color-secondary-light: #334155;
+    --color-secondary-dark: #020617;
+    --color-accent: #fbbf24;
+    --color-accent-content: #000000;
+    --color-neutral: #334155;
+    --color-neutral-content: #ffffff;
+    --color-base-100: #ffffff;
+    --color-base-200: #e0f2fe;
+    --color-base-300: #bae6fd;
+    --color-base-content: #0f172a;
+    --color-info: #0ea5e9;
+    --color-info-content: #ffffff;
+    --color-success: #22c55e;
+    --color-success-content: #ffffff;
+    --color-warning: #fbbf24;
+    --color-warning-content: #000000;
+    --color-error: #ef4444;
+    --color-error-content: #ffffff;
+    --rounded-box: 1.25rem;
+    --rounded-btn: 0.625rem;
+    --rounded-badge: 1.75rem;
+}
+
+@plugin "daisyui/theme" {
+    name: "multisane";
+    default: true;
+    color-scheme: light;
+    --color-primary: #059669;
+    --color-primary-content: #ffffff;
+    --color-primary-light: #10B981;
+    --color-secondary: #064E3B;
+    --color-secondary-content: #ffffff;
+    --color-secondary-light: #34D399;
+    --color-secondary-dark: #065F46;
+    --color-accent: #D1FAE5;
+    --color-accent-content: #064E3B;
+    --color-neutral: #065F46;
+    --color-neutral-content: #ffffff;
+    --color-base-100: #ffffff;
+    --color-base-200: #ECFDF5;
+    --color-base-300: #D1FAE5;
+    --color-base-content: #064E3B;
+    --color-info: #34D399;
+    --color-info-content: #000000;
+    --color-success: #059669;
+    --color-success-content: #ffffff;
+    --color-warning: #FBBF24;
+    --color-warning-content: #000000;
+    --color-error: #EF4444;
+    --color-error-content: #ffffff;
+    --rounded-box: 1rem;
+    --rounded-btn: 0.5rem;
+    --rounded-badge: 1.5rem;
+}
+
 @source "../../templates";
 @source "../../**/templates";
 @source "../../home";
@@ -8,22 +142,25 @@
 @source "../../base";
 @source "../../wfavicon";
 @source "../../wmetadata";
+@source "../../chat";
 
 @theme {
-    --color-primary: #f9cc41;
-    --color-primary-light: #ffb057;
-    --color-secondary-light: #bac5b9;
-    --color-secondary: #032900;
-    --color-secondary-dark: #051900;
-    --color-neutral: #23282F;
-    --color-info: #90cbd4;
-    --color-success: #6CB288;
-    --color-warning: #fdcb10;
-    --color-error: #fc483f;
+    /* Typography - Modern & Friendly Fonts */
+    --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+    --font-display: 'Poppins', ui-sans-serif, system-ui, sans-serif;
+
+    /* Custom font sizes for better hierarchy */
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 1.875rem;
+    --font-size-4xl: 2.25rem;
     --color-facebook: #3b5998;
     --color-whatsapp: #25d366;
     --color-twitter: #1DA1F2;
     --color-mail: #EA4335;
+    --color-primary-light: var(--color-primary-light);
 
     --font-nunito: "Nunito", sans-serif;
     --font-noto: "Noto Serif", serif;
@@ -43,13 +180,31 @@
     }
 }
 
+/* Modern Typography - Poppins for headings, Inter for body */
+body {
+    font-family: var(--font-sans);
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.card-title,
+.btn {
+    font-family: var(--font-display);
+}
+
 @layer base {
     h1 {
-        @apply text-2xl sm:text-4xl font-semibold;
+        @apply text-2xl sm:text-4xl font-medium;
     }
 
     h2 {
-        @apply text-xl sm:text-2xl font-semibold;
+        @apply text-xl sm:text-2xl font-medium;
     }
 
     h3 {

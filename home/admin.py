@@ -19,11 +19,19 @@ class FAQInline(admin.TabularInline):
 
 @admin.register(LandingPage)
 class LandingPageAdmin(admin.ModelAdmin):
+    list_display = ['__str__', 'country', 'enabled']
+    list_filter = ['country', 'enabled']
     inlines = [ServiceInline, FAQInline]
     
     readonly_fields = ['image_preview_bg', 'image_preview_main', 'image_preview_promo']
 
     fieldsets = (
+        ("Configuration", {
+            "fields": (
+                "country",
+                "enabled",
+            ),
+        }),
         ("Banner", {
             "fields": (
                 "subtitle",
@@ -52,19 +60,29 @@ class LandingPageAdmin(admin.ModelAdmin):
 
     def image_preview_bg(self, obj):
         if obj.imageBG:
-            return format_html('<img src="{}" style="max-height: 100px;"/>', obj.imageBG.file.url)
+             # Use proper storage or url access safely
+             try:
+                return format_html('<img src="{}" style="max-height: 100px;"/>', obj.imageBG.file.url)
+             except:
+                return ""
         return ""
     image_preview_bg.short_description = "Preview"
 
     def image_preview_main(self, obj):
         if obj.imageMain:
-            return format_html('<img src="{}" style="max-height: 100px;"/>', obj.imageMain.file.url)
+            try:
+                return format_html('<img src="{}" style="max-height: 100px;"/>', obj.imageMain.file.url)
+            except:
+                return ""
         return ""
     image_preview_main.short_description = "Preview"
 
     def image_preview_promo(self, obj):
         if obj.imagePromo:
-            return format_html('<img src="{}" style="max-height: 100px;"/>', obj.imagePromo.file.url)
+            try:
+                return format_html('<img src="{}" style="max-height: 100px;"/>', obj.imagePromo.file.url)
+            except:
+                return ""
         return ""
     image_preview_promo.short_description = "Preview"
 
@@ -72,3 +90,4 @@ class LandingPageAdmin(admin.ModelAdmin):
         css = {
             'all': ('css/admin_custom.css',)
         }
+

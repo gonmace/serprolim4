@@ -1,0 +1,206 @@
+{% load static %}
+
+<div id="chat-widget-container" class="fixed bottom-6 left-6 z-[10001] font-sans">
+    <!-- Chat Button -->
+    <button id="chat-toggle-btn" class="btn btn-secondary btn-circle btn-lg shadow-2xl hover:scale-110 transition-transform duration-200 border-2 border-base-100">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z" />
+        </svg>
+    </button>
+
+    <!-- Chat Window -->
+    <div id="chat-window" class="hidden absolute bottom-12 left-0 w-80 sm:w-96 md:w-[450px] bg-base-100 rounded-2xl shadow-2xl overflow-hidden border border-base-200 flex flex-col transition-all duration-300 origin-bottom-left transform scale-95 opacity-0 max-h-[calc(100vh-80px)]">
+        <!-- Header -->
+        <div class="bg-secondary text-secondary-content p-4 flex justify-between items-center shadow-md">
+            <div class="flex items-center gap-3">
+                <div class="avatar online">
+                    <div class="w-10 rounded-full bg-base-100 p-1">
+                         <img src="{% static 'img/logo-icon.png' %}" alt="AI" onerror="this.src='https://ui-avatars.com/api/?name=SerProLim&background=f9cc41&color=000&bold=true'" />
+                    </div>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg leading-tight">Soporte SerProLim</h3>
+                    <p class="text-xs opacity-90">En línea ahora</p>
+                </div>
+            </div>
+            <button id="chat-close-btn" class="btn btn-ghost btn-sm btn-circle text-secondary-content hover:bg-secondary-focus/50">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+            </button>
+        </div>
+
+        <!-- Messages Area -->
+        <div id="chat-messages" class="flex-1 p-4 overflow-y-auto h-80 md:h-[600px] bg-base-200 scroll-smooth space-y-4">
+            <!-- Welcome Message -->
+            <div class="chat chat-start">
+                <div class="chat-header text-xs opacity-50 mb-1">
+                    Asistente
+                </div>
+                <div class="chat-bubble chat-bubble-secondary shadow-sm">
+                    ¡Hola! Soy el asistente virtual de SerProLim. ¿En qué puedo ayudarte con tu pozo o cámara séptica hoy?
+                </div>
+            </div>
+        </div>
+
+        <!-- Input Area -->
+        <div class="p-3 bg-base-100 border-t border-base-200">
+            <form id="chat-form" class="flex gap-2 items-center bg-base-200 rounded-full px-2 py-1 border focus-within:border-primary transition-colors">
+                <input type="text" id="chat-input" placeholder="Escribe tu consulta..." class="input input-ghost w-full focus:outline-none focus:bg-transparent h-10 min-h-0 text-sm" autocomplete="off" required>
+                <button type="submit" id="chat-submit-btn" class="btn btn-primary btn-circle btn-sm shadow-md">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 transform rotate-90">
+                        <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
+                    </svg>
+                </button>
+            </form>
+             <div class="text-center mt-1">
+                <span class="text-[10px] text-base-content/50">Funciona con IA</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const chatContainer = document.getElementById('chat-widget-container');
+        const chatToggleBtn = document.getElementById('chat-toggle-btn');
+        const chatCloseBtn = document.getElementById('chat-close-btn');
+        const chatWindow = document.getElementById('chat-window');
+        const chatForm = document.getElementById('chat-form');
+        const chatInput = document.getElementById('chat-input');
+        const chatMessages = document.getElementById('chat-messages');
+        const chatSubmitBtn = document.getElementById('chat-submit-btn');
+
+        // Session ID Management
+        let sessionId = sessionStorage.getItem('chatSessionId');
+        if (!sessionId) {
+            sessionId = 'sess_' + Math.random().toString(36).substr(2, 9) + Date.now().toString(36);
+            sessionStorage.setItem('chatSessionId', sessionId);
+        }
+
+        // Toggle Chat Window
+        function toggleChat() {
+            const isHidden = chatWindow.classList.contains('hidden');
+            if (isHidden) {
+                chatWindow.classList.remove('hidden');
+                // Small timeout to allow removing 'hidden' to take effect before animating opacity/transform
+                setTimeout(() => {
+                    chatWindow.classList.remove('scale-95', 'opacity-0');
+                    chatInput.focus();
+                }, 10);
+            } else {
+                chatWindow.classList.add('scale-95', 'opacity-0');
+                setTimeout(() => {
+                    chatWindow.classList.add('hidden');
+                }, 300); // Match transition duration
+            }
+        }
+
+        chatToggleBtn.addEventListener('click', toggleChat);
+        chatCloseBtn.addEventListener('click', toggleChat);
+
+        // Helper to add message to UI
+        function appendMessage(text, isUser = false) {
+            const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            
+            let messageHtml = '';
+            if (isUser) {
+                messageHtml = `
+                    <div class="chat chat-end">
+                         <div class="chat-header text-xs opacity-50 mb-1">
+                            Tú
+                        </div>
+                        <div class="chat-bubble chat-bubble-primary text-primary-content shadow-sm">${text}</div>
+                         <div class="chat-footer opacity-50 text-[10px] mt-1">
+                            ${time}
+                        </div>
+                    </div>
+                `;
+            } else {
+                 messageHtml = `
+                    <div class="chat chat-start">
+                        <div class="chat-header text-xs opacity-50 mb-1">
+                            Asistente
+                        </div>
+                        <div class="chat-bubble chat-bubble-secondary shadow-sm">${text}</div>
+                        <div class="chat-footer opacity-50 text-[10px] mt-1">
+                            ${time}
+                        </div>
+                    </div>
+                `;
+            }
+            
+            chatMessages.insertAdjacentHTML('beforeend', messageHtml);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        // Handle Form Submit
+        chatForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const message = chatInput.value.trim();
+            if (!message) return;
+
+            // 1. Append User Message
+            appendMessage(message, true);
+            chatInput.value = '';
+            chatInput.disabled = true;
+            chatSubmitBtn.disabled = true;
+
+            // 2. Show Loading Indicator
+            const loadingId = 'loading-' + Date.now();
+            const loadingHtml = `
+                <div id="${loadingId}" class="chat chat-start">
+                    <div class="chat-bubble chat-bubble-secondary shadow-sm">
+                        <span class="loading loading-dots loading-sm"></span>
+                    </div>
+                </div>
+            `;
+            chatMessages.insertAdjacentHTML('beforeend', loadingHtml);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+
+            // 3. Send to Webhook
+            fetch('https://n8npozos.magoreal.com/webhook/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    sessionId: sessionId,
+                    chatInput: message
+                })
+            })
+            .then(response => {
+                if (!response.ok) throw new Error('Network response was not ok');
+                return response.text();
+            })
+            .then(data => {
+                // Remove loading indicator
+                const loadingElement = document.getElementById(loadingId);
+                if (loadingElement) loadingElement.remove();
+
+                // Check if data is JSON or text
+                let responseText = data;
+                 try {
+                    const jsonData = JSON.parse(data);
+                    if (jsonData.output) responseText = jsonData.output;
+                    else if (jsonData.text) responseText = jsonData.text;
+                    else if (typeof jsonData === 'object') responseText = JSON.stringify(jsonData);
+                } catch (e) {
+                    // Not JSON
+                }
+
+                appendMessage(responseText, false);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                const loadingElement = document.getElementById(loadingId);
+                if (loadingElement) loadingElement.remove();
+                
+                appendMessage("Lo siento, hubo un error al conectar con el servidor.", false);
+            })
+            .finally(() => {
+                chatInput.disabled = false;
+                chatSubmitBtn.disabled = false;
+                chatInput.focus();
+            });
+        });
+    });
+</script>

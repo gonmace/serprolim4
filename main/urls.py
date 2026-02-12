@@ -33,8 +33,27 @@ if settings.DEBUG:
         )
     urlpatterns += path("__reload__/", include("django_browser_reload.urls")),
 
+
 urlpatterns = urlpatterns + [
     path("", home_views.landing_view, name='landing'),
     path("", include(favicon_urls)),
     path("", include(wagtail_urls)),
 ]
+
+# Admin customization: Hide models from standard Django admin
+from taggit.models import Tag
+from wagtail.documents.models import Document
+from wagtail.images.models import Image
+from wagtail.models import Collection
+
+def hide_models_from_admin():
+    """Unregister models from Django admin if they are registered"""
+    models_to_hide = [Tag, Document, Image, Collection]
+    
+    for model in models_to_hide:
+        try:
+            admin.site.unregister(model)
+        except admin.sites.NotRegistered:
+            pass
+
+hide_models_from_admin()

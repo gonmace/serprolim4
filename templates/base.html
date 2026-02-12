@@ -1,33 +1,33 @@
 {% load static wagtailcore_tags wagtailuserbar favicon_tags %}
 
 <!DOCTYPE html>
-<html lang="es" >
+<html lang="es" data-theme="{{ site_settings.theme|default:'serprolim' }}">
   <head>
     <meta charset="utf-8" />
     {% favicon_meta %}
-    {% if settings.wanalytics.AnalyticsSettings.head_scripts %}
-      {{ settings.wanalytics.AnalyticsSettings.head_scripts|safe }}
+    {% if site_settings.head_scripts %}
+      {{ site_settings.head_scripts|safe }}
     {% endif %}
 
-    {% if settings.wanalytics.AnalyticsSettings.gads_id %}
+    {% if site_settings.gads_id %}
     <!-- Global site tag (gtag.js) - Google Ads: 665045883 -->
-      <script async src="https://www.googletagmanager.com/gtag/js?id=AW-{{ settings.wanalytics.AnalyticsSettings.gads_id }}"></script>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=AW-{{ site_settings.gads_id }}"></script>
       <script>
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', 'AW-{{ settings.wanalytics.AnalyticsSettings.gads_id }}');
+          gtag('config', 'AW-{{ site_settings.gads_id }}');
       </script>
     <!-- End Google Tag Manager -->
     {% endif %}
 
-    {% if settings.wanalytics.AnalyticsSettings.gtm_id %}
+    {% if site_settings.gtm_id %}
     <!-- Google Tag Manager -->
       <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
       new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
       j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       ' https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-{{ settings.wanalytics.AnalyticsSettings.gtm_id }}');</script>
+      })(window,document,'script','dataLayer','GTM-{{ site_settings.gtm_id }}');</script>
       <!-- End Google Tag Manager -->
     {% endif %}
 
@@ -51,6 +51,11 @@
       <link rel="canonical" href="{{ page.canonical_url }}"/>
     {% endif %}
 
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
     {% block css %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
     {% comment %} <link rel="stylesheet" href="{% static 'css/floating-wpp.min.css' %}"> {% endcomment %}
@@ -58,12 +63,12 @@
   </head>
 
   <body class="{% block body_class %}{% endblock %}">
-    {% if settings.wanalytics.AnalyticsSettings.body_scripts %}
-      {{ settings.wanalytics.AnalyticsSettings.body_scripts|safe }}
+    {% if site_settings.body_scripts %}
+      {{ site_settings.body_scripts|safe }}
     {% endif %}
     <!-- Google Tag Manager (noscript) -->
-    {% if settings.wanalytics.AnalyticsSettings.gtm_id %}    
-      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-{{ settings.wanalytics.AnalyticsSettings.gtm_id }}"
+    {% if site_settings.gtm_id %}    
+      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-{{ site_settings.gtm_id }}"
       height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     {% endif %} 
     <!-- End Google Tag Manager (noscript) -->
@@ -73,12 +78,16 @@
 
 
     {% comment %} https://github.com/rafaelbotazini/floating-whatsapp {% endcomment %}
-    <div id="whatsapp" class="z-10000 fixed bottom-12 left-1 sm:left-3 lg:left-10 xl:left-20 2xl:left-40"></div>
+    {% block whatsapp_widget %}
+      {% include "includes/whatsapp_bubble.html" %}
+    {% endblock whatsapp_widget %}
     
     {% block content %}
     {% endblock %}
 
     {% include "footer.html"  %}
+
+    {% include "chat/widget.html" %}
 
     {% block js %}
     <script type="text/javascript">
@@ -102,13 +111,14 @@
       <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
       <script defer type="text/javascript" src="{% static 'js/floating-wpp.min.js' %}"></script>
 
-        {% if settings.wgeneralData.GeneralSettings.mjeGlobo %}
+        {% if site_settings.mjeGlobo %}
+        {% block whatsapp_widget_script %}
         <script defer type="text/javascript">
           $(function () {
-            $('#whatsapp').floatingWhatsApp({
-            phone: '+591{{ settings.wgeneralData.GeneralSettings.cel }}',
+            $('#whatsapp-widget').floatingWhatsApp({
+            phone: '+{{ site_settings.phone_prefix|default:"591" }}{{ site_settings.cel }}',
             popupMessage: 'Hola, Como podemos ayuderle?',
-            message: "{{ settings.wgeneralData.GeneralSettings.mjeGlobo }}",
+            message: "{{ site_settings.mjeGlobo }}",
             showPopup: false,
             showOnIE: false,
             size: 55,
@@ -117,6 +127,7 @@
                 });
             });
         </script>
+        {% endblock whatsapp_widget_script %}
         {% endif %}
 
       {% endblock js %}

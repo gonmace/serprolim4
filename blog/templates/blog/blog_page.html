@@ -19,15 +19,15 @@ xl:container mx-auto bg-gray-900
 {% include "header.html" with class="md:bg-primary xl:container w-full fixed z-50" %}
 
 <main class="flex flex-col md:flex-row bg-gray-200 pt-16">	
-	<div class="w-full md:w-4/5 xl:max-w-5xl bg-white p-0 mx-auto mr-0">
-		<article class="font-noto flex flex-col max-w-3xl mx-auto rounded">			
-			{% image self.image width-320 format-webp class="object-cover min-w-full min-h-full rounded-lg" %}			
-			<div class="-mt-20 p-6 m-4 mx-auto mb-0 lg:max-w-2xl sm:px-10 sm:mx-12 lg:rounded-md bg-gray-100 bg-opacity-90">
+	<div class="w-full md:w-4/5 xl:max-w-5xl bg-base-100 p-0 mx-auto mr-0">
+		<article class="font-noto flex flex-col max-w-3xl mx-auto rounded-2xl">			
+			{% image self.image width-320 format-webp class="object-cover min-w-full min-h-full rounded-2xl" %}			
+			<div class="-mt-20 p-6 m-4 mx-auto mb-0 lg:max-w-2xl sm:px-10 sm:mx-12 lg:rounded-2xl bg-base-200 bg-opacity-95 shadow-md">
 				<h1 class="text-center ">
 				{{ self.title|titulo }}
 				</h1>
 			</div>
-			<div class="prose prose-img:object-cover prose-img: prose-img:max-w-xs prose-hr:my-8 prose-a:text-blue-600 text-black lg:prose-lg mx-auto md:max-w-none lg:px-16 font-noto">
+			<div class="prose prose-img:object-cover prose-img: prose-img:max-w-xs prose-hr:my-8 prose-a:text-blue-600 text-black lg:prose-lg mx-auto md:max-w-none lg:px-16 font-['Arial'] leading-relaxed">
 			{{ self.body }}
 			</div>
 			<hr>
@@ -47,8 +47,8 @@ xl:container mx-auto bg-gray-900
 			{% if listpost.slug == self.slug %}
 			{% else %}
 			<a href="{{ listpost.url }}">
-				<div class="bg-primary border-2 px-2 py-4 my-4 rounded-lg shadow-md">
-					<h3 class="text-lg">{{ listpost.title }}</h3>
+				<div class="bg-primary border-2 px-3 py-4 my-4 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+					<h3 class="text-lg font-semibold">{{ listpost.title }}</h3>
 				</div>
 			</a>
 			{% endif %}    

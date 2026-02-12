@@ -14,8 +14,23 @@ from wagtail.admin.panels import (
 from wmetadata.models import MetadataPageMixin
 
 # --- NEW DJANGO MODELS ---
+from wgeneralData.models import CountrySettings
 
 class LandingPage(models.Model):
+    country = models.ForeignKey(
+        CountrySettings,
+        on_delete=models.CASCADE,
+        related_name='landing_pages',
+        verbose_name="Country Config",
+        null=True, 
+        blank=True
+    )
+    enabled = models.BooleanField(
+        default=False, 
+        verbose_name="Enabled",
+        help_text="Check to make this the active Landing Page for the selected country."
+    )
+
     subtitle = models.CharField(
         "Sub Titulo",
         max_length=50,
@@ -106,9 +121,12 @@ class LandingPage(models.Model):
         verbose_name_plural = "Landing Page"
 
     def __str__(self):
-        return "Landing Page Configuration"
+        return f"Landing Page - {self.country.name if self.country else 'No Country'} ({'Enabled' if self.enabled else 'Disabled'})"
     
     def save(self, *args, **kwargs):
+        if self.enabled and self.country:
+            # Disable all other pages for this country
+            LandingPage.objects.filter(country=self.country).exclude(pk=self.pk).update(enabled=False)
         cache.clear()
         super().save(*args, **kwargs)
 
@@ -148,7 +166,7 @@ class LandingFAQ(models.Model):
     landing_page = models.ForeignKey(
         LandingPage,
         related_name='preguntas_frecuentes',
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE,
     )
     pregunta = models.CharField(
         "Pregunta",

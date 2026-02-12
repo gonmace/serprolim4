@@ -34,6 +34,7 @@ STATIC_URL = "/static/"
 INSTALLED_APPS = [
     'home',
     'base',
+    'chat',
     'blog',
 
     'wfavicon',
@@ -79,6 +80,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
     'wagtail.contrib.redirects.middleware.RedirectMiddleware',
+    
+    'wgeneralData.middleware.CountryMiddleware',
 ]
 
 ROOT_URLCONF = 'main.urls'
@@ -99,6 +102,7 @@ TEMPLATES = [
 
                 'wagtail.contrib.settings.context_processors.settings',
                 'blog.context_processors.blog_page',
+                'wgeneralData.context_processors.site_settings',  # New Django settings
             ],
         },
     },

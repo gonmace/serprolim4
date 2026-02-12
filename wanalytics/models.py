@@ -10,7 +10,7 @@ from wagtail.admin.panels import (
 )
 from wagtail.contrib.settings.models import BaseGenericSetting, register_setting
 
-@register_setting(icon='table')
+# @register_setting(icon='table')
 class AnalyticsSettings(BaseGenericSetting):
     """
     Tracking and Google Analytics.
