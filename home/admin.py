@@ -32,6 +32,12 @@ class LandingPageAdmin(admin.ModelAdmin):
                 "enabled",
             ),
         }),
+        ("SEO", {
+            "fields": (
+                "seo_title",
+                "search_description",
+            ),
+        }),
         ("Banner", {
             "fields": (
                 "subtitle",

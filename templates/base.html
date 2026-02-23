@@ -37,18 +37,18 @@
         {% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}
         {% endblock %}
         {% block title_suffix %}
-          {% with self.get_site.site_name as site_name %}
-              {% if site_name %}| {{ site_name }}{% endif %}
-          {% endwith %}
+          {% if seo_site_name %}| {{ seo_site_name }}{% endif %}
         {% endblock %}
     </title>
-    <meta name="description" content="{{ page.search_description }}" />
+    <meta name="description" content="{% if page.search_description %}{{ page.search_description }}{% else %}SerProLim - Limpieza de pozos ciegos y cámaras sépticas en Santa Cruz. Cotiza en línea.{% endif %}" />
     {% endblock meta_tag %}
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     
     {% if page.canonical_url %}
       <link rel="canonical" href="{{ page.canonical_url }}"/>
+    {% elif request.path == '/' %}
+      <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}"/>
     {% endif %}
 
     <!-- Google Fonts -->
@@ -77,17 +77,24 @@
 
 
 
-    {% comment %} https://github.com/rafaelbotazini/floating-whatsapp {% endcomment %}
-    {% block whatsapp_widget %}
-      {% include "includes/whatsapp_bubble.html" %}
-    {% endblock whatsapp_widget %}
+    {% comment %} Chat en superior derecha, WhatsApp en inferior derecha (posición original) {% endcomment %}
+    <div class="fixed top-20 left-0 right-0 z-[10001] pl-4 sm:pl-6 pr-1 pointer-events-none">
+      <div class="w-full flex justify-end pointer-events-auto">
+        {% include "chat/widget.html" %}
+      </div>
+    </div>
+    <div class="fixed bottom-6 left-0 right-0 z-[10001] pl-4 sm:pl-6 pr-1 pointer-events-none">
+      <div class="w-full flex justify-end pointer-events-auto">
+        {% block whatsapp_widget %}
+          {% include "includes/whatsapp_bubble.html" %}
+        {% endblock whatsapp_widget %}
+      </div>
+    </div>
     
     {% block content %}
     {% endblock %}
 
     {% include "footer.html"  %}
-
-    {% include "chat/widget.html" %}
 
     {% block js %}
     <script type="text/javascript">

@@ -102,7 +102,8 @@ TEMPLATES = [
 
                 'wagtail.contrib.settings.context_processors.settings',
                 'blog.context_processors.blog_page',
-                'wgeneralData.context_processors.site_settings',  # New Django settings
+                'wgeneralData.context_processors.site_settings',
+                'home.context_processors.seo_site_name',
             ],
         },
     },
@@ -203,7 +204,7 @@ LOGGING = {
 
 # This is the human-readable name of your Wagtail install
 # which welcomes users upon login to the Wagtail admin.
-WAGTAIL_SITE_NAME = 'My Project'
+WAGTAIL_SITE_NAME = 'serprolim'
 
 WAGTAILADMIN_BASE_URL = 'https://serprolim.limpiezapozossepticos.com'
 

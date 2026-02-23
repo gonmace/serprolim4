@@ -1,61 +1,101 @@
 {% load static %}
 
-<div id="chat-widget-container" class="fixed bottom-6 left-6 z-[10001] font-sans">
-    <!-- Chat Button -->
-    <button id="chat-toggle-btn" class="btn btn-secondary btn-circle btn-lg shadow-2xl hover:scale-110 transition-transform duration-200 border-2 border-base-100">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z" />
-        </svg>
-    </button>
+<style>
+@keyframes chat-bounce-subtle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+@keyframes chat-pulse-soft {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+.chat-attract-btn {
+  box-shadow: 0 4px 24px rgba(249, 204, 65, 0.4);
+  animation: chat-pulse-soft 2.5s ease-in-out infinite;
+}
+.chat-attract-btn:hover {
+  animation: none;
+  box-shadow: 0 6px 32px rgba(249, 204, 65, 0.55);
+}
+.chat-attract-btn:hover .chat-icon-inner {
+  animation: chat-bounce-subtle 0.5s ease-in-out;
+}
+</style>
 
-    <!-- Chat Window -->
-    <div id="chat-window" class="hidden absolute bottom-12 left-0 w-80 sm:w-96 md:w-[450px] bg-base-100 rounded-2xl shadow-2xl overflow-hidden border border-base-200 flex flex-col transition-all duration-300 origin-bottom-left transform scale-95 opacity-0 max-h-[calc(100vh-80px)]">
+<div id="chat-widget-container" class="relative font-sans shrink-0" role="complementary" aria-label="Chat de atención al cliente">
+    <!-- Chat Button - un solo icono con animación sutil -->
+    <div class="relative group">
+      <button id="chat-toggle-btn" class="chat-attract-btn btn btn-primary btn-circle w-14 h-14 min-h-14 border-2 border-primary-content/20 hover:scale-110 active:scale-95 transition-all duration-200 focus:ring-2 focus:ring-primary focus:ring-offset-2" aria-label="Abrir chat con asistente IA" aria-expanded="false" aria-controls="chat-window" title="¿Preguntas? ¡Chatea con nosotros!">
+        <span class="chat-icon-inner block">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z" />
+          </svg>
+        </span>
+      </button>
+      <div class="absolute right-full mr-3 top-1/2 -translate-y-1/2 px-3 py-2 bg-secondary text-secondary-content text-sm font-medium rounded-lg shadow-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+        ¿Preguntas? ¡Chatea con IA!
+        <div class="absolute top-1/2 -right-1 -translate-y-1/2 w-2 h-2 bg-secondary transform rotate-45"></div>
+      </div>
+    </div>
+
+    <!-- Chat Window - abre debajo del botón, alineada a la derecha -->
+    <div id="chat-window" class="hidden absolute right-0 top-full mt-2 w-[min(420px,calc(100vw-2rem))] bg-base-100 rounded-2xl overflow-hidden border-2 border-primary/30 flex flex-col transition-all duration-300 opacity-0 -translate-y-2 max-h-[70vh]" style="box-shadow: 0 8px 40px rgba(0,0,0,0.2), 0 0 0 1px rgba(249,204,65,0.2);" role="dialog" aria-label="Ventana de chat" aria-modal="true">
         <!-- Header -->
-        <div class="bg-secondary text-secondary-content p-4 flex justify-between items-center shadow-md">
-            <div class="flex items-center gap-3">
-                <div class="avatar online">
-                    <div class="w-10 rounded-full bg-base-100 p-1">
-                         <img src="{% static 'img/logo-icon.png' %}" alt="AI" onerror="this.src='https://ui-avatars.com/api/?name=SerProLim&background=f9cc41&color=000&bold=true'" />
+        <div class="bg-secondary text-secondary-content px-4 py-3 flex justify-between items-center shrink-0">
+            <div class="flex items-center gap-3 min-w-0">
+                <div class="avatar online shrink-0">
+                    <div class="w-10 h-10 rounded-full bg-base-100 p-1 ring-2 ring-primary/30">
+                        <img src="{% static 'img/logo-icon.png' %}" alt="" class="rounded-full object-cover" onerror="this.src='https://ui-avatars.com/api/?name=SerProLim&background=f9cc41&color=000&bold=true'" />
                     </div>
                 </div>
-                <div>
-                    <h3 class="font-bold text-lg leading-tight">Soporte SerProLim</h3>
-                    <p class="text-xs opacity-90">En línea ahora</p>
+                <div class="min-w-0">
+                    <h3 class="text-base font-semibold leading-tight truncate">Atención al cliente</h3>
+                    <p class="text-xs opacity-90 flex items-center gap-1.5">
+                        <span class="inline-block w-2 h-2 rounded-full bg-success animate-pulse"></span>
+                        En línea ahora
+                    </p>
                 </div>
             </div>
-            <button id="chat-close-btn" class="btn btn-ghost btn-sm btn-circle text-secondary-content hover:bg-secondary-focus/50">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+            <button id="chat-close-btn" class="btn btn-ghost btn-sm btn-circle text-secondary-content hover:bg-secondary-content/20 shrink-0" aria-label="Cerrar chat">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
             </button>
         </div>
 
         <!-- Messages Area -->
-        <div id="chat-messages" class="flex-1 p-4 overflow-y-auto h-80 md:h-[600px] bg-base-200 scroll-smooth space-y-4">
+        <div id="chat-messages" class="flex-1 p-4 overflow-y-auto min-h-[240px] max-h-[min(400px,50vh)] sm:max-h-[min(480px,60vh)] md:max-h-[min(520px,65vh)] bg-base-200/80 scroll-smooth space-y-3" tabindex="-1">
             <!-- Welcome Message -->
             <div class="chat chat-start">
-                <div class="chat-header text-xs opacity-50 mb-1">
+                <div class="chat-header text-xs opacity-60 mb-0.5 font-medium">
                     Asistente
                 </div>
-                <div class="chat-bubble chat-bubble-secondary shadow-sm">
-                    ¡Hola! Soy el asistente virtual de SerProLim. ¿En qué puedo ayudarte con tu pozo o cámara séptica hoy?
+                <div class="chat-bubble chat-bubble-secondary shadow-sm text-sm leading-relaxed">
+                    ¿En qué podemos ayudarte hoy?
                 </div>
             </div>
         </div>
 
         <!-- Input Area -->
-        <div class="p-3 bg-base-100 border-t border-base-200">
-            <form id="chat-form" class="flex gap-2 items-center bg-base-200 rounded-full px-2 py-1 border focus-within:border-primary transition-colors">
-                <input type="text" id="chat-input" placeholder="Escribe tu consulta..." class="input input-ghost w-full focus:outline-none focus:bg-transparent h-10 min-h-0 text-sm" autocomplete="off" required>
-                <button type="submit" id="chat-submit-btn" class="btn btn-primary btn-circle btn-sm shadow-md">
+        <div class="p-3 bg-base-100 border-t border-base-200 shrink-0">
+            <form id="chat-form" class="flex gap-2 items-center bg-base-200 rounded-xl px-3 py-2 border-2 border-transparent focus-within:border-primary focus-within:bg-base-100 transition-all duration-200">
+                {% csrf_token %}
+                <input type="text" id="chat-input" placeholder="Escribe tu consulta..." class="input input-ghost flex-1 min-w-0 focus:outline-none focus:bg-transparent h-10 min-h-0 text-sm text-base-content placeholder:opacity-60" autocomplete="off" required aria-label="Mensaje">
+                <button type="submit" id="chat-submit-btn" class="btn btn-primary btn-circle btn-sm shrink-0" aria-label="Enviar mensaje">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 transform rotate-90">
                         <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
                     </svg>
                 </button>
             </form>
-             <div class="text-center mt-1">
-                <span class="text-[10px] text-base-content/50">Funciona con IA</span>
+            <div class="flex items-center justify-center gap-1.5 mt-2">
+                <svg class="w-3.5 h-3.5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                </svg>
+                <span class="text-[10px] text-base-content/50 font-medium">Asistente con IA</span>
             </div>
         </div>
     </div>
+
+    <!-- Backdrop (click outside to close) -->
+    <div id="chat-backdrop" class="hidden fixed inset-0 z-[-1] bg-black/20 backdrop-blur-[2px] transition-opacity duration-300" aria-hidden="true"></div>
 </div>
 
 <script>
@@ -68,6 +108,7 @@
         const chatInput = document.getElementById('chat-input');
         const chatMessages = document.getElementById('chat-messages');
         const chatSubmitBtn = document.getElementById('chat-submit-btn');
+        const chatBackdrop = document.getElementById('chat-backdrop');
 
         // Session ID Management
         let sessionId = sessionStorage.getItem('chatSessionId');
@@ -76,54 +117,77 @@
             sessionStorage.setItem('chatSessionId', sessionId);
         }
 
+        // Sanitize text to prevent XSS
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        function isChatOpen() {
+            return !chatWindow.classList.contains('hidden');
+        }
+
         // Toggle Chat Window
-        function toggleChat() {
-            const isHidden = chatWindow.classList.contains('hidden');
-            if (isHidden) {
-                chatWindow.classList.remove('hidden');
-                // Small timeout to allow removing 'hidden' to take effect before animating opacity/transform
-                setTimeout(() => {
-                    chatWindow.classList.remove('scale-95', 'opacity-0');
+        function openChat() {
+            if (isChatOpen()) return;
+            chatWindow.classList.remove('hidden');
+            chatBackdrop.classList.remove('hidden');
+            chatToggleBtn.setAttribute('aria-expanded', 'true');
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    chatWindow.classList.remove('opacity-0', '-translate-y-2');
                     chatInput.focus();
-                }, 10);
-            } else {
-                chatWindow.classList.add('scale-95', 'opacity-0');
-                setTimeout(() => {
-                    chatWindow.classList.add('hidden');
-                }, 300); // Match transition duration
-            }
+                });
+            });
+        }
+
+        function closeChat() {
+            if (!isChatOpen()) return;
+            chatWindow.classList.add('opacity-0', '-translate-y-2');
+            chatBackdrop.classList.add('hidden');
+            chatToggleBtn.setAttribute('aria-expanded', 'false');
+            setTimeout(() => {
+                chatWindow.classList.add('hidden');
+                chatToggleBtn.focus();
+            }, 300);
+        }
+
+        function toggleChat() {
+            isChatOpen() ? closeChat() : openChat();
         }
 
         chatToggleBtn.addEventListener('click', toggleChat);
-        chatCloseBtn.addEventListener('click', toggleChat);
+        chatCloseBtn.addEventListener('click', closeChat);
+        chatBackdrop.addEventListener('click', closeChat);
 
-        // Helper to add message to UI
+        // Close on Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && isChatOpen()) {
+                closeChat();
+            }
+        });
+
+        // Helper to add message to UI (escapes HTML for security)
         function appendMessage(text, isUser = false) {
-            const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            const safeText = escapeHtml(text);
+            const time = new Date().toLocaleTimeString('es', { hour: '2-digit', minute: '2-digit' });
             
             let messageHtml = '';
             if (isUser) {
                 messageHtml = `
                     <div class="chat chat-end">
-                         <div class="chat-header text-xs opacity-50 mb-1">
-                            Tú
-                        </div>
-                        <div class="chat-bubble chat-bubble-primary text-primary-content shadow-sm">${text}</div>
-                         <div class="chat-footer opacity-50 text-[10px] mt-1">
-                            ${time}
-                        </div>
+                        <div class="chat-header text-xs opacity-60 mb-0.5 font-medium">Tú</div>
+                        <div class="chat-bubble chat-bubble-primary text-primary-content shadow-sm text-sm leading-relaxed">${safeText}</div>
+                        <div class="chat-footer opacity-50 text-[10px] mt-0.5">${time}</div>
                     </div>
                 `;
             } else {
-                 messageHtml = `
+                messageHtml = `
                     <div class="chat chat-start">
-                        <div class="chat-header text-xs opacity-50 mb-1">
-                            Asistente
-                        </div>
-                        <div class="chat-bubble chat-bubble-secondary shadow-sm">${text}</div>
-                        <div class="chat-footer opacity-50 text-[10px] mt-1">
-                            ${time}
-                        </div>
+                        <div class="chat-header text-xs opacity-60 mb-0.5 font-medium">Asistente</div>
+                        <div class="chat-bubble chat-bubble-secondary shadow-sm text-sm leading-relaxed">${safeText}</div>
+                        <div class="chat-footer opacity-50 text-[10px] mt-0.5">${time}</div>
                     </div>
                 `;
             }
@@ -156,11 +220,14 @@
             chatMessages.insertAdjacentHTML('beforeend', loadingHtml);
             chatMessages.scrollTop = chatMessages.scrollHeight;
 
-            // 3. Send to Webhook
-            fetch('https://n8npozos.magoreal.com/webhook/chat', {
+            // 3. Send to Webhook (via Django Proxy)
+            const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+            
+            fetch('/chat/api/send/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
+                    'X-CSRFToken': csrftoken
                 },
                 body: JSON.stringify({
                     sessionId: sessionId,
@@ -178,16 +245,95 @@
 
                 // Check if data is JSON or text
                 let responseText = data;
+                let responseFlag = null;
+
                  try {
                     const jsonData = JSON.parse(data);
+                    responseFlag = jsonData.flag; // Get the flag
                     if (jsonData.output) responseText = jsonData.output;
                     else if (jsonData.text) responseText = jsonData.text;
                     else if (typeof jsonData === 'object') responseText = JSON.stringify(jsonData);
                 } catch (e) {
-                    // Not JSON
+                    // Not JSON, treat as plain text
                 }
 
                 appendMessage(responseText, false);
+
+                // Handle 'ubicacion' flag
+                if (responseFlag === 'ubicacion') {
+                    const locationButtonId = 'loc-btn-' + Date.now();
+                    const locationHtml = `
+                        <div class="chat chat-start">
+                             <div class="chat-bubble chat-bubble-warning text-warning-content shadow-sm flex flex-col gap-2">
+                                <span class="font-bold flex items-center gap-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+                                    </svg>
+                                    Te ayudamos a obtener tu ubicación
+                                </span>
+                                <button id="${locationButtonId}" class="btn btn-sm btn-primary w-full text-white">
+                                    📍 Compartir Ubicación
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                    chatMessages.insertAdjacentHTML('beforeend', locationHtml);
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+
+                    // Add click event to the new button
+                    setTimeout(() => {
+                        const btn = document.getElementById(locationButtonId);
+                        if (btn) {
+                            btn.addEventListener('click', function() {
+                                // 1. Scroll to #cotiza
+                                const cotizaSection = document.getElementById('cotiza');
+                                if (cotizaSection) {
+                                    cotizaSection.scrollIntoView({ behavior: 'smooth' });
+                                }
+
+                                // 2. Store current marker reference
+                                const initialMarker = window.marker;
+
+                                // 3. Find and click the map's location button
+                                setTimeout(() => {
+                                     const mapLocationBtn = document.querySelector('button[aria-label="cotizar"]');
+                                     if (mapLocationBtn) {
+                                         mapLocationBtn.click();
+                                         
+                                         // 4. Poll for new marker
+                                         const checkLocationInterval = setInterval(() => {
+                                            if (window.marker && window.marker !== initialMarker) {
+                                                // Location found and marker updated
+                                                const lat = window.marker.getLatLng().lat.toFixed(6);
+                                                const lng = window.marker.getLatLng().lng.toFixed(6);
+                                                
+                                                // Populate input
+                                                const chatInput = document.getElementById('chat-input');
+                                                if (chatInput) {
+                                                    chatInput.value = `Ubicación: ${lat}, ${lng}`;
+                                                    // Optional: Focus or highlight
+                                                    // chatInput.focus();
+                                                }
+                                                
+                                                clearInterval(checkLocationInterval);
+                                                
+                                                // Optional: Scroll back to chat widget if desired?
+                                                // For now, let's keep them on the map to verify visual location.
+                                                // But maybe show a toast or notification?
+                                            }
+                                         }, 1000);
+                                         
+                                         // Timeout after 30 seconds to stop polling
+                                         setTimeout(() => clearInterval(checkLocationInterval), 30000);
+
+                                     } else {
+                                         console.warn('Map location button not found');
+                                     }
+                                }, 800); 
+                            });
+                        }
+                    }, 100);
+                }
             })
             .catch(error => {
                 console.error('Error:', error);
@@ -199,6 +345,8 @@
             .finally(() => {
                 chatInput.disabled = false;
                 chatSubmitBtn.disabled = false;
+                // Only focus if we didn't just add a location button that we want the user to click? 
+                // Actually always focusing is fine.
                 chatInput.focus();
             });
         });

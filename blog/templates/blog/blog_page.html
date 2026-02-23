@@ -3,11 +3,10 @@
 {% load wagtailimages_tags filters_tags social_share wmetadata_tags static %}
 {% block meta_tag %}
 	{{ block.super }}
-  	{% comment %} {% meta_tags %} {% endcomment %}
+	{% meta_tags model=self %}
 {% endblock %}
 
 {% block css %}
-	{% meta_tags %} 
   	{{ block.super }}
 {% endblock %}
 
@@ -34,10 +33,10 @@ xl:container mx-auto bg-gray-900
 		</article>
 		{% comment %} https://pypi.org/project/django-social-share/ {% endcomment %}
 		<div class="flex justify-around max-w-sm mx-auto pb-4 space-x-4 align-center h-12">
-			{% post_to_whatsapp object_or_url "Comparte via WhatsApp" "h-full w-full text-black hover:text-whatsapp" %}
-			{% post_to_facebook object_or_url "Compartir en Facebook!" "h-full w-full text-black hover:text-facebook" %}
-			{% post_to_twitter "{{ self.title }}. Mira!" object_or_url "Compartir por Twitter" "h-full w-full text-black hover:text-twitter" %}
-			{% send_email "{{ self.title }}" "{{self.introduction}}. Continuar leyendo en el siguiente link... {{ self.url }}" object_or_url "Comparte por correo" "h-full w-full text-black hover:text-mail" %}
+			{% post_to_whatsapp self.full_url "Comparte via WhatsApp" "h-full w-full text-black hover:text-whatsapp" %}
+			{% post_to_facebook self.full_url "Compartir en Facebook!" "h-full w-full text-black hover:text-facebook" %}
+			{% post_to_twitter "{{ self.title }}. Mira!" self.full_url "Compartir por Twitter" "h-full w-full text-black hover:text-twitter" %}
+			{% send_email "{{ self.title }}" "{{self.introduction}}. Continuar leyendo en el siguiente link... {{ self.full_url }}" self.full_url "Comparte por correo" "h-full w-full text-black hover:text-mail" %}
 		</div>
 	</div>
 

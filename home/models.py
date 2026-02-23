@@ -31,6 +31,23 @@ class LandingPage(models.Model):
         help_text="Check to make this the active Landing Page for the selected country."
     )
 
+    seo_title = models.CharField(
+        "SEO Title",
+        max_length=70,
+        blank=True,
+        null=True,
+        default="Limpieza de pozos y cámaras sépticas",
+        help_text="Título para buscadores y redes sociales (ej: Limpieza de pozos y cámaras sépticas)",
+    )
+    search_description = models.TextField(
+        "Meta Description",
+        max_length=160,
+        blank=True,
+        null=True,
+        default="SerProLim - Limpieza de pozos ciegos y cámaras sépticas en Santa Cruz. Cotiza en línea. Puntualidad y buen servicio.",
+        help_text="Descripción para buscadores (máx 160 caracteres)",
+    )
+
     subtitle = models.CharField(
         "Sub Titulo",
         max_length=50,
@@ -129,6 +146,16 @@ class LandingPage(models.Model):
             LandingPage.objects.filter(country=self.country).exclude(pk=self.pk).update(enabled=False)
         cache.clear()
         super().save(*args, **kwargs)
+
+    @property
+    def title(self):
+        """Alias for templates expecting Page-like title (base.html)."""
+        return self.seo_title or self.subtitle or "Limpieza de pozos y cámaras sépticas"
+
+    @property
+    def canonical_url(self):
+        """Return None - LandingPage uses request path for canonical (handled by base)."""
+        return None
 
 class LandingService(models.Model):
     landing_page = models.ForeignKey(
