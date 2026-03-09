@@ -8,7 +8,7 @@ from wagtail.documents import urls as wagtaildocs_urls
 
 from django.conf import settings
 
-from wfavicon.urls import urls as favicon_urls
+from favicon.urls import urls as favicon_urls
 from django.views.generic import TemplateView
 from django.http import HttpResponse
 from django.template import loader

@@ -3,13 +3,19 @@
 def seo_site_name(request):
     """
     Add seo_site_name to context for use in page titles.
-    Uses Wagtail Site when available, otherwise defaults to 'serprolim'.
+    Always uses CountrySettings.site_name from admin (request.country or default 'bo').
     """
-    try:
-        from wagtail.models import Site
-        site = Site.find_for_request(request)
-        if site:
-            return {'seo_site_name': site.site_name}
-    except Exception:
-        pass
-    return {'seo_site_name': 'serprolim'}
+    from django.conf import settings
+    default = getattr(settings, 'DEFAULT_SITE_NAME', 'MultiSane')
+
+    # 1. CountrySettings from model (request.country or default 'bo')
+    country = getattr(request, 'country', None)
+    if not country:
+        from generalData.models import CountrySettings
+        country = CountrySettings.objects.filter(country_code='bo').first()
+
+    if country:
+        return {'seo_site_name': (country.site_name or default).strip() or default}
+
+    # 2. Last resort when no CountrySettings exist yet
+    return {'seo_site_name': default}

@@ -55,6 +55,7 @@ class StandardPage(Page):
     it could be used for any type of page content that only needs a title,
     image, introduction and body field
     """
+    parent_page_types = ['wagtailcore.Page']  # Puede ser página raíz (al mover desde Home)
 
     introduction = models.TextField(
         help_text='Text to describe the page',

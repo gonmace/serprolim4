@@ -1,7 +1,7 @@
 from django.db import migrations
 
 def reverse_pivot_landing_page(apps, schema_editor):
-    CountrySettings = apps.get_model('wgeneralData', 'CountrySettings')
+    CountrySettings = apps.get_model('generalData', 'CountrySettings')
     LandingPage = apps.get_model('home', 'LandingPage')
     LandingService = apps.get_model('home', 'LandingService')
     LandingFAQ = apps.get_model('home', 'LandingFAQ')
@@ -52,7 +52,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ('home', '0010_landingpage_enabled_alter_landingfaq_country_and_more'), 
-        ('wgeneralData', '0013_countrysettings_cotizadescription_and_more'), 
+        ('generalData', '0013_countrysettings_cotizadescription_and_more'), 
     ]
 
     operations = [

@@ -1,4 +1,4 @@
 <!-- https://docs.wagtail.org/en/stable/advanced_topics/customisation/admin_templates.html#custom-branding -->
 {% extends "wagtailadmin/home.html" %}
 
-{% block branding_welcome %}SERPROLIM{% endblock %}
+{% block branding_welcome %}{{ site_settings.site_name|default:"MultiSane" }}{% endblock %}

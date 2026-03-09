@@ -1,15 +1,19 @@
-{% load static wagtailimages_tags %}
-{% comment %} {% load static navigation_tags svg %} {% endcomment %}
+{% load static wagtailimages_tags svg_tags %}
 
 
-  <header class="{{ class }}">
+  <header class="{{ class }} relative z-10002">
     <div class="navbar bg-primary text-primary-content shadow-lg">
       <div class="navbar-start">
-        <a href="/" class="btn btn-ghost h-auto hover:bg-transparent">
+        <a href="/" class="btn btn-ghost h-auto text-inherit border-0 hover:border-0 focus:outline-none focus:ring-0" title="{{ site_settings.site_name }} - Limpieza de pozos y cámaras sépticas">
           {% if site_settings.icon %}
-            <img src="{{ site_settings.icon.url }}" alt="SerProLim - Limpieza de pozos y cámaras sépticas" class="h-12 w-auto max-w-48 object-contain" />
+            <img src="{{ site_settings.icon.url }}" alt="{{ site_settings.site_name }} - Limpieza de pozos y cámaras sépticas" class="h-12 w-auto max-w-48 object-contain" />
           {% else %}
-            <img src="{% static 'img/multisane.svg' %}" alt="SerProLim - Limpieza de pozos y cámaras sépticas" class="h-12 w-auto max-w-48 object-contain" />
+            {% inline_svg 'img/multisane.svg' class_name='h-12 w-auto max-w-48' color_var='primary-content' as logo_svg %}
+            {% if logo_svg %}
+              {{ logo_svg }}
+            {% else %}
+              <img src="{% static 'img/multisane.svg' %}" alt="{{ site_settings.site_name }} - Limpieza de pozos y cámaras sépticas" class="h-12 w-auto max-w-48 object-contain" />
+            {% endif %}
           {% endif %}
         </a>
       </div>
@@ -30,7 +34,7 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           </div>
-          <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-primary text-primary-content rounded-box w-52">
+          <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-1 p-2 shadow bg-primary text-primary-content rounded-box w-52">
             <li><a href="/#cotiza" class="text-lg font-medium hover:bg-accent transition-colors">Cotiza</a></li>
             <li><a href="/#clientes" class="text-lg font-medium hover:bg-accent transition-colors">Servicios</a></li>
             <li><a href="/#preguntas" class="text-lg font-medium hover:bg-accent transition-colors">Preguntas</a></li>

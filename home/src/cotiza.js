@@ -84,7 +84,7 @@ export default async function cotizar(marker) {
   contratar.addEventListener("click", async function () {
     if (disponibilidad) {
       var codigo = generarCodigo(precioRound);
-      await postData("serprolim", "", precioRound, marker, "COT", "CLC", codigo);
+      await postData("multisane", "", precioRound, marker, "COT", "CLC", codigo);
       var url = `https://wa.me/591${celular}?text=Código+de+cotización:+${codigo}%0D%0a${mjeWAContratando}%0D%0ahttps://maps.google.com/maps?q=${marker._latlng.lat}%2C${marker._latlng.lng}&z=17&hl=es`;
     } else {
       var url = `https://wa.me/591${celular}?text=${mjeWAFueraDeRango}`;

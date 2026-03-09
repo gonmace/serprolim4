@@ -3,7 +3,7 @@
 from django.db import migrations, models
 import django.db.models.deletion
 import modelcluster.fields
-import wmetadata.models
+import metadata.models
 
 
 class Migration(migrations.Migration):
@@ -37,7 +37,7 @@ class Migration(migrations.Migration):
             options={
                 'abstract': False,
             },
-            bases=(wmetadata.models.WagtailImageMetadataMixin, 'wagtailcore.page', models.Model),
+            bases=(metadata.models.WagtailImageMetadataMixin, 'wagtailcore.page', models.Model),
         ),
         migrations.CreateModel(
             name='preguntasFrecuentes',

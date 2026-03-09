@@ -11,10 +11,10 @@ from wagtail.admin.panels import (
     MultiFieldPanel,
 )
 
-from wmetadata.models import MetadataPageMixin
+from metadata.models import MetadataPageMixin
 
 # --- NEW DJANGO MODELS ---
-from wgeneralData.models import CountrySettings
+from generalData.models import CountrySettings
 
 class LandingPage(models.Model):
     country = models.ForeignKey(
@@ -44,7 +44,7 @@ class LandingPage(models.Model):
         max_length=160,
         blank=True,
         null=True,
-        default="SerProLim - Limpieza de pozos ciegos y cámaras sépticas en Santa Cruz. Cotiza en línea. Puntualidad y buen servicio.",
+        default="MultiSane - Limpieza de pozos ciegos y cámaras sépticas en Santa Cruz. Cotiza en línea. Puntualidad y buen servicio.",
         help_text="Descripción para buscadores (máx 160 caracteres)",
     )
 
@@ -223,8 +223,10 @@ class LandingFAQ(models.Model):
 
 
 # --- EXISTING WAGTAIL MODELS (Deprecated) ---
+# HomePage ya no se usa: BlogIndexPage es la raíz. Ejecutar: python manage.py make_blog_root
 
 class HomePage(MetadataPageMixin, Page):
+    parent_page_types = []  # No permitir crear nuevas HomePage
 
     subpage_types = [
         'blog.BlogIndexPage',

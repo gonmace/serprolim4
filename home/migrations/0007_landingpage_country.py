@@ -8,13 +8,13 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ('home', '0006_migrate_wagtail_home_to_django'),
-        ('wgeneralData', '0009_countrysettings_generalsettings_phone_prefix'),
+        ('generalData', '0009_countrysettings_generalsettings_phone_prefix'),
     ]
 
     operations = [
         migrations.AddField(
             model_name='landingpage',
             name='country',
-            field=models.OneToOneField(blank=True, help_text='Leave blank for Default/Global Landing Page', null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='landing_page', to='wgeneralData.countrysettings', verbose_name='Specific Country Config'),
+            field=models.OneToOneField(blank=True, help_text='Leave blank for Default/Global Landing Page', null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='landing_page', to='generalData.countrysettings', verbose_name='Specific Country Config'),
         ),
     ]

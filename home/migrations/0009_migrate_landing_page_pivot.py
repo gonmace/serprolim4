@@ -2,7 +2,7 @@ from django.db import migrations
 
 def pivot_landing_page_to_country(apps, schema_editor):
     LandingPage = apps.get_model('home', 'LandingPage')
-    CountrySettings = apps.get_model('wgeneralData', 'CountrySettings')
+    CountrySettings = apps.get_model('generalData', 'CountrySettings')
     LandingService = apps.get_model('home', 'LandingService')
     LandingFAQ = apps.get_model('home', 'LandingFAQ')
 
@@ -55,8 +55,8 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ('home', '0008_landingfaq_country_landingservice_country_and_more'),
-        ('wgeneralData', '0013_countrysettings_cotizadescription_and_more'), 
-        # Added dependency on wgeneralData because we write to CountrySettings
+        ('generalData', '0013_countrysettings_cotizadescription_and_more'), 
+        # Added dependency on generalData because we write to CountrySettings
     ]
 
     operations = [

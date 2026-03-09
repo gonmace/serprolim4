@@ -1,38 +1,18 @@
 {% load static %}
 
-<style>
-@keyframes chat-bounce-subtle {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-3px); }
-}
-@keyframes chat-pulse-soft {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.03); }
-}
-.chat-attract-btn {
-  box-shadow: 0 4px 24px rgba(249, 204, 65, 0.4);
-  animation: chat-pulse-soft 2.5s ease-in-out infinite;
-}
-.chat-attract-btn:hover {
-  animation: none;
-  box-shadow: 0 6px 32px rgba(249, 204, 65, 0.55);
-}
-.chat-attract-btn:hover .chat-icon-inner {
-  animation: chat-bounce-subtle 0.5s ease-in-out;
-}
-</style>
+
 
 <div id="chat-widget-container" class="relative font-sans shrink-0" role="complementary" aria-label="Chat de atención al cliente">
     <!-- Chat Button - un solo icono con animación sutil -->
     <div class="relative group">
-      <button id="chat-toggle-btn" class="chat-attract-btn btn btn-primary btn-circle w-14 h-14 min-h-14 border-2 border-primary-content/20 hover:scale-110 active:scale-95 transition-all duration-200 focus:ring-2 focus:ring-primary focus:ring-offset-2" aria-label="Abrir chat con asistente IA" aria-expanded="false" aria-controls="chat-window" title="¿Preguntas? ¡Chatea con nosotros!">
+      <button id="chat-toggle-btn" class="chat-attract-btn btn btn-primary btn-circle w-14 h-14 min-h-14 border-0 hover:scale-110 active:scale-95 transition-all duration-200 focus:ring-2 focus:ring-primary focus:ring-offset-2" aria-label="Abrir chat con asistente IA" aria-expanded="false" aria-controls="chat-window" title="¿Preguntas? ¡Chatea con nosotros!">
         <span class="chat-icon-inner block">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z" />
           </svg>
         </span>
       </button>
-      <div class="absolute right-full mr-3 top-1/2 -translate-y-1/2 px-3 py-2 bg-secondary text-secondary-content text-sm font-medium rounded-lg shadow-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+      <div class="absolute right-full mr-3 top-1/2 -translate-y-1/2 px-3 py-2 bg-secondary text-secondary-content text-sm font-medium rounded-lg shadow-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-0">
         ¿Preguntas? ¡Chatea con IA!
         <div class="absolute top-1/2 -right-1 -translate-y-1/2 w-2 h-2 bg-secondary transform rotate-45"></div>
       </div>
@@ -41,11 +21,11 @@
     <!-- Chat Window - abre debajo del botón, alineada a la derecha -->
     <div id="chat-window" class="hidden absolute right-0 top-full mt-2 w-[min(420px,calc(100vw-2rem))] bg-base-100 rounded-2xl overflow-hidden border-2 border-primary/30 flex flex-col transition-all duration-300 opacity-0 -translate-y-2 max-h-[70vh]" style="box-shadow: 0 8px 40px rgba(0,0,0,0.2), 0 0 0 1px rgba(249,204,65,0.2);" role="dialog" aria-label="Ventana de chat" aria-modal="true">
         <!-- Header -->
-        <div class="bg-secondary text-secondary-content px-4 py-3 flex justify-between items-center shrink-0">
+        <div class="bg-primary-light text-primary-content px-4 py-3 flex justify-between items-center shrink-0">
             <div class="flex items-center gap-3 min-w-0">
                 <div class="avatar online shrink-0">
                     <div class="w-10 h-10 rounded-full bg-base-100 p-1 ring-2 ring-primary/30">
-                        <img src="{% static 'img/logo-icon.png' %}" alt="" class="rounded-full object-cover" onerror="this.src='https://ui-avatars.com/api/?name=SerProLim&background=f9cc41&color=000&bold=true'" />
+                        <img src="{% static 'img/logo-icon.png' %}" alt="{{ site_settings.site_name }}" class="rounded-full object-cover" onerror="this.src='https://ui-avatars.com/api/?name={{ site_settings.site_name|urlencode }}&background=f9cc41&color=000&bold=true'" />
                     </div>
                 </div>
                 <div class="min-w-0">
@@ -68,7 +48,7 @@
                 <div class="chat-header text-xs opacity-60 mb-0.5 font-medium">
                     Asistente
                 </div>
-                <div class="chat-bubble chat-bubble-secondary shadow-sm text-sm leading-relaxed">
+                <div class="chat-bubble chat-bubble-success shadow-sm text-sm leading-relaxed">
                     ¿En qué podemos ayudarte hoy?
                 </div>
             </div>

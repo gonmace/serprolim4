@@ -43,3 +43,13 @@ INTERNAL_IPS = [
     "127.0.0.1",
     "::1",
 ]
+
+# Wagtail: URL base para desarrollo local
+WAGTAILADMIN_BASE_URL = 'http://localhost:8000'
+
+# CSRF: permite peticiones desde localhost en desarrollo
+CSRF_COOKIE_SECURE = False
+CSRF_TRUSTED_ORIGINS = [
+    'http://localhost:8000',
+    'http://127.0.0.1:8000',
+]

@@ -37,10 +37,10 @@ INSTALLED_APPS = [
     'chat',
     'blog',
 
-    'wfavicon',
-    "wmetadata",
-    'wgeneralData',
-    'wanalytics',
+    'favicon',
+    "metadata",
+    'generalData',
+    'analytics',
 
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
@@ -81,7 +81,7 @@ MIDDLEWARE = [
 
     'wagtail.contrib.redirects.middleware.RedirectMiddleware',
     
-    'wgeneralData.middleware.CountryMiddleware',
+    'generalData.middleware.CountryMiddleware',
 ]
 
 ROOT_URLCONF = 'main.urls'
@@ -102,7 +102,8 @@ TEMPLATES = [
 
                 'wagtail.contrib.settings.context_processors.settings',
                 'blog.context_processors.blog_page',
-                'wgeneralData.context_processors.site_settings',
+                'generalData.context_processors.site_settings',
+                'analytics.context_processors.project_analytics',
                 'home.context_processors.seo_site_name',
             ],
         },
@@ -204,9 +205,16 @@ LOGGING = {
 
 # This is the human-readable name of your Wagtail install
 # which welcomes users upon login to the Wagtail admin.
-WAGTAIL_SITE_NAME = 'serprolim'
+WAGTAIL_SITE_NAME = 'MultiSane'
 
-WAGTAILADMIN_BASE_URL = 'https://serprolim.limpiezapozossepticos.com'
+# Fallback when CountrySettings has no site_name (used by context processors)
+DEFAULT_SITE_NAME = 'MultiSane'
+
+# En producción define WAGTAILADMIN_BASE_URL; si no está definido usa localhost
+WAGTAILADMIN_BASE_URL = os.environ.get(
+    'WAGTAILADMIN_BASE_URL',
+    'http://localhost:8000'
+)
 
 # Replace the search backend
 #WAGTAILSEARCH_BACKENDS = {

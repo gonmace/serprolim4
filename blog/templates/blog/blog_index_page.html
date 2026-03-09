@@ -19,7 +19,6 @@ xl:container mx-auto bg-gray-900
 			{% if forloop.first %}
 			<a rel="" href="{{ post.url }}" class="block max-w-sm gap-3 mx-auto sm:max-w-full group hover:no-underline focus:no-underline md:grid md:grid-cols-12 bg-white shadow-md hover:shadow-lg transition-all duration-300 rounded-2xl overflow-hidden">
 				{% image post.image height-320 format-webp class="rounded-l-2xl sm:object-cover w-full h-64 rounded sm:h-96 md:col-span-7" %}
-				{% comment %} <img src="https://source.unsplash.com/random/480x360" alt="" class="object-cover w-full h-64 rounded sm:h-96 lg:col-span-7"> {% endcomment %}
 				<div class="p-6 space-y-2 md:col-span-5">
 					<h1 class="mb-6 sm:text-3xl text-center font-semibold group-hover:underline group-focus:underline">{{ post.title|titulo }}</h1>
 					<p>{{ post.introduction }}</p>
@@ -39,9 +38,6 @@ xl:container mx-auto bg-gray-900
 		{% endfor %}
 
 		</div>
-		{% comment %} <div class="flex justify-center">
-			<button type="button" class="px-6 py-3 text-sm rounded-md hover:underline dark:bg-gray-900 dark:text-gray-400">Load more posts...</button>
-		</div> {% endcomment %}
 	</div>
 </section>
 

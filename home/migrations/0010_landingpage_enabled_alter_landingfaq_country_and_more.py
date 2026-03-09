@@ -8,7 +8,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ('home', '0009_migrate_landing_page_pivot'),
-        ('wgeneralData', '0013_countrysettings_cotizadescription_and_more'),
+        ('generalData', '0013_countrysettings_cotizadescription_and_more'),
     ]
 
     operations = [
@@ -20,7 +20,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='landingfaq',
             name='country',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='faqs_deprecated', to='wgeneralData.countrysettings', verbose_name='Country (Deprecated)'),
+            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='faqs_deprecated', to='generalData.countrysettings', verbose_name='Country (Deprecated)'),
         ),
         migrations.AlterField(
             model_name='landingfaq',
@@ -30,12 +30,12 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='landingpage',
             name='country',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='landing_pages', to='wgeneralData.countrysettings', verbose_name='Country Config'),
+            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='landing_pages', to='generalData.countrysettings', verbose_name='Country Config'),
         ),
         migrations.AlterField(
             model_name='landingservice',
             name='country',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='services_deprecated', to='wgeneralData.countrysettings', verbose_name='Country (Deprecated)'),
+            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='services_deprecated', to='generalData.countrysettings', verbose_name='Country (Deprecated)'),
         ),
         migrations.AlterField(
             model_name='landingservice',

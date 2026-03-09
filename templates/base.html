@@ -1,33 +1,33 @@
 {% load static wagtailcore_tags wagtailuserbar favicon_tags %}
 
 <!DOCTYPE html>
-<html lang="es" data-theme="{{ site_settings.theme|default:'serprolim' }}">
+<html lang="es" data-theme="{{ site_settings.theme|default:'multisane' }}">
   <head>
     <meta charset="utf-8" />
     {% favicon_meta %}
-    {% if site_settings.head_scripts %}
-      {{ site_settings.head_scripts|safe }}
+    {% if project_analytics.head_scripts %}
+      {{ project_analytics.head_scripts|safe }}
     {% endif %}
 
-    {% if site_settings.gads_id %}
-    <!-- Global site tag (gtag.js) - Google Ads: 665045883 -->
-      <script async src="https://www.googletagmanager.com/gtag/js?id=AW-{{ site_settings.gads_id }}"></script>
+    {% if project_analytics.gads_id %}
+    <!-- Global site tag (gtag.js) - Google Ads -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=AW-{{ project_analytics.gads_id }}"></script>
       <script>
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', 'AW-{{ site_settings.gads_id }}');
+          gtag('config', 'AW-{{ project_analytics.gads_id }}');
       </script>
     <!-- End Google Tag Manager -->
     {% endif %}
 
-    {% if site_settings.gtm_id %}
+    {% if project_analytics.gtm_id %}
     <!-- Google Tag Manager -->
       <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
       new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
       j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       ' https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-{{ site_settings.gtm_id }}');</script>
+      })(window,document,'script','dataLayer','GTM-{{ project_analytics.gtm_id }}');</script>
       <!-- End Google Tag Manager -->
     {% endif %}
 
@@ -37,10 +37,10 @@
         {% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}
         {% endblock %}
         {% block title_suffix %}
-          {% if seo_site_name %}| {{ seo_site_name }}{% endif %}
+          | {% firstof site_settings.site_name seo_site_name "MultiSane" %}
         {% endblock %}
     </title>
-    <meta name="description" content="{% if page.search_description %}{{ page.search_description }}{% else %}SerProLim - Limpieza de pozos ciegos y cámaras sépticas en Santa Cruz. Cotiza en línea.{% endif %}" />
+    <meta name="description" content="{% if page.search_description %}{{ page.search_description }}{% else %}{{ site_settings.site_name }} - Limpieza de pozos ciegos y cámaras sépticas en Santa Cruz. Cotiza en línea.{% endif %}" />
     {% endblock meta_tag %}
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -63,23 +63,20 @@
   </head>
 
   <body class="{% block body_class %}{% endblock %}">
-    {% if site_settings.body_scripts %}
-      {{ site_settings.body_scripts|safe }}
+    {% if project_analytics.body_scripts %}
+      {{ project_analytics.body_scripts|safe }}
     {% endif %}
     <!-- Google Tag Manager (noscript) -->
-    {% if site_settings.gtm_id %}    
-      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-{{ site_settings.gtm_id }}"
+    {% if project_analytics.gtm_id %}    
+      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-{{ project_analytics.gtm_id }}"
       height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     {% endif %} 
     <!-- End Google Tag Manager (noscript) -->
 
     {% wagtailuserbar %}
 
-
-
-    {% comment %} Chat en superior derecha, WhatsApp en inferior derecha (posición original) {% endcomment %}
     <div class="fixed top-20 left-0 right-0 z-[10001] pl-4 sm:pl-6 pr-1 pointer-events-none">
-      <div class="w-full flex justify-end pointer-events-auto">
+      <div class="w-full h-0 overflow-visible flex justify-end pointer-events-auto">
         {% include "chat/widget.html" %}
       </div>
     </div>

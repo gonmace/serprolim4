@@ -140,8 +140,8 @@
 @source "../../home";
 @source "../../blog";
 @source "../../base";
-@source "../../wfavicon";
-@source "../../wmetadata";
+@source "../../favicon";
+@source "../../metadata";
 @source "../../chat";
 
 @theme {
@@ -176,6 +176,33 @@
 
         to {
             opacity: 1;
+        }
+    }
+
+    --animate-chat-pulse-soft: chat-pulse-soft 2.5s ease-in-out infinite;
+    --animate-chat-bounce-subtle: chat-bounce-subtle 0.5s ease-in-out;
+
+    @keyframes chat-bounce-subtle {
+
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-3px);
+        }
+    }
+
+    @keyframes chat-pulse-soft {
+
+        0%,
+        100% {
+            transform: scale(1);
+        }
+
+        50% {
+            transform: scale(1.03);
         }
     }
 }
@@ -277,6 +304,20 @@ h6,
 }
 
 @layer components {
+    .chat-attract-btn {
+        box-shadow: 0 4px 24px rgba(249, 204, 65, 0.4);
+        animation: var(--animate-chat-pulse-soft);
+    }
+
+    .chat-attract-btn:hover {
+        animation: none;
+        box-shadow: 0 6px 32px rgba(249, 204, 65, 0.55);
+    }
+
+    .chat-attract-btn:hover .chat-icon-inner {
+        animation: var(--animate-chat-bounce-subtle);
+    }
+
     #list_serv div>div>p {
         @apply mt-3;
     }

@@ -19,7 +19,7 @@ from wagtail.search import index
 
 from base.blocks import BaseStreamBlock
 
-from wmetadata.models import MetadataPageMixin
+from metadata.models import MetadataPageMixin
 
 # class BlogPeopleRelationship(Orderable, models.Model):
 #     """
@@ -154,6 +154,8 @@ class BlogPageRelatedLink(Orderable):
     ]
 
 class BlogIndexPage(Page):
+    """Índice del blog. Actúa como raíz de Wagtail (no hay HomePage)."""
+    parent_page_types = ['wagtailcore.Page']  # Permite ser página raíz del sitio
 
     # introduction = models.TextField(
     #     help_text='Text to describe the page',
