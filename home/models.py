@@ -10,11 +10,13 @@ from wagtail.admin.panels import (
     InlinePanel,
     MultiFieldPanel,
 )
+from wagtail.fields import StreamField
 
-from metadata.models import MetadataPageMixin
+from config.metadata import MetadataPageMixin
+from blog.blocks import BaseStreamBlock
 
 # --- NEW DJANGO MODELS ---
-from generalData.models import CountrySettings
+from config.models import CountrySettings
 
 class LandingPage(models.Model):
     country = models.ForeignKey(
@@ -154,7 +156,7 @@ class LandingPage(models.Model):
 
     @property
     def canonical_url(self):
-        """Return None - LandingPage uses request path for canonical (handled by base)."""
+        """Return None - LandingPage uses request path for canonical (handled by base template)."""
         return None
 
 class LandingService(models.Model):
@@ -222,6 +224,33 @@ class LandingFAQ(models.Model):
         return self.pregunta or "Pregunta"
 
 
+# --- WAGTAIL PAGES ---
+class StandardPage(Page):
+    """
+    A generic content page (e.g. about page).
+    """
+    parent_page_types = ['wagtailcore.Page']
+
+    introduction = models.TextField(
+        help_text='Text to describe the page',
+        blank=True)
+
+    body = StreamField(
+        BaseStreamBlock(),
+        verbose_name="Page body",
+        blank=True,
+        use_json_field=True
+    )
+
+    content_panels = Page.content_panels + [
+        FieldPanel('introduction', classname="full"),
+        FieldPanel('body'),
+    ]
+
+    class Meta:
+        db_table = 'base_standardpage'  # Preserve table after moving from base
+
+
 # --- EXISTING WAGTAIL MODELS (Deprecated) ---
 # HomePage ya no se usa: BlogIndexPage es la raíz. Ejecutar: python manage.py make_blog_root
 
@@ -230,7 +259,7 @@ class HomePage(MetadataPageMixin, Page):
 
     subpage_types = [
         'blog.BlogIndexPage',
-        'base.StandardPage'
+        'home.StandardPage'
     ]
 # BANNER
     subtitle = models.CharField(

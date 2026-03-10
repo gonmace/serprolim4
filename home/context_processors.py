@@ -11,7 +11,7 @@ def seo_site_name(request):
     # 1. CountrySettings from model (request.country or default 'bo')
     country = getattr(request, 'country', None)
     if not country:
-        from generalData.models import CountrySettings
+        from config.models import CountrySettings
         country = CountrySettings.objects.filter(country_code='bo').first()
 
     if country:

@@ -1,14 +1,7 @@
 from django.contrib import admin
+from django.utils.safestring import mark_safe
+from .models import GeneralSettings, Social, CountrySettings
 
-from .models import CountrySettings
-
-
-THEME_CHOICES = [
-    ('serprolim', 'SerProLim (Amarillo/Verde)'),
-    ('multisane', 'MultiSane (Emerald Green)'),
-    ('limpio', 'Limpio (Compatible)'),
-    ('limpio-ya', 'Limpio Ya (Logo Colors)'),
-]
 
 fieldsets = (
     ('General Config', {
@@ -36,6 +29,13 @@ fieldsets = (
         'description': 'Map coordinates and messages'
     }),
 )
+
+THEME_CHOICES = [
+    ('serprolim', 'SerProLim (Amarillo/Verde)'),
+    ('multisane', 'MultiSane (Emerald Green)'),
+    ('limpio', 'Limpio (Compatible)'),
+    ('limpio-ya', 'Limpio Ya (Logo Colors)'),
+]
 
 
 @admin.register(CountrySettings)

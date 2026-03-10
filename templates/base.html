@@ -1,35 +1,17 @@
-{% load static wagtailcore_tags wagtailuserbar favicon_tags %}
+{% load static wagtailcore_tags wagtailuserbar %}
 
 <!DOCTYPE html>
 <html lang="es" data-theme="{{ site_settings.theme|default:'multisane' }}">
   <head>
     <meta charset="utf-8" />
-    {% favicon_meta %}
-    {% if project_analytics.head_scripts %}
-      {{ project_analytics.head_scripts|safe }}
-    {% endif %}
-
-    {% if project_analytics.gads_id %}
-    <!-- Global site tag (gtag.js) - Google Ads -->
-      <script async src="https://www.googletagmanager.com/gtag/js?id=AW-{{ project_analytics.gads_id }}"></script>
-      <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'AW-{{ project_analytics.gads_id }}');
-      </script>
-    <!-- End Google Tag Manager -->
-    {% endif %}
-
-    {% if project_analytics.gtm_id %}
-    <!-- Google Tag Manager -->
-      <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      ' https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-{{ project_analytics.gtm_id }}');</script>
-      <!-- End Google Tag Manager -->
-    {% endif %}
+    <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}" />
+    {% if project_analytics.open_graph %}{{ project_analytics.open_graph|safe }}{% endif %}
+    {% if project_analytics.gtm %}{{ project_analytics.gtm|safe }}{% endif %}
+    {% if project_analytics.google_analytics %}{{ project_analytics.google_analytics|safe }}{% endif %}
+    {% if project_analytics.google_ads %}{{ project_analytics.google_ads|safe }}{% endif %}
+    {% if project_analytics.adsense %}{{ project_analytics.adsense|safe }}{% endif %}
+    {% if project_analytics.fb_pixel %}{{ project_analytics.fb_pixel|safe }}{% endif %}
+    {% if project_analytics.head_scripts %}{{ project_analytics.head_scripts|safe }}{% endif %}
 
     {% block meta_tag %}
     <title>
@@ -63,15 +45,7 @@
   </head>
 
   <body class="{% block body_class %}{% endblock %}">
-    {% if project_analytics.body_scripts %}
-      {{ project_analytics.body_scripts|safe }}
-    {% endif %}
-    <!-- Google Tag Manager (noscript) -->
-    {% if project_analytics.gtm_id %}    
-      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-{{ project_analytics.gtm_id }}"
-      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    {% endif %} 
-    <!-- End Google Tag Manager (noscript) -->
+    {% if project_analytics.body_scripts %}{{ project_analytics.body_scripts|safe }}{% endif %}
 
     {% wagtailuserbar %}
 

@@ -11,7 +11,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ('home', '0013_add_landing_seo_fields'),
-        ('wagtailcore', '0097_alter_page_title'),
+        ('wagtailcore', '0094_alter_page_locale'),
     ]
 
     operations = [

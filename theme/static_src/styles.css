@@ -127,9 +127,7 @@
 @source "../../**/templates";
 @source "../../home";
 @source "../../blog";
-@source "../../base";
-@source "../../favicon";
-@source "../../metadata";
+@source "../../config";
 @source "../../chat";
 
 @theme {

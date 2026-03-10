@@ -8,7 +8,7 @@ import wagtail.blocks
 import wagtail.embeds.blocks
 import wagtail.fields
 import wagtail.images.blocks
-import metadata.models
+import config.metadata
 
 
 class Migration(migrations.Migration):
@@ -46,7 +46,7 @@ class Migration(migrations.Migration):
             options={
                 'abstract': False,
             },
-            bases=(metadata.models.WagtailImageMetadataMixin, 'wagtailcore.page', models.Model),
+            bases=(config.metadata.WagtailImageMetadataMixin, 'wagtailcore.page', models.Model),
         ),
         migrations.CreateModel(
             name='BlogPageTag',

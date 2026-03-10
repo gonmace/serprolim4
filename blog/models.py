@@ -17,9 +17,9 @@ from wagtail.models import Page, Orderable
 
 from wagtail.search import index
 
-from base.blocks import BaseStreamBlock
+from blog.blocks import BaseStreamBlock
 
-from metadata.models import MetadataPageMixin
+from config.metadata import MetadataPageMixin
 
 # class BlogPeopleRelationship(Orderable, models.Model):
 #     """

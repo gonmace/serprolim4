@@ -8,19 +8,19 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ('home', '0007_landingpage_country'),
-        ('generalData', '0013_countrysettings_cotizadescription_and_more'),
+        ('config', '0001_initial'),
     ]
 
     operations = [
         migrations.AddField(
             model_name='landingfaq',
             name='country',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='faqs', to='generalData.countrysettings', verbose_name='Country'),
+            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='faqs', to='config.countrysettings', verbose_name='Country'),
         ),
         migrations.AddField(
             model_name='landingservice',
             name='country',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='services', to='generalData.countrysettings', verbose_name='Country'),
+            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='services', to='config.countrysettings', verbose_name='Country'),
         ),
         migrations.AlterField(
             model_name='landingfaq',

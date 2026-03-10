@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from generalData.models import CountrySettings
+from config.models import CountrySettings
 from home.models import LandingPage
 from blog.models import BlogPage
 

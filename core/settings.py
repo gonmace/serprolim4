@@ -33,14 +33,11 @@ STATIC_URL = "/static/"
 
 INSTALLED_APPS = [
     'home',
-    'base',
     'chat',
     'blog',
 
-    'favicon',
-    "metadata",
-    'generalData',
-    'analytics',
+    'config',
+    'tracking',
 
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
@@ -81,7 +78,7 @@ MIDDLEWARE = [
 
     'wagtail.contrib.redirects.middleware.RedirectMiddleware',
     
-    'generalData.middleware.CountryMiddleware',
+    'config.middleware.CountryMiddleware',
 ]
 
 ROOT_URLCONF = 'core.urls'
@@ -102,8 +99,8 @@ TEMPLATES = [
 
                 'wagtail.contrib.settings.context_processors.settings',
                 'blog.context_processors.blog_page',
-                'generalData.context_processors.site_settings',
-                'analytics.context_processors.project_analytics',
+                'config.context_processors.site_settings',
+                'tracking.context_processors.project_analytics',
                 'home.context_processors.seo_site_name',
             ],
         },
