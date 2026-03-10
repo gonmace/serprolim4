@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(.venv/Scripts/python manage.py check --settings=core.dev)",
+      "Bash(xargs sed -i \"s/''analytics''/''tracking''/g\")",
+      "Bash(.venv/Scripts/python manage.py migrate --settings=core.dev)",
+      "Bash(find c:/Users/gonma/Documents/Antigravity/serprolim4/tracking -name \"*.pyc\" -delete)",
+      "Bash(find c:/Users/gonma/Documents/Antigravity/serprolim4/tracking -name \"__pycache__\" -type d -exec rm -rf {} +)",
+      "Bash(.venv/Scripts/python -c \":*)"
+    ]
+  }
+}

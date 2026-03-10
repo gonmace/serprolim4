@@ -13,11 +13,8 @@
     color-scheme: light;
     --color-primary: #f9cc41;
     --color-primary-content: #000000;
-    --color-primary-light: #ffb057;
     --color-secondary: #032900;
     --color-secondary-content: #ffffff;
-    --color-secondary-light: #bac5b9;
-    --color-secondary-dark: #051900;
     --color-accent: #6CB288;
     --color-accent-content: #ffffff;
     --color-neutral: #23282F;
@@ -45,11 +42,8 @@
     color-scheme: light;
     --color-primary: #0284c7;
     --color-primary-content: #ffffff;
-    --color-primary-light: #38bdf8;
     --color-secondary: #0f172a;
     --color-secondary-content: #ffffff;
-    --color-secondary-light: #334155;
-    --color-secondary-dark: #020617;
     --color-accent: #22c55e;
     --color-accent-content: #ffffff;
     --color-neutral: #334155;
@@ -77,11 +71,8 @@
     color-scheme: light;
     --color-primary: #0e5185;
     --color-primary-content: #ffffff;
-    --color-primary-light: #38bdf8;
     --color-secondary: #0f172a;
     --color-secondary-content: #ffffff;
-    --color-secondary-light: #334155;
-    --color-secondary-dark: #020617;
     --color-accent: #fbbf24;
     --color-accent-content: #000000;
     --color-neutral: #334155;
@@ -109,11 +100,8 @@
     color-scheme: light;
     --color-primary: #059669;
     --color-primary-content: #ffffff;
-    --color-primary-light: #10B981;
     --color-secondary: #064E3B;
     --color-secondary-content: #ffffff;
-    --color-secondary-light: #34D399;
-    --color-secondary-dark: #065F46;
     --color-accent: #D1FAE5;
     --color-accent-content: #064E3B;
     --color-neutral: #065F46;
@@ -160,7 +148,6 @@
     --color-whatsapp: #25d366;
     --color-twitter: #1DA1F2;
     --color-mail: #EA4335;
-    --color-primary-light: var(--color-primary-light);
 
     --font-nunito: "Nunito", sans-serif;
     --font-noto: "Noto Serif", serif;
@@ -260,7 +247,7 @@ h6,
     }
 
     form input {
-        @apply bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-lg focus:ring-primary-light focus:border-primary-light block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white;
+        @apply bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white;
     }
 
     form span {
@@ -268,11 +255,11 @@ h6,
     }
 
     form button {
-        @apply inline-block w-full px-5 py-3 font-semibold tracking-wider text-center rounded-lg dark:bg-primary-light dark:text-gray-900 uppercase;
+        @apply inline-block w-full px-5 py-3 font-semibold tracking-wider text-center rounded-lg dark:bg-primary dark:text-primary-content uppercase;
     }
 
     form select {
-        @apply bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-lg focus:ring-primary-light focus:border-primary-light block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white;
+        @apply bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white;
     }
 
     main,
