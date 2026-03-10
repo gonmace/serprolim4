@@ -61,7 +61,7 @@ ExecStart=$PWD/.venv/bin/gunicorn \
     --access-logfile - \
     --workers 3 \
     --bind unix:/run/$app.sock \
-    main.wsgi:application
+    core.wsgi:application
 
 [Install]
 WantedBy=multi-user.target
