@@ -24,7 +24,8 @@
       "Bash(cd \"C:/Users/gonma/Documents/Claude/serprolim4\" && python manage.py makemigrations --check 2>&1)",
       "Bash(cd \"C:/Users/gonma/Documents/Claude/serprolim4\" && python manage.py makemigrations tracking generalData 2>&1)",
       "Bash(cd \"C:/Users/gonma/Documents/Claude/serprolim4\" && python -c \"import sqlite3; conn = sqlite3.connect\\('db.sqlite3'\\); c = conn.cursor\\(\\); c.execute\\('SELECT name FROM sqlite_master WHERE type=\\\\\"table\\\\\" AND name LIKE \\\\\"%general%\\\\\" OR name LIKE \\\\\"%country%\\\\\"'\\); print\\(c.fetchall\\(\\)\\)\")",
-      "Bash(cd \"C:/Users/gonma/Documents/Claude/serprolim4\" && rm db.sqlite3 && echo \"Eliminada\")"
+      "Bash(cd \"C:/Users/gonma/Documents/Claude/serprolim4\" && rm db.sqlite3 && echo \"Eliminada\")",
+      "WebSearch"
     ]
   }
 }

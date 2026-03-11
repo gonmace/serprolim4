@@ -5,13 +5,7 @@ from .models import LandingPage, LandingService, LandingFAQ
 class ServiceInline(admin.TabularInline):
     model = LandingService
     extra = 1
-    readonly_fields = ['image_preview']
-
-    def image_preview(self, obj):
-        if obj.image:
-             return format_html('<img src="{}" style="max-height: 50px;"/>', obj.image.file.url)
-        return ""
-    image_preview.short_description = "Preview"
+    fields = ['titulo', 'resumen']
 
 class FAQInline(admin.TabularInline):
     model = LandingFAQ

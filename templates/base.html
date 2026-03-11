@@ -46,7 +46,7 @@
 
     {% block css %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
-    {% comment %} <link rel="stylesheet" href="{% static 'css/floating-wpp.min.css' %}"> {% endcomment %}
+    <link rel="stylesheet" href="{% static 'css/floating-wpp.min.css' %}">
     {% endblock %}
   </head>
 
@@ -55,18 +55,9 @@
 
     {% wagtailuserbar %}
 
-    <div class="fixed top-20 left-0 right-0 z-10001 pl-4 sm:pl-6 pr-1 pointer-events-none">
-      <div class="w-full h-0 overflow-visible flex justify-end pointer-events-auto">
-        {% include "chat/widget.html" %}
-      </div>
-    </div>
-    <div class="fixed bottom-6 left-0 right-0 z-10001 pl-4 sm:pl-6 pr-1 pointer-events-none">
-      <div class="w-full flex justify-end pointer-events-auto">
-        {% block whatsapp_widget %}
-          {% include "includes/whatsapp_bubble.html" %}
-        {% endblock whatsapp_widget %}
-      </div>
-    </div>
+    {% block whatsapp_widget %}
+      {% include "includes/whatsapp_bubble.html" %}
+    {% endblock whatsapp_widget %}
     
     {% block content %}
     {% endblock %}
@@ -74,20 +65,6 @@
     {% include "footer.html"  %}
 
     {% block js %}
-    <script type="text/javascript">
-      var botonMenu = document.getElementById("mobileMenuButton") || {};
-      var menu = document.getElementById("sideMenuHideOnMobile") || {};
-      window.addEventListener('click', function (event) {
-        if (botonMenu.contains && menu.classList && event.target) {
-          if (botonMenu.contains(event.target) && menu.classList.contains("-translate-y-full")) {
-            menu.classList.toggle("-translate-y-full");
-          } else if (!menu.classList.contains("-translate-y-full")) {
-            menu.classList.toggle("-translate-y-full");
-          }
-        }
-      });
-    </script>
-
     <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/floating-wpp.min.js' %}"></script>
 
