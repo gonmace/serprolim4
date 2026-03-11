@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: {{ wagtail_site.root_url }}/sitemap.xml

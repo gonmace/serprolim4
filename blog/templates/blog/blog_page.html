@@ -1,14 +1,13 @@
 {% extends "base.html" %}
 {% load wagtailimages_tags filters_tags social_share metadata_tags static %}
 {% block social_meta %}
-	{% meta_tags model=self %}
+	{% meta_tags model=self og_type="article" %}
 	{% if self.date_published %}
 	<meta property="article:published_time" content="{{ self.date_published|date:'c' }}">
 	{% endif %}
 	{% if self.last_published_at %}
 	<meta property="article:modified_time" content="{{ self.last_published_at|date:'c' }}">
 	{% endif %}
-	<meta property="og:type" content="article">
 {% endblock %}
 
 {% block structured_data %}
@@ -21,6 +20,7 @@
   "url": "{{ self.full_url }}",
   {% if self.date_published %}"datePublished": "{{ self.date_published|date:'Y-m-d' }}",{% endif %}
   {% if self.first_published_at %}"dateModified": "{{ self.last_published_at|date:'c' }}",{% endif %}
+  {% image self.image width-1200 format-webp as blog_og_img %}{% if blog_og_img %}"image": "{{ request.scheme }}://{{ request.get_host }}{{ blog_og_img.url }}",{% endif %}
   "publisher": {
     "@type": "Organization",
     "name": "{{ site_settings.site_name|default:'MultiSane'|escapejs }}"

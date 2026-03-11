@@ -120,13 +120,14 @@ def _get_site_name(request):
     return default
 
 
-def meta_tags(request, model):
+def meta_tags(request, model, og_type='website'):
     """Render Open Graph and Twitter Card meta tags."""
     if not request or not model:
         return ''
     context = {
         'site_name': _get_site_name(request),
         'twitter_card_type': model.get_twitter_card_type(request),
+        'og_type': og_type,
         'object': model,
     }
     meta_image = model.get_meta_image_url(request)
