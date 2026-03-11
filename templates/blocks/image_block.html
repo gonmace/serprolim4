@@ -1,8 +1,8 @@
 {% load wagtailimages_tags %}
-<figure class="block-image">
-    {% image value.image original %}
+<figure class="flex flex-col items-center my-6">
+    {% image value.image format-webp class="max-w-xs rounded-lg shadow-md" %}
     {% if value.caption or value.attribution %}
-    <figcaption>
+    <figcaption class="mt-2 text-sm text-gray-500 text-center">
         {{ value.caption }}
         {% if value.attribution %}<cite>{{ value.attribution }}</cite>{% endif %}
     </figcaption>

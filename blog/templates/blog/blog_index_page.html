@@ -1,19 +1,23 @@
 {% extends "base.html" %}
 
-{% load wagtailimages_tags filters_tags wagtailcore_tags static %}
+{% load wagtailimages_tags filters_tags wagtailcore_tags metadata_tags static %}
+
+{% block social_meta %}
+{% meta_tags self %}
+{% endblock %}
 
 {% block meta_tag %}
   {{ block.super }}
 {% endblock %}
 
 {% block body_class %}
-xl:container mx-auto bg-gray-900
+xl:container mx-auto bg-base-200
 {% endblock body_class %}
 
 {% block content %}
 {% include "header.html" with class="md:bg-primary xl:container w-full fixed z-50" %}
 
-<section class="bg-gray-200 md:pt-20">
+<section class="bg-base-200 md:pt-20">
 	<div class="container max-w-6xl p-6 mx-auto space-y-6 sm:space-y-12">
 		{% for post in posts %}
 			{% if forloop.first %}

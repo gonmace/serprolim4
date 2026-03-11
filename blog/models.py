@@ -138,6 +138,12 @@ class BlogPage(MetadataPageMixin, Page):
 
     subpage_types = []
 
+    def get_meta_image(self):
+        return self.search_image or self.image
+
+    def get_meta_description(self):
+        return self.search_description or self.introduction or ''
+
     def save(self, *args, **kwargs):
         print("Se actualizó los valores home")
         cache.clear()
@@ -153,7 +159,7 @@ class BlogPageRelatedLink(Orderable):
         FieldPanel('url'),
     ]
 
-class BlogIndexPage(Page):
+class BlogIndexPage(MetadataPageMixin, Page):
     """Índice del blog. Actúa como raíz de Wagtail (no hay HomePage)."""
     parent_page_types = ['wagtailcore.Page']  # Permite ser página raíz del sitio
 

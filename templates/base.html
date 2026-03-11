@@ -1,4 +1,4 @@
-{% load static wagtailcore_tags wagtailuserbar %}
+{% load static wagtailcore_tags wagtailuserbar metadata_tags %}
 
 <!DOCTYPE html>
 <html lang="es" data-theme="{{ site_settings.theme|default:'multisane' }}">
@@ -12,6 +12,8 @@
     {% if project_analytics.adsense %}{{ project_analytics.adsense|safe }}{% endif %}
     {% if project_analytics.fb_pixel %}{{ project_analytics.fb_pixel|safe }}{% endif %}
     {% if project_analytics.head_scripts %}{{ project_analytics.head_scripts|safe }}{% endif %}
+
+    {% block social_meta %}{% endblock %}
 
     {% block meta_tag %}
     <title>
@@ -27,11 +29,15 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     
-    {% if page.canonical_url %}
-      <link rel="canonical" href="{{ page.canonical_url }}"/>
+    {% if self.canonical_url %}
+      <link rel="canonical" href="{{ self.canonical_url }}"/>
+    {% elif self.full_url %}
+      <link rel="canonical" href="{{ self.full_url }}"/>
     {% elif request.path == '/' %}
       <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}"/>
     {% endif %}
+
+    {% block structured_data %}{% endblock %}
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -44,7 +50,7 @@
     {% endblock %}
   </head>
 
-  <body class="{% block body_class %}{% endblock %}">
+  <body class="bg-neutral {% block body_class %}{% endblock %}">
     {% if project_analytics.body_scripts %}{{ project_analytics.body_scripts|safe }}{% endif %}
 
     {% wagtailuserbar %}
@@ -69,45 +75,42 @@
 
     {% block js %}
     <script type="text/javascript">
-      /* Menu */
-
-    window.addEventListener('click', function (event) {
-
-      if (botonMenu.contains(event.target) && menu.classList.contains("-translate-y-full")) {
-        menu.classList.toggle("-translate-y-full");
-      } else {
-        if (!menu.classList.contains("-translate-y-full")) {
-          menu.classList.toggle("-translate-y-full");
-
+      var botonMenu = document.getElementById("mobileMenuButton") || {};
+      var menu = document.getElementById("sideMenuHideOnMobile") || {};
+      window.addEventListener('click', function (event) {
+        if (botonMenu.contains && menu.classList && event.target) {
+          if (botonMenu.contains(event.target) && menu.classList.contains("-translate-y-full")) {
+            menu.classList.toggle("-translate-y-full");
+          } else if (!menu.classList.contains("-translate-y-full")) {
+            menu.classList.toggle("-translate-y-full");
+          }
         }
-      }
-
       });
+    </script>
 
-      </script>
+    <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/floating-wpp.min.js' %}"></script>
 
-      <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
-      <script defer type="text/javascript" src="{% static 'js/floating-wpp.min.js' %}"></script>
+    {% if site_settings and site_settings.mjeGlobo and site_settings.cel %}
+    {% block whatsapp_widget_script %}
+    <script type="text/javascript">
+      $(function () {
+        $('#whatsapp-widget').floatingWhatsApp({
+          phone: '+{{ site_settings.phone_prefix|default:"591" }}{{ site_settings.cel }}',
+          popupMessage: 'Hola, ¿Cómo podemos ayudarle?',
+          message: "{{ site_settings.mjeGlobo|escapejs }}",
+          showPopup: false,
+          showOnIE: false,
+          size: '55px',
+          position: 'right',
+          headerTitle: '¡Comunícate por WhatsApp!',
+          zIndex: 10000
+        });
+      });
+    </script>
+    {% endblock whatsapp_widget_script %}
+    {% endif %}
 
-        {% if site_settings.mjeGlobo %}
-        {% block whatsapp_widget_script %}
-        <script defer type="text/javascript">
-          $(function () {
-            $('#whatsapp-widget').floatingWhatsApp({
-            phone: '+{{ site_settings.phone_prefix|default:"591" }}{{ site_settings.cel }}',
-            popupMessage: 'Hola, Como podemos ayuderle?',
-            message: "{{ site_settings.mjeGlobo }}",
-            showPopup: false,
-            showOnIE: false,
-            size: 55,
-            headerTitle: 'Comunicate por Whatsapp!',
-            zIndex: 10000
-                });
-            });
-        </script>
-        {% endblock whatsapp_widget_script %}
-        {% endif %}
-
-      {% endblock js %}
+    {% endblock js %}
   </body>
 </html>

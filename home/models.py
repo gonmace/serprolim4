@@ -12,13 +12,13 @@ from wagtail.admin.panels import (
 )
 from wagtail.fields import StreamField
 
-from config.metadata import MetadataPageMixin
+from config.metadata import MetadataPageMixin, WagtailImageMetadataMixin
 from blog.blocks import BaseStreamBlock
 
 # --- NEW DJANGO MODELS ---
 from config.models import CountrySettings
 
-class LandingPage(models.Model):
+class LandingPage(WagtailImageMetadataMixin, models.Model):
     country = models.ForeignKey(
         CountrySettings,
         on_delete=models.CASCADE,
@@ -158,6 +158,20 @@ class LandingPage(models.Model):
     def canonical_url(self):
         """Return None - LandingPage uses request path for canonical (handled by base template)."""
         return None
+
+    def get_meta_title(self):
+        return self.seo_title or self.subtitle or 'Limpieza de pozos y cámaras sépticas'
+
+    def get_meta_description(self):
+        return self.search_description or ''
+
+    def get_meta_url(self):
+        if self.country and getattr(self.country, 'site_url', None):
+            return self.country.site_url
+        return '/'
+
+    def get_meta_image(self):
+        return self.imageMain
 
 class LandingService(models.Model):
     landing_page = models.ForeignKey(

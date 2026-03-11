@@ -3,19 +3,47 @@
 {% load wagtailimages_tags wagtailcore_tags filters_tags metadata_tags static %}
 
 {% block social_meta %}
-<!-- Open Graph -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}">
-<meta property="og:title" content="{% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}{% if seo_site_name %} | {{ seo_site_name }}{% endif %}">
-<meta property="og:description" content="{% if page.search_description %}{{ page.search_description }}{% else %}{{ site_settings.site_name }} - Limpieza de pozos ciegos y cámaras sépticas en Santa Cruz. Cotiza en línea. Puntualidad y buen servicio.{% endif %}">
-<meta property="og:site_name" content="{% firstof seo_site_name site_settings.site_name 'MultiSane' %}">
-<meta property="og:locale" content="es_BO">
+{% meta_tags self %}
+{% endblock %}
 
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="{% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}{% if seo_site_name %} | {{ seo_site_name }}{% endif %}">
-<meta name="twitter:description" content="{% if page.search_description %}{{ page.search_description }}{% else %}{{ site_settings.site_name }} - Limpieza de pozos ciegos y cámaras sépticas en Santa Cruz. Cotiza en línea. Puntualidad y buen servicio.{% endif %}">
-{% endblock %} 
+{% block structured_data %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "{{ site_settings.site_name|default:'MultiSane'|escapejs }}",
+  "url": "{{ site_settings.site_url|default:'' }}",
+  "telephone": "+{{ site_settings.phone_prefix|default:'591' }}{{ site_settings.cel }}",
+  {% if site_settings.email %}"email": "{{ site_settings.email|escapejs }}",{% endif %}
+  "areaServed": [
+    {"@type": "City", "name": "Santa Cruz de la Sierra", "sameAs": "https://www.wikidata.org/wiki/Q169305"},
+    {"@type": "AdministrativeArea", "name": "Departamento de Santa Cruz"}
+  ],
+  "serviceType": "Limpieza de pozos ciegos y cámaras sépticas",
+  "description": "{{ self.search_description|default:'Limpieza de pozos ciegos y cámaras sépticas en Santa Cruz. Cotiza en línea.'|escapejs }}"
+}
+</script>
+{% if self.preguntas_frecuentes.exists %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {% for faq in self.preguntas_frecuentes.all %}{% if faq.display %}
+    {
+      "@type": "Question",
+      "name": "{{ faq.pregunta|escapejs }}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{ faq.respuesta|escapejs }}"
+      }
+    }{% if not forloop.last %},{% endif %}
+    {% endif %}{% endfor %}
+  ]
+}
+</script>
+{% endif %}
+{% endblock structured_data %} 
   
 {% block css %}
   {{ block.super }}
@@ -48,7 +76,7 @@ xl:container mx-auto min-h-full
   </section>
 
   <!-- POSTS  -->
-  <section class="grid justify-center grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 bg-linear-to-b from-gray-100 to-gray-200 py-16 px-6">
+  <section class="grid justify-center grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 bg-linear-to-b from-base-100 to-base-200 py-16 px-6">
     {% for post in posts %}
     <a href="{{ post.url }}" class="card bg-base-100 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105 hover:-rotate-1 group border-2 border-transparent hover:border-primary/20 overflow-hidden rounded-t-2xl">
       <figure class="relative overflow-hidden rounded-t-2xl h-64">
@@ -66,7 +94,7 @@ xl:container mx-auto min-h-full
   </section>
   
   <!-- COTIZA  -->
-  <section id="cotiza" class="bg-gray-200">
+  <section id="cotiza" class="bg-base-200">
     <div class="text-center">
       <h2 class="pt-16 pb-3 md:pt-5 px-1 uppercase">Cotiza</h2>
         <div class="px-1 pb-5 mx-auto md:w-4/5 max-w-4xl">
@@ -110,9 +138,9 @@ xl:container mx-auto min-h-full
   </section>
 
   <!-- NUESTROS SERVICIOS  -->
-  <section id="clientes" class="bg-linear-to-b from-gray-200 to-gray-100 py-16">
+  <section id="clientes" class="bg-linear-to-b from-base-200 to-base-100 py-16">
     <div class="text-center">
-      <h2 class="pt-8 pb-3 px-1 text-3xl md:text-4xl font-bold text-gray-800">Nuestros Servicios</h2>
+      <h2 class="pt-8 pb-3 px-1 text-3xl md:text-4xl font-bold text-base-content">Nuestros Servicios</h2>
       <div class="px-4 pb-12 mx-auto md:w-4/5 max-w-4xl">
         <h3 class="text-lg text-gray-600">{{ self.serviviosDescription }}</h3>
       </div>
@@ -142,7 +170,7 @@ xl:container mx-auto min-h-full
   </section>
 
   <!-- PREGUNTAS FRECUENTES  -->
-  <section id="preguntas" class="pb-16 bg-linear-to-b from-gray-800 to-gray-900">
+  <section id="preguntas" class="pb-16 bg-secondary">
     <div class="text-center">
       <h2 class="pt-16 pb-4 px-1 text-3xl md:text-4xl font-bold text-primary">Preguntas Frecuentes</h2>
       <p class="text-gray-300 pb-8 px-4">Encuentra respuestas a las dudas más comunes</p>
@@ -185,9 +213,6 @@ class="fixed top-0 left-0 w-screen h-screen flex items-center justify-center bg-
       <h2 id="precio" class="text-2xl font-bold">Precio:</h2>
       <!-- Test content -->
       <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-          Minus placeat maiores repudiandae, error perferendis inventore 
-          aspernatur voluptatum omnis sint debitis!
       </p>
       <button id="contratar" class="mt-2 w-full bg-green-600 hover:bg-green-700 text-xl text-white py-1 px-6 border border-green-700 rounded " aria-label="Ubicar">
         Confirmar

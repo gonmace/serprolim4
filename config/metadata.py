@@ -122,10 +122,8 @@ def _get_site_name(request):
 
 def meta_tags(request, model):
     """Render Open Graph and Twitter Card meta tags."""
-    if not request:
-        raise TemplateSyntaxError("'meta_tags' missing request from context")
-    if not model:
-        raise TemplateSyntaxError("'meta_tags' tag is missing a model or object")
+    if not request or not model:
+        return ''
     context = {
         'site_name': _get_site_name(request),
         'twitter_card_type': model.get_twitter_card_type(request),
