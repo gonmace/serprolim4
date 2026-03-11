@@ -1,4 +1,16 @@
 {% load static %}
 {% if site_settings and site_settings.mjeGlobo and site_settings.cel %}
-<div id="whatsapp-widget"></div>
+<a href="https://wa.me/+{{ site_settings.phone_prefix|default:'591' }}{{ site_settings.cel }}?text={{ site_settings.mjeGlobo|urlencode }}"
+   target="_blank"
+   rel="noopener noreferrer"
+   title="¡Comunícate por WhatsApp!"
+   aria-label="Contactar por WhatsApp"
+   class="show-after-3s fixed bottom-20 right-4 z-10000 block w-14 h-14 transition-transform duration-200 hover:scale-110 active:scale-95 drop-shadow-xl">
+  <!-- ping ring -->
+  <span class="absolute inset-0 rounded-full opacity-40 animate-ping" style="background-color:#25d366;"></span>
+  <!-- icon -->
+  <span class="relative block w-14 h-14">
+    {% include "includes/whatsapp_icon_svg.html" %}
+  </span>
+</a>
 {% endif %}

@@ -438,12 +438,15 @@ h6,
 
 @keyframes slideDown {
     0% {
-        transform: translateY(-100%);
+        transform: translateY(-40px) scale(0.7);
         opacity: 0;
     }
-
+    70% {
+        transform: translateY(6px) scale(1.05);
+        opacity: 1;
+    }
     100% {
-        transform: translateY(0);
+        transform: translateY(0) scale(1);
         opacity: 1;
     }
 }
