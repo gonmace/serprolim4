@@ -50,7 +50,7 @@
     {% endblock %}
   </head>
 
-  <body class="bg-neutral {% block body_class %}{% endblock %}">
+  <body class="bg-secondary {% block body_class %}{% endblock %}">
     {% if project_analytics.body_scripts %}{{ project_analytics.body_scripts|safe }}{% endif %}
 
     {% wagtailuserbar %}

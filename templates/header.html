@@ -6,7 +6,14 @@
       <div class="navbar-start">
         <a href="/" class="btn btn-ghost h-auto text-inherit border-0 hover:border-0 focus:outline-none focus:ring-0" title="{{ site_settings.site_name }} - Limpieza de pozos y cámaras sépticas">
           {% if site_settings.icon %}
-            <img src="{{ site_settings.icon.url }}" alt="{{ site_settings.site_name }} - Limpieza de pozos y cámaras sépticas" class="h-12 w-auto max-w-48 object-contain" />
+            <span class="text-black">
+              {% inline_svg_image site_settings.icon class_name="h-12 w-auto max-w-48" as icon_svg %}
+              {% if icon_svg %}
+                {{ icon_svg }}
+              {% else %}
+                <img src="{{ site_settings.icon.url }}" alt="{{ site_settings.site_name }} - Limpieza de pozos y cámaras sépticas" class="h-12 w-auto max-w-48 object-contain brightness-0" />
+              {% endif %}
+            </span>
           {% else %}
             {% inline_svg 'img/multisane.svg' class_name='h-12 w-auto max-w-48' color_var='primary-content' as logo_svg %}
             {% if logo_svg %}

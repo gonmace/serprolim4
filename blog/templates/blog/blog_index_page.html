@@ -11,11 +11,13 @@
 {% endblock %}
 
 {% block body_class %}
-xl:container mx-auto bg-base-200
+bg-secondary
 {% endblock body_class %}
 
 {% block content %}
-{% include "header.html" with class="md:bg-primary xl:container w-full fixed z-50" %}
+{% include "header.html" with class="md:bg-primary mx-auto xl:container w-full fixed z-50" %}
+
+<main class="z-20 xl:container mx-auto min-h-full">
 
 <!-- Hero -->
 <div class="bg-secondary py-10 px-6 text-center">
@@ -60,6 +62,6 @@ xl:container mx-auto bg-base-200
     </div>
   </div>
 </section>
-
+</main>
 {% endblock content %}
 

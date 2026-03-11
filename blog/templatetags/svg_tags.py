@@ -49,3 +49,43 @@ def inline_svg(path, class_name="", color_var=""):
             content = content.replace('<svg>', f'<svg{attrs_str}>', 1)
 
     return mark_safe(content)
+
+
+@register.simple_tag
+def inline_svg_image(image, class_name="", color_var=""):
+    """
+    Render a Wagtail image inline if it's an SVG, otherwise return empty string.
+    Usage: {% inline_svg_image site_settings.icon class_name='h-10 w-auto' as logo %}
+            {% if logo %}{{ logo }}{% else %}<img src="{{ site_settings.icon.url }}">{% endif %}
+    """
+    if not image:
+        return ""
+    try:
+        file_name = image.file.name.lower()
+        if not file_name.endswith(".svg"):
+            return ""
+        with open(image.file.path, "r", encoding="utf-8") as f:
+            content = f.read()
+    except (OSError, IOError, AttributeError, ValueError):
+        return ""
+
+    content = re.sub(r'<\?xml[^>]*\?>', '', content)
+    content = re.sub(r'<!--.*?-->', '', content, flags=re.DOTALL)
+    content = content.strip()
+
+    attrs = ['fill="currentColor"']
+    if class_name:
+        attrs.append(f'class="{class_name.replace(chr(34), "")}"')
+    if color_var:
+        attrs.append(f'style="color: var(--color-{color_var})"')
+
+    attrs_str = " " + " ".join(attrs)
+
+    def add_attrs(match):
+        return f'<svg{match.group(1)}{attrs_str}'
+
+    content = re.sub(r'<svg(\s[^>]*)', add_attrs, content, count=1)
+    if not content.lstrip().startswith('<svg '):
+        content = content.replace('<svg>', f'<svg{attrs_str}>', 1)
+
+    return mark_safe(content)

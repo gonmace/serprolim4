@@ -34,13 +34,13 @@
 {% endblock %}
 
 {% block body_class %}
-xl:container mx-auto bg-base-200
+bg-secondary
 {% endblock body_class %}
 
 {% block content %}
-{% include "header.html" with class="md:bg-primary xl:container w-full fixed z-50" %}
+{% include "header.html" with class="md:bg-primary mx-auto xl:container w-full fixed z-50" %}
 
-<main class="min-h-screen bg-base-200">
+<main class="z-20 xl:container mx-auto min-h-screen">
 
   <!-- Contenido -->
   <div class="max-w-6xl mx-auto px-4 py-10 flex flex-col lg:flex-row gap-8 items-start">
