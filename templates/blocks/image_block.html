@@ -1,6 +1,10 @@
 {% load wagtailimages_tags %}
-
-<figure class="text-center">
-    {% image self.image fill-600x338 class="mx-auto" loading="lazy" %}
-    <figcaption>{{ self.caption }} - {{ self.attribution }}</figcaption>
+<figure class="block-image">
+    {% image value.image original %}
+    {% if value.caption or value.attribution %}
+    <figcaption>
+        {{ value.caption }}
+        {% if value.attribution %}<cite>{{ value.attribution }}</cite>{% endif %}
+    </figcaption>
+    {% endif %}
 </figure>

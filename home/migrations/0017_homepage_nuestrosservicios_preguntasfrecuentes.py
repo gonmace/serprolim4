@@ -10,7 +10,6 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ('home', '0016_add_standardpage'),
-        ('wagtailcore', '0097_alter_page_title'),
         ('wagtailimages', '0027_image_description'),
     ]
 

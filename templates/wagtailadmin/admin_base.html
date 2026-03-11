@@ -1,9 +1,0 @@
-<!-- https://docs.wagtail.org/en/stable/advanced_topics/customisation/admin_templates.html#custom-branding -->
-{% extends "wagtailadmin/admin_base.html" %}
-{% load static %}
-
-{% block branding_favicon %}
-    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" />
-{% endblock %}
-
-{% block branding_title %}MultiSane{% endblock %}

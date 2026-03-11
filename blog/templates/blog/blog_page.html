@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 {% load wagtailimages_tags filters_tags social_share metadata_tags static %}
-{% block meta_tag %}
-	{{ block.super }}
+{% block social_meta %}
 	{% meta_tags model=self %}
 {% endblock %}
 

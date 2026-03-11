@@ -49,12 +49,12 @@
 
     {% wagtailuserbar %}
 
-    <div class="fixed top-20 left-0 right-0 z-[10001] pl-4 sm:pl-6 pr-1 pointer-events-none">
+    <div class="fixed top-20 left-0 right-0 z-10001 pl-4 sm:pl-6 pr-1 pointer-events-none">
       <div class="w-full h-0 overflow-visible flex justify-end pointer-events-auto">
         {% include "chat/widget.html" %}
       </div>
     </div>
-    <div class="fixed bottom-6 left-0 right-0 z-[10001] pl-4 sm:pl-6 pr-1 pointer-events-none">
+    <div class="fixed bottom-6 left-0 right-0 z-10001 pl-4 sm:pl-6 pr-1 pointer-events-none">
       <div class="w-full flex justify-end pointer-events-auto">
         {% block whatsapp_widget %}
           {% include "includes/whatsapp_bubble.html" %}

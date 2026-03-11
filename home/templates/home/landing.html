@@ -2,18 +2,19 @@
 
 {% load wagtailimages_tags wagtailcore_tags filters_tags metadata_tags static %}
 
-{% block meta_tag %}
-  {{ block.super }}
-  {% comment %} Open Graph y Twitter Cards para la homepage (LandingPage no usa metadata) {% endcomment %}
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}" />
-  <meta property="og:title" content="{% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}{% if seo_site_name %} | {{ seo_site_name }}{% endif %}" />
-  <meta property="og:description" content="{% if page.search_description %}{{ page.search_description }}{% else %}{{ site_settings.site_name }} - Limpieza de pozos ciegos y cámaras sépticas en Santa Cruz. Cotiza en línea. Puntualidad y buen servicio.{% endif %}" />
-  <meta property="og:site_name" content="{% firstof seo_site_name site_settings.site_name 'MultiSane' %}" />
-  <meta property="og:locale" content="es_BO" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="{% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}{% if seo_site_name %} | {{ seo_site_name }}{% endif %}" />
-  <meta name="twitter:description" content="{% if page.search_description %}{{ page.search_description }}{% else %}{{ site_settings.site_name }} - Limpieza de pozos ciegos y cámaras sépticas en Santa Cruz. Cotiza en línea.{% endif %}" />
+{% block social_meta %}
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}">
+<meta property="og:title" content="{% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}{% if seo_site_name %} | {{ seo_site_name }}{% endif %}">
+<meta property="og:description" content="{% if page.search_description %}{{ page.search_description }}{% else %}{{ site_settings.site_name }} - Limpieza de pozos ciegos y cámaras sépticas en Santa Cruz. Cotiza en línea. Puntualidad y buen servicio.{% endif %}">
+<meta property="og:site_name" content="{% firstof seo_site_name site_settings.site_name 'MultiSane' %}">
+<meta property="og:locale" content="es_BO">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}{% if seo_site_name %} | {{ seo_site_name }}{% endif %}">
+<meta name="twitter:description" content="{% if page.search_description %}{{ page.search_description }}{% else %}{{ site_settings.site_name }} - Limpieza de pozos ciegos y cámaras sépticas en Santa Cruz. Cotiza en línea. Puntualidad y buen servicio.{% endif %}">
 {% endblock %} 
   
 {% block css %}
@@ -33,15 +34,7 @@ xl:container mx-auto min-h-full
 
 <main class="divide-y divide-gray-400 z-20">
 
-
-
-  {% comment %} <div id="overlay" class="z-[10000] absolute inset-0 bg-black/50 flex items-center justify-center">
-    <span class="loading loading-spinner text-secondary"></span>
-  </div> {% endcomment %}
-
-
-
-    <!-- BANNER  -->
+   <!-- BANNER  -->
     <section>
       {% image self.imageBG format-webp as imgBG %}          
       <div style="background-image: url('{{ imgBG.url }}')" class="py-10 flex flex-col md:flex-row items-center justify-around bg-center bg-no-repeat bg-cover relative md:h-screen75 max-h-screen">
@@ -55,14 +48,14 @@ xl:container mx-auto min-h-full
   </section>
 
   <!-- POSTS  -->
-  <section class="grid justify-center grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 bg-gradient-to-b from-gray-100 to-gray-200 py-16 px-6">
+  <section class="grid justify-center grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 bg-linear-to-b from-gray-100 to-gray-200 py-16 px-6">
     {% for post in posts %}
     <a href="{{ post.url }}" class="card bg-base-100 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105 hover:-rotate-1 group border-2 border-transparent hover:border-primary/20 overflow-hidden rounded-t-2xl">
       <figure class="relative overflow-hidden rounded-t-2xl h-64">
         {% image post.image height-240 format-webp class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-700" %}
-        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        <div class="absolute inset-0 bg-linear-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
       </figure>
-      <div class="card-body bg-gradient-to-br from-base-100 to-base-200">
+      <div class="card-body bg-linear-to-br from-base-100 to-base-200">
         <h2 class="card-title text-center justify-center group-hover:text-primary transition-colors text-lg font-bold leading-tight">{{ post.title|titulo }}</h2>
         <div class="flex justify-center mt-2">
           <span class="text-sm text-primary font-semibold group-hover:underline">Leer más →</span>
@@ -117,7 +110,7 @@ xl:container mx-auto min-h-full
   </section>
 
   <!-- NUESTROS SERVICIOS  -->
-  <section id="clientes" class="bg-gradient-to-b from-gray-200 to-gray-100 py-16">
+  <section id="clientes" class="bg-linear-to-b from-gray-200 to-gray-100 py-16">
     <div class="text-center">
       <h2 class="pt-8 pb-3 px-1 text-3xl md:text-4xl font-bold text-gray-800">Nuestros Servicios</h2>
       <div class="px-4 pb-12 mx-auto md:w-4/5 max-w-4xl">
@@ -129,15 +122,15 @@ xl:container mx-auto min-h-full
         {% for cli in self.nuestros_servicios.all %}      
           {% if cli.image %}
             <div class="break-inside my-6 md:my-0 mx-2 md:mx-5 card bg-base-100 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105 group border-2 border-transparent hover:border-accent/30 overflow-hidden">
-              <figure class="relative overflow-hidden rounded-t-2xl bg-gradient-to-br from-primary/10 to-accent/10 p-6">
+              <figure class="relative overflow-hidden rounded-t-2xl bg-linear-to-br from-primary/10 to-accent/10 p-6">
                 {% image cli.image width-300 format-webp as img %}
                 <img class="object-contain w-full h-48 group-hover:scale-110 transition-transform duration-700 drop-shadow-lg" src="{{ img.url }}" alt="{{ img.alt }}">
                 <div class="badge badge-accent absolute top-4 right-4 shadow-lg font-bold">Servicio</div>
               </figure>
           {% else %}
-            <div class="break-inside mx-10 my-6 card bg-gradient-to-br from-primary to-accent shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105 group border-2 border-transparent hover:border-white/50">
+            <div class="break-inside mx-10 my-6 card bg-linear-to-br from-primary to-accent shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105 group border-2 border-transparent hover:border-white/50">
           {% endif %}
-              <div class="card-body text-center bg-gradient-to-br from-base-100 to-base-200">
+              <div class="card-body text-center bg-linear-to-br from-base-100 to-base-200">
                 <div class="badge badge-primary badge-lg mx-auto mb-2">{{ forloop.counter }}</div>
                 <h2 class="card-title justify-center text-xl font-bold group-hover:text-primary transition-colors">{{ cli.titulo }}</h2>
                 <p class="text-gray-600 leading-relaxed">{{ cli.resumen }}</p>
@@ -149,7 +142,7 @@ xl:container mx-auto min-h-full
   </section>
 
   <!-- PREGUNTAS FRECUENTES  -->
-  <section id="preguntas" class="pb-16 bg-gradient-to-b from-gray-800 to-gray-900">
+  <section id="preguntas" class="pb-16 bg-linear-to-b from-gray-800 to-gray-900">
     <div class="text-center">
       <h2 class="pt-16 pb-4 px-1 text-3xl md:text-4xl font-bold text-primary">Preguntas Frecuentes</h2>
       <p class="text-gray-300 pb-8 px-4">Encuentra respuestas a las dudas más comunes</p>
