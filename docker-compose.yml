@@ -3,6 +3,8 @@ services:
     container_name: serprolim5
     build: .
     restart: always
+    env_file:
+      - .env
     ports:
     - 8887:8000
     volumes:
