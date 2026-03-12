@@ -7,6 +7,15 @@ ENV PYTHONUNBUFFERED=1
 
 WORKDIR /app
 
+# Dependencias del sistema para Pillow (Wagtail) y otras extensiones C
+RUN apk add --no-cache \
+    gcc \
+    musl-dev \
+    jpeg-dev \
+    zlib-dev \
+    libffi-dev \
+    libjpeg
+
 COPY requirements/base.txt ./
 COPY requirements/prod.txt ./
 
