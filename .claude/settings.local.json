@@ -48,7 +48,9 @@
       "Bash(python:*)",
       "Bash(curl -s \"http://localhost:8000/\")",
       "Bash(curl -s \"http://localhost:8000/robots.txt\")",
-      "Bash(curl -s \"http://localhost:8000/sitemap.xml\")"
+      "Bash(curl -s \"http://localhost:8000/sitemap.xml\")",
+      "Bash(npm run:*)",
+      "Bash(npx vite:*)"
     ]
   }
 }

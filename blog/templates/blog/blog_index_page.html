@@ -21,7 +21,7 @@ bg-secondary
 <main class="z-20 xl:container mx-auto min-h-full">
 
 <!-- Hero -->
-<div class="bg-secondary py-10 px-6 text-center">
+<div class="bg-secondary pt-24 pb-10 px-6 text-center">
   <span class="text-primary font-semibold text-sm uppercase tracking-widest">Consejos y guías</span>
   <h1 class="text-3xl md:text-5xl font-bold text-secondary-content mt-2">Blog</h1>
   <div class="w-16 h-1 bg-primary mx-auto mt-4 rounded-full"></div>
@@ -46,9 +46,9 @@ bg-secondary
 
       <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {% else %}
-        <a href="{{ post.url }}" class="card bg-base-100 shadow-md hover:shadow-xl transition-all duration-300 transform hover:scale-105 group border-2 border-transparent hover:border-primary/20 overflow-hidden">
+        <a href="{{ post.url }}" class="card bg-base-100 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group border-2 border-transparent hover:border-primary/20 overflow-hidden">
           <figure class="overflow-hidden h-52">
-            {% image post.image height-240 format-webp class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500" %}
+            {% image post.image height-240 format-webp class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500" %}
           </figure>
           <div class="card-body">
             <h2 class="card-title text-center justify-center group-hover:text-primary transition-colors leading-snug">{{ post.title|titulo }}</h2>

@@ -64,20 +64,19 @@ export default async function cotizar(marker) {
   console.log(data);
   console.log(data.factor_zona);
   if (data.factor_zona == 0) {
-    h2Tag.innerText = "Fuera de Rango"; //cambia el codigo de precio
-    pTag.innerText = mjeFueraDeRango; //cambia el texto de precio
-    confirmar.innerText = "Contactarse"; //cambia el texto de precio
+    h2Tag.innerText = "Fuera de Rango";
+    pTag.innerText = mjeFueraDeRango;
+    contratar.innerText = "Contactarse";
     disponibilidad = false;
   } else {
     var precioTotal = data.precio;
     var precioRound = Math.floor(precioTotal / 10) * 10;
-    if (precioRound % 100 === 0) { //si el precio es multiplo de 100, se resta 5
+    if (precioRound % 100 === 0) {
       precioRound -= 5;
     }
-    console.log(precioRound);
-    h2Tag.innerText = "Bs. " + precioRound; //cambia el codigo de precio
-    pTag.innerText = mjeCotiza; //cambia el texto de precio
-    confirmar.innerText = "Coordinar Servicio"; //cambia el texto de precio
+    h2Tag.innerText = "Bs. " + precioRound;
+    pTag.innerText = mjeCotiza;
+    contratar.innerText = "Coordinar Servicio";
     disponibilidad = true;
   }
 

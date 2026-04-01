@@ -50,7 +50,7 @@ bg-secondary
   <div class="max-w-6xl mx-auto px-4 py-10 flex flex-col lg:flex-row gap-8 items-start">
 
     <!-- Artículo -->
-    <article class="flex-1 min-w-0 bg-white rounded-2xl shadow-sm overflow-hidden">
+    <article class="flex-1 min-w-0 bg-base-100 rounded-2xl shadow-sm overflow-hidden">
 
       <!-- Hero dentro del card -->
       <div class="relative">
@@ -58,7 +58,7 @@ bg-secondary
         <div class="absolute inset-0 bg-linear-to-t from-black/75 via-black/20 to-transparent"></div>
         <div class="absolute bottom-0 left-0 right-0 px-6 pb-8 md:px-10 md:pb-10">
           {% if self.date_published %}
-          <p class="text-gray-300 text-xs uppercase tracking-widest mb-2">{{ self.date_published|date:"j \d\e F \d\e Y" }}</p>
+          <p class="text-white/70 text-xs uppercase tracking-widest mb-2">{{ self.date_published|date:"j \d\e F \d\e Y" }}</p>
           {% endif %}
           <h1 class="text-white text-2xl md:text-4xl font-bold leading-tight drop-shadow-md">
             {{ self.title|titulo }}
@@ -67,13 +67,13 @@ bg-secondary
       </div>
 
       <div class="p-6 md:p-10">
-        <div class="prose prose-lg prose-img:mx-auto prose-img:rounded-xl prose-img:shadow-md prose-a:text-primary prose-headings:text-gray-800 prose-headings:font-bold max-w-none leading-relaxed">
+        <div class="prose prose-lg prose-img:mx-auto prose-img:rounded-xl prose-img:shadow-md prose-a:text-primary prose-headings:text-base-content prose-headings:font-bold prose-p:text-base-content/80 max-w-none leading-relaxed">
           {{ self.body }}
         </div>
 
         <!-- Compartir -->
-        <div class="mt-10 pt-6 border-t border-gray-100">
-          <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-4">Compartir</p>
+        <div class="mt-10 pt-6 border-t border-base-200">
+          <p class="text-xs font-semibold text-base-content/40 uppercase tracking-widest mb-4">Compartir</p>
           <div class="flex gap-3">
 
             <!-- WhatsApp -->
@@ -119,15 +119,15 @@ bg-secondary
     <!-- Sidebar -->
     <aside class="w-full lg:w-72 shrink-0">
       <div class="sticky top-24">
-        <h2 class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4 px-1">Más artículos</h2>
+        <h2 class="text-xs font-bold text-base-content/40 uppercase tracking-widest mb-4 px-1">Más artículos</h2>
         <div class="flex flex-col gap-3">
           {% for listpost in posts %}
             {% if listpost.slug != self.slug %}
-            <a href="{{ listpost.url }}" class="group flex gap-3 bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 p-3 items-center">
+            <a href="{{ listpost.url }}" class="group flex gap-3 bg-base-100 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 p-3 items-center">
               <div class="shrink-0 w-16 h-16 rounded-lg overflow-hidden">
-                {% image listpost.image width-80 height-80 format-webp class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" %}
+                {% image listpost.image width-80 height-80 format-webp class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" %}
               </div>
-              <p class="text-sm font-medium text-gray-700 group-hover:text-primary transition-colors leading-snug line-clamp-3">
+              <p class="text-sm font-medium text-base-content/70 group-hover:text-primary transition-colors leading-snug line-clamp-3">
                 {{ listpost.title|titulo }}
               </p>
             </a>

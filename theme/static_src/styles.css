@@ -155,9 +155,6 @@
     --color-twitter: #1DA1F2;
     --color-mail: #EA4335;
 
-    --font-nunito: "Nunito", sans-serif;
-    --font-noto: "Noto Serif", serif;
-
     --drop-shadow-black: 0px 0px 6px black;
 
     --animate-fade-in-fwd: fade-in-fwd 4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
@@ -236,12 +233,16 @@ h6,
     }
 
     html {
-        @apply font-nunito;
+        font-family: var(--font-sans);
         scroll-behavior: smooth;
     }
 
     hr {
         @apply my-4 bg-black!;
+    }
+
+    button, [role="button"], summary, label[for], select {
+        cursor: pointer;
     }
 
     form li {

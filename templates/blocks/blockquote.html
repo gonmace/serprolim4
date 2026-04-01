@@ -1,4 +1,4 @@
-<blockquote class="block-quote">
+<blockquote class="my-6 pl-6 border-l-4 border-primary bg-base-200/50 py-4 pr-4 rounded-r-lg italic text-base-content/80 text-lg">
     {{ value.text }}
-    {% if value.attribute_name %}<cite>{{ value.attribute_name }}</cite>{% endif %}
+    {% if value.attribute_name %}<cite class="block mt-2 text-sm font-semibold text-primary not-italic">— {{ value.attribute_name }}</cite>{% endif %}
 </blockquote>
