@@ -25,7 +25,30 @@
       "Bash(cd \"C:/Users/gonma/Documents/Claude/serprolim4\" && python manage.py makemigrations tracking generalData 2>&1)",
       "Bash(cd \"C:/Users/gonma/Documents/Claude/serprolim4\" && python -c \"import sqlite3; conn = sqlite3.connect\\('db.sqlite3'\\); c = conn.cursor\\(\\); c.execute\\('SELECT name FROM sqlite_master WHERE type=\\\\\"table\\\\\" AND name LIKE \\\\\"%general%\\\\\" OR name LIKE \\\\\"%country%\\\\\"'\\); print\\(c.fetchall\\(\\)\\)\")",
       "Bash(cd \"C:/Users/gonma/Documents/Claude/serprolim4\" && rm db.sqlite3 && echo \"Eliminada\")",
-      "WebSearch"
+      "WebSearch",
+      "Bash(xargs ls:*)",
+      "Bash(xargs grep:*)",
+      "Bash(ls:*)",
+      "Bash(grep -oP '.{0,60}serprolim.{0,60}' static/css/main.css)",
+      "Bash(grep -oiP '.{0,60}serprolim.{0,60}' static/js/home.js)",
+      "Bash(grep -oi '.\\\\{0,60\\\\}serprolim.\\\\{0,60\\\\}' static/css/main.css)",
+      "Bash(grep -oi '.\\\\{0,60\\\\}serprolim.\\\\{0,60\\\\}' static/js/home.js)",
+      "Bash(grep -oi '.\\\\{0,100\\\\}serprolim.\\\\{0,100\\\\}' static/js/home.js)",
+      "Bash(python manage.py runserver 8000)",
+      "Bash(curl -s http://localhost:8000/ -o /tmp/homepage.html)",
+      "Bash(curl -s http://localhost:8000/)",
+      "Bash(curl -v http://localhost:8000/)",
+      "Bash(curl -s -L http://localhost:8000/blog/)",
+      "Bash(curl -s -L http://localhost:8000/sitemap.xml)",
+      "Bash(curl -s -L \"http://localhost:8000/blog/pozo-ciego-se-llena-muy-rapido/\")",
+      "Bash(curl -s -L \"http://localhost:8000/blog/tags/pozos-ciegos/\")",
+      "Bash(curl -s -L \"http://localhost:8000/blog/tags/\")",
+      "Bash(curl -s \"http://localhost:8000/blog/tags/\")",
+      "Bash(curl -s \"http://localhost:8000/blog/pozo-ciego-se-llena-muy-rapido/\")",
+      "Bash(python:*)",
+      "Bash(curl -s \"http://localhost:8000/\")",
+      "Bash(curl -s \"http://localhost:8000/robots.txt\")",
+      "Bash(curl -s \"http://localhost:8000/sitemap.xml\")"
     ]
   }
 }

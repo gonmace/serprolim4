@@ -54,7 +54,7 @@ class WagtailImageMetadataMixin(MetadataMixin):
     def get_meta_image_rendition(self):
         meta_image = self.get_meta_image()
         if meta_image:
-            filter_name = getattr(settings, "WAGTAILMETADATA_IMAGE_FILTER", "original")
+            filter_name = getattr(settings, "WAGTAILMETADATA_IMAGE_FILTER", "fill-1200x630")
             return meta_image.get_rendition(filter=filter_name)
         return None
 

@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /*?country=
 
 Sitemap: {{ wagtail_site.root_url }}/sitemap.xml

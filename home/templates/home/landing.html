@@ -23,13 +23,13 @@
   "description": "{{ self.search_description|default:'Limpieza de pozos ciegos y cámaras sépticas en Santa Cruz. Cotiza en línea.'|escapejs }}"
 }
 </script>
-{% if self.preguntas_frecuentes.exists %}
+{% if self.displayed_faqs.exists %}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {% for faq in self.preguntas_frecuentes.all %}{% if faq.display %}
+    {% for faq in self.displayed_faqs %}
     {
       "@type": "Question",
       "name": "{{ faq.pregunta|escapejs }}",
@@ -38,7 +38,7 @@
         "text": "{{ faq.respuesta|escapejs }}"
       }
     }{% if not forloop.last %},{% endif %}
-    {% endif %}{% endfor %}
+    {% endfor %}
   ]
 }
 </script>

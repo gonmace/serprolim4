@@ -222,7 +222,8 @@ class BlogIndexPage(MetadataPageMixin, Page):
         posts = self.get_posts(tag=tag)
         context = {
             'tag': tag,
-            'posts': posts
+            'posts': posts,
+            'self': self,  # needed for canonical URL and meta tags in template
         }
         return render(request, 'blog/blog_index_page.html', context)
 

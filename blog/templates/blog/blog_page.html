@@ -16,11 +16,15 @@
   "@context": "https://schema.org",
   "@type": "BlogPosting",
   "headline": "{{ self.title|escapejs }}",
-  "description": "{{ self.introduction|escapejs }}",
+  "description": "{{ self.get_meta_description|default:self.introduction|escapejs }}",
   "url": "{{ self.full_url }}",
   {% if self.date_published %}"datePublished": "{{ self.date_published|date:'Y-m-d' }}",{% endif %}
   {% if self.first_published_at %}"dateModified": "{{ self.last_published_at|date:'c' }}",{% endif %}
   {% image self.image width-1200 format-webp as blog_og_img %}{% if blog_og_img %}"image": "{{ request.scheme }}://{{ request.get_host }}{{ blog_og_img.url }}",{% endif %}
+  "author": {
+    "@type": "Organization",
+    "name": "{{ site_settings.site_name|default:'MultiSane'|escapejs }}"
+  },
   "publisher": {
     "@type": "Organization",
     "name": "{{ site_settings.site_name|default:'MultiSane'|escapejs }}"

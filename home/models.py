@@ -168,7 +168,12 @@ class LandingPage(WagtailImageMetadataMixin, models.Model):
     def get_meta_url(self):
         if self.country and getattr(self.country, 'site_url', None):
             return self.country.site_url
-        return '/'
+        return ''
+
+    @property
+    def displayed_faqs(self):
+        """FAQs with display=True, for correct JSON-LD rendering without trailing comma bugs."""
+        return self.preguntas_frecuentes.filter(display=True)
 
     def get_meta_image(self):
         return self.imageMain

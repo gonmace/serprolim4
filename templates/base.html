@@ -24,7 +24,7 @@
           | {% firstof site_settings.site_name seo_site_name "MultiSane" %}
         {% endblock %}
     </title>
-    <meta name="description" content="{% if page.search_description %}{{ page.search_description }}{% else %}{{ site_settings.site_name }} - Limpieza de pozos ciegos y cámaras sépticas en Santa Cruz. Cotiza en línea.{% endif %}" />
+    <meta name="description" content="{% if page.search_description %}{{ page.search_description }}{% else %}{% firstof site_settings.site_name seo_site_name 'MultiSane' %} - Limpieza de pozos ciegos y cámaras sépticas. Cotiza en línea.{% endif %}" />
     {% endblock meta_tag %}
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -33,7 +33,7 @@
       <link rel="canonical" href="{{ self.canonical_url }}"/>
     {% elif self.full_url %}
       <link rel="canonical" href="{{ self.full_url }}"/>
-    {% elif request.path == '/' %}
+    {% else %}
       <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}"/>
     {% endif %}
 

@@ -1,5 +1,5 @@
 <meta property="og:type" content="{{ og_type|default:'website' }}" />
-<meta property="og:url" content="{{ object.get_meta_url }}" />
+{% if object.get_meta_url %}<meta property="og:url" content="{{ object.get_meta_url }}" />{% endif %}
 <meta property="og:title" content="{{ object.get_meta_title }}" />
 {% if object.get_meta_description %}<meta property="og:description" content="{{ object.get_meta_description }}" />
 {% endif %}<meta property="og:site_name" content="{{ site_name }}" />
