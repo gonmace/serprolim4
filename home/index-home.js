@@ -127,8 +127,8 @@ document.addEventListener("DOMContentLoaded", function () {
         marker = L.marker(e.latlng, { icon: icono }).addTo(map);
 
         if ($('#EnviarUbicacion').prop('disabled')) {
-            $('#EnviarUbicacion').prop('disabled', false); //Desactiva boton
-            $('#EnviarUbicacion').removeClass('cursor-not-allowed opacity-50');
+            $('#EnviarUbicacion').prop('disabled', false);
+            $('#EnviarUbicacion').removeClass('cursor-not-allowed opacity-50').addClass('cursor-pointer');
         }
 
         console.log(marker._latlng.lat);
@@ -147,8 +147,8 @@ document.addEventListener("DOMContentLoaded", function () {
             map.removeLayer(marker);
         }
         if ($('#EnviarUbicacion').prop('disabled')) {
-            $('#EnviarUbicacion').prop('disabled', false); //Desactiva boton
-            $('#EnviarUbicacion').removeClass('cursor-not-allowed opacity-50');
+            $('#EnviarUbicacion').prop('disabled', false);
+            $('#EnviarUbicacion').removeClass('cursor-not-allowed opacity-50').addClass('cursor-pointer');
         }
         marker = L.marker(e.latlng, { icon: icono }).addTo(map);
         console.log(marker._latlng.lat);

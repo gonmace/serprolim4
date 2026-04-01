@@ -5,12 +5,6 @@
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}" />
-    {% if project_analytics.open_graph %}{{ project_analytics.open_graph|safe }}{% endif %}
-    {% if project_analytics.gtm %}{{ project_analytics.gtm|safe }}{% endif %}
-    {% if project_analytics.google_analytics %}{{ project_analytics.google_analytics|safe }}{% endif %}
-    {% if project_analytics.google_ads %}{{ project_analytics.google_ads|safe }}{% endif %}
-    {% if project_analytics.adsense %}{{ project_analytics.adsense|safe }}{% endif %}
-    {% if project_analytics.fb_pixel %}{{ project_analytics.fb_pixel|safe }}{% endif %}
     {% if project_analytics.head_scripts %}{{ project_analytics.head_scripts|safe }}{% endif %}
 
     {% block social_meta %}{% endblock %}
