@@ -23,23 +23,16 @@
   {% image self.image width-1200 format-webp as blog_og_img %}{% if blog_og_img %}"image": "{{ request.scheme }}://{{ request.get_host }}{{ blog_og_img.url }}",{% endif %}
   "author": {
     "@type": "Organization",
-    "name": "{{ site_settings.site_name|default:'MultiSane'|escapejs }}"
+    "name": "{{ site_settings.site_name|default:'MultiSane'|escapejs }}",
+    "url": "{{ request.scheme }}://{{ request.get_host }}"
   },
   "publisher": {
     "@type": "Organization",
-    "name": "{{ site_settings.site_name|default:'MultiSane'|escapejs }}"
+    "name": "{{ site_settings.site_name|default:'MultiSane'|escapejs }}",
+    "url": "{{ request.scheme }}://{{ request.get_host }}"
   }
 }
 </script>
-{% if self.faq_schema %}
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": {{ self.faq_schema|safe }}
-}
-</script>
-{% endif %}
 {% endblock structured_data %}
 
 {% block css %}
