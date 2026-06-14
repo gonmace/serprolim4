@@ -66,9 +66,14 @@ class BlogPage(MetadataPageMixin, Page):
         )
 
     body = StreamField(
-        BaseStreamBlock(), 
-        verbose_name="Page body", 
+        BaseStreamBlock(),
+        verbose_name="Page body",
         use_json_field=True
+    )
+
+    faq_schema = models.TextField(
+        blank=True,
+        help_text='JSON-LD del schema FAQ. Pega aquí solo el array de preguntas: [{"question":"...","answer":"..."}]'
     )
 
     order = models.IntegerField(
@@ -94,6 +99,7 @@ class BlogPage(MetadataPageMixin, Page):
         FieldPanel('order'),
         FieldPanel('body'),
         FieldPanel('date_published'),
+        FieldPanel('faq_schema'),
         # InlinePanel(
         #     'blog_person_relationship', label="Author(s)",
         #     panels=None, min_num=1),

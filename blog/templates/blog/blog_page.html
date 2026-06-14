@@ -31,6 +31,15 @@
   }
 }
 </script>
+{% if self.faq_schema %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": {{ self.faq_schema }}
+}
+</script>
+{% endif %}
 {% endblock structured_data %}
 
 {% block css %}
