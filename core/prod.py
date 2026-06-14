@@ -11,6 +11,11 @@ SECRET_KEY = env.str("SECRET_KEY")
 
 ALLOWED_HOSTS = tuple(env.list('ALLOWED_HOSTS'))
 
+# Necesario para que request.scheme sea 'https' detrás de un proxy/nginx
+# Sin esto, el canonical se genera como http:// en todos los templates
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+USE_X_FORWARDED_HOST = True
+
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
