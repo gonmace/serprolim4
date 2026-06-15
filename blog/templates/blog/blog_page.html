@@ -33,6 +33,9 @@
   }
 }
 </script>
+{% if self.extra_schema %}
+<script type="application/ld+json">{{ self.extra_schema|safe }}</script>
+{% endif %}
 {% endblock structured_data %}
 
 {% block css %}

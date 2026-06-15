@@ -71,6 +71,11 @@ class BlogPage(MetadataPageMixin, Page):
         use_json_field=True
     )
 
+    extra_schema = models.TextField(
+        blank=True,
+        help_text='JSON-LD adicional (HowTo, Product, etc.). Pega el objeto JSON completo incluyendo @context y @type.'
+    )
+
     order = models.IntegerField(
         help_text="Orden para desplegar los posts",
         default=0
@@ -94,6 +99,7 @@ class BlogPage(MetadataPageMixin, Page):
         FieldPanel('order'),
         FieldPanel('body'),
         FieldPanel('date_published'),
+        FieldPanel('extra_schema'),
         # InlinePanel(
         #     'blog_person_relationship', label="Author(s)",
         #     panels=None, min_num=1),
